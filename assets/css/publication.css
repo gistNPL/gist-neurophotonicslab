@@ -1,0 +1,169 @@
+/* =========================
+   Publications Page
+========================= */
+
+.publication-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 18px 60px;
+}
+
+.page-hero {
+  padding: 18px 0 14px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  margin-bottom: 18px;
+}
+
+.page-hero h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+
+.page-sub {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.pub-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 16px 0 22px;
+}
+
+.pub-hint {
+  font-size: 0.92rem;
+  opacity: 0.75;
+}
+
+.pub-years {
+  display: grid;
+  gap: 18px;
+}
+
+.pub-year {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.pub-year-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.pub-year-head h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.pub-count {
+  font-size: 0.92rem;
+  opacity: 0.75;
+}
+
+.pub-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.pub-item {
+  list-style: decimal;
+  padding: 14px 14px 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.pub-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pub-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(0,0,0,0.14);
+  background: rgba(0,0,0,0.03);
+}
+
+.pub-badge.conf {
+  background: rgba(0,0,0,0.06);
+}
+
+.pub-badge.preprint {
+  background: rgba(0,0,0,0.02);
+  border-style: dashed;
+}
+
+.pub-venue {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.pub-date {
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
+
+.pub-title {
+  font-size: 1.05rem;
+  margin: 0 0 6px;
+  line-height: 1.35;
+}
+
+.pub-authors {
+  margin: 0 0 10px;
+  opacity: 0.85;
+}
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pub-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 10px;
+  padding: 6px 10px;
+}
+
+.pub-link:hover {
+  opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .pub-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .pub-year {
+    padding: 14px;
+  }
+}
