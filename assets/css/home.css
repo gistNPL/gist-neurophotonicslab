@@ -2,21 +2,35 @@
    HOME PAGE
 ========================================================= */
 
-.home-hero {
-  margin-top: 40px;
+.section {
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================
+   Intro
+========================= */
+
+.home-intro {
+  text-align: center;
+}
+
+.page-title {
+  font-size: 32px;
+  margin: 0;
 }
 
 /* =========================
    Slider
 ========================= */
 
-.photo-slider {
+.slider {
   position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.slider-viewport {
   overflow: hidden;
   border-radius: 28px;
 }
@@ -26,12 +40,15 @@
   transition: transform 0.5s ease;
 }
 
-.slider-image {
+.slide {
   min-width: 100%;
-  height: auto;
+}
+
+.slide img {
+  width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  display: none;
+  display: block;
 }
 
 /* buttons */
@@ -48,7 +65,6 @@
   color: #fff;
   font-size: 28px;
   cursor: pointer;
-  z-index: 5;
 }
 
 .slider-btn.prev { left: 16px; }
@@ -63,11 +79,11 @@
 .slider-dots {
   display: flex;
   justify-content: center;
-  margin-top: 16px;
   gap: 8px;
+  margin-top: 16px;
 }
 
-.slider-dots .dot {
+.slider-dots button {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -76,37 +92,22 @@
   cursor: pointer;
 }
 
-.slider-dots .dot.active {
+.slider-dots button.active {
   background: #0f172a;
 }
 
 /* =========================
-   Main Sections
+   News
 ========================= */
-.home-page {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
 
-.home-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* =========================
-   Latest News
-========================= */
-.section-head-row {
+.section-head {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 
-.section-head-row h2 {
+.section-title {
   margin: 0;
   font-size: 26px;
 }
@@ -129,11 +130,11 @@
   padding: 18px;
   background: #fff;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: 0.2s ease;
 }
 
 .news-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
 }
 
@@ -146,7 +147,7 @@
 .news-title {
   font-size: 16px;
   margin: 0 0 8px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .news-desc {
@@ -158,7 +159,7 @@
 
 .news-link {
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: none;
   color: #0f172a;
 }
@@ -170,13 +171,12 @@
 /* =========================
    Responsive
 ========================= */
+
 @media (max-width: 900px) {
-  .slider-image { height: 420px; }
   .news-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
-  .slider-image { height: 280px; }
   .news-grid { grid-template-columns: 1fr; }
-  .home-intro h1 { font-size: 26px; }
+  .page-title { font-size: 26px; }
 }
