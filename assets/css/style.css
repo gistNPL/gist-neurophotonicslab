@@ -30,7 +30,8 @@ footer{
 
 /* =========================================================
    Header / Nav (GLOBAL)
-   - ✅ header 안에 logo가 없어도 깨지지 않게 설계
+   - ✅ 로고(이미지) + 텍스트는 왼쪽
+   - ✅ 메뉴(nav)는 오른쪽 끝
 ========================================================= */
 header{
   background: #111827;
@@ -38,21 +39,39 @@ header{
   padding: 12px 40px;
   display: flex;
   align-items: center;
+  justify-content: space-between; /* 🔥 핵심: 양끝 정렬 */
+  gap: 20px;
 }
 
-/* logo가 있으면 왼쪽에, 없으면 nav가 그냥 첫 요소 */
+/* ---- Brand (logo image + text) ---- */
+/* 모든 페이지에서 header 안에 .logo가 있으면 예쁘게 */
 header .logo{
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
   font-size: 1rem;
-  margin-right: 24px;
+  white-space: nowrap;
 }
 
-/* ✅ nav만 있는 페이지(research/index.html 같은)에서도 정렬 유지 */
+/* ✅ 로고 이미지: 공통 경로로 사용 */
+header .logo::before{
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: url("/gist-neurophotonicslab/assets/img/home/logo.png") center/contain no-repeat;
+}
+
+/* ---- Nav ---- */
 header nav{
   display: flex;
   align-items: center;
+  justify-content: flex-end;  /* 오른쪽 정렬 */
   flex-wrap: wrap;
   gap: 16px;
+  margin-left: auto;         /* 🔥 nav를 오른쪽으로 밀기 */
 }
 
 header nav a{
@@ -88,10 +107,22 @@ header nav a:hover{
   background: #f8fafc;
 }
 
+/* =========================================================
+   Responsive
+========================================================= */
 @media (max-width: 900px){
   header{
     padding: 12px 18px;
+    flex-direction: column;
+    align-items: flex-start;
   }
+
+  header nav{
+    margin-left: 0;
+    justify-content: flex-start; /* 모바일에서는 왼쪽 정렬이 자연스러움 */
+    gap: 12px;
+  }
+
   main{
     padding: 22px 16px;
   }
