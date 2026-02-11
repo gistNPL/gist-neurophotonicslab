@@ -1,54 +1,38 @@
 /* =========================================================
-   HOME PAGE
+   HOME
 ========================================================= */
 
-.section {
-  padding: 60px 0;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* =========================
-   Intro
-========================= */
-
-.home-intro {
-  text-align: center;
-}
-
-.page-title {
-  font-size: 32px;
-  margin: 0;
+.home-hero {
+  margin-bottom: 80px;
 }
 
 /* =========================
    Slider
 ========================= */
 
-.slider {
+.photo-slider {
   position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slider-viewport {
   overflow: hidden;
   border-radius: 28px;
+  background: #0b1220;
 }
 
 .slider-track {
   display: flex;
-  transition: transform 0.5s ease;
-}
-
-.slide {
-  min-width: 100%;
+  transition: transform 0.6s ease;
 }
 
 .slider-image {
-  min-width: 100%;
-  height: 520px;          /* 고정 */
-  object-fit: cover;      /* 잘라도 비율 유지 */
-  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 /* buttons */
@@ -57,18 +41,19 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: none;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.5);
   color: #fff;
-  font-size: 28px;
+  font-size: 22px;
   cursor: pointer;
+  z-index: 10;
 }
 
-.slider-btn.prev { left: 16px; }
-.slider-btn.next { right: 16px; }
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
 
 .slider-btn:hover {
   background: rgba(0,0,0,0.8);
@@ -79,20 +64,20 @@
 .slider-dots {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin-top: 16px;
+  gap: 10px;
+  margin-top: 12px;
 }
 
-.slider-dots button {
-  width: 10px;
-  height: 10px;
+.dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  border: none;
   background: #cbd5e1;
+  border: none;
   cursor: pointer;
 }
 
-.slider-dots button.active {
+.dot.active {
   background: #0f172a;
 }
 
@@ -100,83 +85,27 @@
    News
 ========================= */
 
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 24px;
-}
-
-.section-title {
-  margin: 0;
-  font-size: 26px;
-}
-
-.section-sub {
-  margin: 6px 0 0;
-  font-size: 14px;
-  color: #64748b;
-}
-
 .news-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .news-card {
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 18px;
   background: #fff;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
-  transition: 0.2s ease;
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.05);
+  transition: 0.2s;
 }
 
 .news-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+  transform: translateY(-4px);
 }
-
-.news-meta {
-  font-size: 12px;
-  color: #64748b;
-  margin-bottom: 6px;
-}
-
-.news-title {
-  font-size: 16px;
-  margin: 0 0 8px;
-  font-weight: 700;
-}
-
-.news-desc {
-  font-size: 14px;
-  color: #475569;
-  line-height: 1.6;
-  margin: 0 0 10px;
-}
-
-.news-link {
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #0f172a;
-}
-
-.news-link:hover {
-  text-decoration: underline;
-}
-
-/* =========================
-   Responsive
-========================= */
 
 @media (max-width: 900px) {
-  .news-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-  .news-grid { grid-template-columns: 1fr; }
-  .page-title { font-size: 26px; }
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
 }
