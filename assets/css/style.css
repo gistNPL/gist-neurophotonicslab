@@ -11,6 +11,7 @@ body{
   background: #ffffff;
 }
 
+/* ✅ 기본 페이지 레이아웃 */
 main{
   max-width: 1300px;
   margin: 0 auto;
@@ -30,58 +31,65 @@ footer{
 
 /* =========================================================
    Header / Nav (GLOBAL)
-   - ✅ 로고(이미지) + 텍스트는 왼쪽
+   - ✅ 로고(이미지+텍스트)는 왼쪽
    - ✅ 메뉴(nav)는 오른쪽 끝
 ========================================================= */
-header{
+.site-header{
   background: #111827;
   color: #fff;
   padding: 12px 40px;
+
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 🔥 핵심: 양끝 정렬 */
+  justify-content: space-between; /* 양끝 정렬 */
   gap: 20px;
 }
 
 /* ---- Brand (logo image + text) ---- */
-/* 모든 페이지에서 header 안에 .logo가 있으면 예쁘게 */
-header .logo{
+.brand{
   display: inline-flex;
   align-items: center;
   gap: 10px;
+
+  text-decoration: none;
+  color: #fff;
+
   font-weight: 800;
   font-size: 1rem;
   white-space: nowrap;
 }
 
-/* ✅ 로고 이미지: 공통 경로로 사용 */
-header .logo::before{
-  content: "";
+.brand-logo{
+  width: 24px;     /* ✅ 여기 고정이라 로고가 절대 커지지 않음 */
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.brand-text{
   display: inline-block;
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  background: url("/gist-neurophotonicslab/assets/img/home/logo.png") center/contain no-repeat;
 }
 
 /* ---- Nav ---- */
-header nav{
+.site-nav{
+  margin-left: auto;          /* 🔥 nav를 오른쪽으로 밀기 */
   display: flex;
   align-items: center;
-  justify-content: flex-end;  /* 오른쪽 정렬 */
+  justify-content: flex-end;
+
   flex-wrap: wrap;
   gap: 16px;
-  margin-left: auto;         /* 🔥 nav를 오른쪽으로 밀기 */
 }
 
-header nav a{
+.site-nav a{
   color: #e5e7eb;
   text-decoration: none;
   font-size: 0.95rem;
   padding: 6px 2px;
 }
 
-header nav a:hover{
+.site-nav a:hover{
   color: #ffffff;
   text-decoration: underline;
 }
@@ -111,15 +119,15 @@ header nav a:hover{
    Responsive
 ========================================================= */
 @media (max-width: 900px){
-  header{
+  .site-header{
     padding: 12px 18px;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  header nav{
+  .site-nav{
     margin-left: 0;
-    justify-content: flex-start; /* 모바일에서는 왼쪽 정렬이 자연스러움 */
+    justify-content: flex-start;
     gap: 12px;
   }
 
