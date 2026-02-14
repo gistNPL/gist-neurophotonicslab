@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="/gist-neurophotonicslab/assets/css/style.css">
   <link rel="stylesheet" href="/gist-neurophotonicslab/assets/css/member.css">
 </head>
-
 <body>
 <header class="site-header">
   <a class="brand" href="/gist-neurophotonicslab/" aria-label="Go to Home">
@@ -27,10 +26,6 @@
 </header>
 
 <main>
-
-  <!-- =========================
-       PROFILE HEADER (원형 사진 유지)
-  ========================== -->
   <section class="profile">
     <div class="profile-header">
       <img
@@ -41,111 +36,100 @@
 
       <div class="profile-main">
         <h1 class="profile-name">Sihyun Lee</h1>
-
         <p class="profile-role">
           Integrated M.S. - Ph.D Student, GIST AI Graduate School
         </p>
-
         <p class="profile-affiliation">
           Gwangju Institute of Science and Technology (GIST)<br />
           AI Graduate School
         </p>
 
-        <!-- 링크/연락처: 네가 준 정보 그대로 (href만 정상화) -->
-        <div class="profile-contact">
-          <a class="contact-pill" href="mailto:tlgus7668@gist.gm.ac.kr">tlgus7668@gist.gm.ac.kr</a>
-          <a class="contact-pill" href="https://github.com/foxyhyun" target="_blank" rel="noopener">https://github.com/foxyhyun</a>
-          <a class="contact-pill" href="https://foxyprogramming.tistory.com/" target="_blank" rel="noopener">https://foxyprogramming.tistory.com/</a>
-          <a class="contact-pill" href="https://foxyhyun.github.io/" target="_blank" rel="noopener">https://foxyhyun.github.io/</a>
+        <!-- 아이콘 + 4행 1열 -->
+        <div class="profile-links-vertical" aria-label="Contact links">
+          <a class="icon-link" href="mailto:tlgus7668@gist.gm.ac.kr">
+            <span class="icon" aria-hidden="true">✉</span>
+            <span class="label">tlgus7668@gist.gm.ac.kr</span>
+          </a>
+
+          <a class="icon-link" href="https://github.com/foxyhyun" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" aria-label="GitHub">
+                <path d="M12 .5C5.73.5.75 5.65.75 12.08c0 5.14 3.29 9.5 7.86 11.04.58.11.8-.25.8-.56v-2.07c-3.2.71-3.87-1.58-3.87-1.58-.53-1.39-1.28-1.76-1.28-1.76-1.05-.74.08-.72.08-.72 1.16.08 1.77 1.22 1.77 1.22 1.03 1.81 2.71 1.29 3.37.99.1-.77.4-1.29.72-1.58-2.56-.3-5.25-1.31-5.25-5.85 0-1.29.45-2.35 1.18-3.18-.12-.3-.51-1.52.11-3.16 0 0 .97-.32 3.18 1.22.92-.26 1.9-.39 2.88-.4.98.01 1.96.14 2.88.4 2.2-1.54 3.17-1.22 3.17-1.22.63 1.64.24 2.86.12 3.16.74.83 1.18 1.89 1.18 3.18 0 4.55-2.69 5.55-5.26 5.85.41.37.78 1.1.78 2.22v3.29c0 .31.21.68.8.56 4.58-1.54 7.87-5.9 7.87-11.04C23.25 5.65 18.27.5 12 .5z"/>
+              </svg>
+            </span>
+            <span class="label">github.com/foxyhyun</span>
+          </a>
+
+          <a class="icon-link" href="https://foxyprogramming.tistory.com/" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">📝</span>
+            <span class="label">foxyprogramming.tistory.com</span>
+          </a>
+
+          <a class="icon-link" href="https://foxyhyun.github.io/" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">🔬</span>
+            <span class="label">foxyhyun.github.io</span>
+          </a>
         </div>
       </div>
     </div>
-
-    <!-- 섹션 점프(내용 추가 아님, 구조만) -->
-    <nav class="profile-nav" aria-label="Profile sections">
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#education">Education</a>
-      <a href="#gallery">Personal Gallery</a>
-    </nav>
   </section>
 
-  <!-- =========================
-       RESEARCH (Interests + Topics 묶기)
-  ========================== -->
-  <section class="profile-section" id="research">
-    <h2>Research</h2>
-
-    <div class="two-col">
-      <article class="info-card">
-        <h3>Research Interests</h3>
-        <ul>
-          <li>Image enhancement</li>
-          <li>Anomaly Detection</li>
-          <li>Image Processing</li>
-          <li>Segmentation</li>
-          <li>Calcium imaging analysis</li>
-        </ul>
-      </article>
-
-      <article class="info-card">
-        <h3>Research Topics</h3>
-        <ul>
-          <li>Image Enhancement for Microscopy and Medical Image</li>
-          <li>Cell Segmentation using Deep Learning</li>
-          <li>Calicum Signal Analysis</li>
-          <li>3D Reconstruction and Segmentation for Ultrasound Image</li>
-          <li>Obejct Detection for Clinincal Application</li>
-        </ul>
-      </article>
-    </div>
+  <section class="profile-section">
+    <h2>Research Interests</h2>
+    <ul>
+      <li>Image enhancement</li>
+      <li>Anomaly Detection</li>
+      <li>Image Processing</li>
+      <li>Segmentation</li>
+      <li>Calcium imaging analysis</li>
+    </ul>
   </section>
 
-  <!-- =========================
-       PUBLICATIONS (Journal/Conference 묶기)
-  ========================== -->
-  <section class="profile-section" id="publications">
+  <section class="profile-section">
+    <h2>Research Topics</h2>
+    <ul>
+      <li>Image Enhancement for Microscopy and Medical Image</li>
+      <li>Cell Segmentation using Deep Learning</li>
+      <li>Calcium Signal Analysis</li>
+      <li>3D Reconstruction and Segmentation for Ultrasound Image</li>
+      <li>Object Detection for Clinical Application</li>
+    </ul>
+  </section>
+
+  <section class="profile-section">
     <h2>Publications</h2>
+    <p class="small-text"></p>
 
-    <div class="two-col">
-      <article class="info-card">
-        <h3>Journal &amp; Paper</h3>
-        <ul class="pub-list">
-          <li>
-            [1] <strong>Machine Learning Based Model Development and Optimization for Predicting Radiation</strong>,
-            Sihyun Lee, Journal of Radiation Industry, 2023.
-          </li>
-        </ul>
-      </article>
+    <h3>Journal &amp; Paper</h3>
+    <ul>
+      <li>
+        [1] <strong>Machine Learning Based Model Development and Optimization for Predicting Radiation</strong>,
+        Sihyun Lee, Journal of Radiation Industry, 2023.
+      </li>
+    </ul>
 
-      <article class="info-card">
-        <h3>Conference</h3>
-        <ul class="pub-list">
-          <li>
-            [1] <strong>Data Augmentation for Cardiac PET/MRI Fusion Images Using AutoEncoder-Based Reconstruction</strong>,
-            Sihyun Lee, Brain &amp; Brain PET, 2025, Seoul Korea
-          </li>
-          <li>
-            [2] <strong>Autonomous Radiation Source Detection Approach for Mobile Robots Using Reinforcement Learning</strong>,
-            Sihyun Lee, Jiyun Kim, ISORD 12, 2024, Orlando USA
-          </li>
-          <li>
-            [3] <strong>Stratgies for Radiation Doserate Prediction in Emergency Scenarios</strong>,
-            Sihyun Lee, ISORD 12, 2024, Orlando USA
-          </li>
-          <li>
-            [4] <strong>One-Class SVM Based Anomaly Detection for LSTM-Based Radiation Prediction</strong>,
-            Sihyun Lee, ISORD 11, 2023, Seoul Korea
-          </li>
-        </ul>
-      </article>
-    </div>
+    <h3>Conference</h3>
+    <ul>
+      <li>
+        [1] <strong>Data Augmentation for Cardiac PET/MRI Fusion Images Using AutoEncoder-Based Reconstruction</strong>,
+        Sihyun Lee, Brain &amp; Brain PET, 2025, Seoul Korea
+      </li>
+      <li>
+        [2] <strong>Autonomous Radiation Source Detection Approach for Mobile Robots Using Reinforcement Learning</strong>,
+        Sihyun Lee, Jiyun Kim, ISORD 12, 2024, Orlando USA
+      </li>
+      <li>
+        [3] <strong>Strategies for Radiation Dose Rate Prediction in Emergency Scenarios</strong>,
+        Sihyun Lee, ISORD 12, 2024, Orlando USA
+      </li>
+      <li>
+        [4] <strong>One-Class SVM Based Anomaly Detection for LSTM-Based Radiation Prediction</strong>,
+        Sihyun Lee, ISORD 11, 2023, Seoul Korea
+      </li>
+    </ul>
   </section>
 
-  <!-- =========================
-       EDUCATION
-  ========================== -->
-  <section class="profile-section" id="education">
+  <section class="profile-section">
     <h2>Education</h2>
     <ul>
       <li>Integrated M.S. - Ph.D in GIST AI Graduate School</li>
@@ -153,12 +137,8 @@
     </ul>
   </section>
 
-  <!-- =========================
-       PERSONAL GALLERY (기존 구조 유지)
-  ========================== -->
-  <section class="profile-section" id="gallery">
+  <section class="profile-section">
     <h2>Personal Gallery</h2>
-
     <div class="personal-gallery">
       <img src="../assets/img/member/hyojung.png" alt="Personal photo 1">
       <img src="../assets/img/member/hyojung.png" alt="Personal photo 2">
@@ -166,11 +146,9 @@
     </div>
   </section>
 
-  <!-- ✅ 기존 member.js 모달 호환 유지 -->
   <div class="gallery-modal" id="galleryModal">
     <img id="modalImage" src="" alt="Expanded view">
   </div>
-
 </main>
 
 <script src="../assets/js/member.js"></script>
