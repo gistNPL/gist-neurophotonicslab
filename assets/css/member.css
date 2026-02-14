@@ -70,14 +70,12 @@
   align-items: center;
 }
 
-
-
 .member-photo {
   width: 160px;
   height: 200px;
   border-radius: 14px;
-  object-fit: cover;         
-  object-position: center;   
+  object-fit: cover;
+  object-position: center;
   background: #f1f5f9;
   border: 1px solid #e5e7eb;
   display: block;
@@ -171,7 +169,7 @@
 }
 
 /* =========================================================
-   MEMBER DETAIL PAGE (profile) - ADD BELOW (do not delete existing)
+   MEMBER DETAIL PAGE (profile)
 ========================================================= */
 
 /* === wrapper === */
@@ -227,15 +225,64 @@
   color: #334155;
 }
 
-.profile-contact{
-  margin: 0;
-  font-size: 14px;
-  color: #0f172a;
+/* =========================================================
+   CONTACT (icons, 4 rows / 1 column) - in-file (no add-on)
+========================================================= */
+
+.profile-links-vertical{
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr; /* ✅ 1열 */
+  gap: 10px;                 /* ✅ 4행 간격 */
+  max-width: 560px;
 }
 
-.profile-contact a{
+.icon-link{
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+
+  text-decoration: none;
   color: #0f172a;
-  text-decoration: underline;
+
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.icon-link:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+.icon{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+
+.icon svg{
+  width: 18px;
+  height: 18px;
+  fill: #0f172a;
+}
+
+.label{
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f172a;
+  overflow-wrap: anywhere;
 }
 
 /* === sections === */
@@ -327,6 +374,12 @@
   .profile-photo{
     margin: 0 auto;
   }
+
+  .profile-links-vertical{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .personal-gallery{
     grid-template-columns: repeat(2, 1fr);
   }
@@ -341,190 +394,5 @@
   }
   .personal-gallery img{
     height: 220px;
-  }
-}
-
-/* =========================================================
-   PROFILE STRUCTURE UPGRADE (네 기존 내용 기반)
-   - member.css 맨 아래에 추가
-========================================================= */
-
-/* 연락처/링크를 pill 형태로 정리 (내용은 동일, 가독성만) */
-.profile-contact{
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.contact-pill{
-  display: inline-flex;
-  align-items: center;
-  height: 32px;
-  padding: 0 12px;
-  border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  color: #0f172a;
-  text-decoration: none; /* URL 자체가 길어서 밑줄 제거가 더 깔끔 */
-  font-size: 12px;
-  font-weight: 800;
-  max-width: 100%;
-  overflow-wrap: anywhere; /* 긴 URL 줄바꿈 */
-}
-
-.contact-pill:hover{
-  background: #f8fafc;
-  border-color: #cbd5e1;
-}
-
-/* 섹션 점프 네비(구조만) */
-.profile-nav{
-  max-width: 1100px;
-  margin: 14px auto 0;
-  padding: 10px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.profile-nav a{
-  display: inline-flex;
-  align-items: center;
-  height: 30px;
-  padding: 0 12px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 900;
-  color: #334155;
-  background: #f8fafc;
-  border: 1px solid #e5e7eb;
-}
-
-.profile-nav a:hover{
-  background: #eef2ff;
-  border-color: #c7d2fe;
-  color: #1e293b;
-}
-
-/* Research / Publications 2컬럼 카드 레이아웃 */
-.two-col{
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.info-card{
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 14px 14px 12px;
-  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
-}
-
-.info-card h3{
-  margin: 0 0 8px;
-  font-size: 16px;
-  font-weight: 900;
-  color: #0f172a;
-}
-
-.info-card ul{
-  margin: 0 0 0 18px;
-  padding: 0;
-  color: #334155;
-}
-
-.info-card li{
-  margin: 6px 0;
-  line-height: 1.7;
-}
-
-/* Publications: 문장 길어도 보기 좋게 */
-.pub-list li{
-  overflow-wrap: anywhere;
-}
-
-/* ✅ 원형 사진 유지(강제) */
-.profile-photo{
-  border-radius: 999px !important;
-}
-
-/* Responsive */
-@media (max-width: 900px){
-  .two-col{
-    grid-template-columns: 1fr;
-  }
-
-
-/* === contact links (4 rows, 1 column) === */
-.profile-contact{
-  margin: 12px 0 0;
-  display: grid;
-  grid-template-columns: 1fr; /* ✅ 1열 */
-  gap: 10px;                 /* ✅ 4행 간격 */
-  max-width: 560px;
-}
-
-.profile-contact .contact-item{
-  display: grid;
-  grid-template-columns: 34px 1fr;
-  gap: 10px;
-  align-items: center;
-
-  padding: 10px 12px;
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-
-  text-decoration: none;
-  color: #0f172a;
-
-  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-}
-
-.profile-contact .contact-item:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
-  border-color: #cbd5e1;
-}
-
-.profile-contact .contact-ico{
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  background: #f8fafc;
-  display: grid;
-  place-items: center;
-  font-size: 16px;
-}
-
-.profile-contact .contact-ico svg{
-  width: 18px;
-  height: 18px;
-  fill: #0f172a;
-}
-
-.profile-contact .contact-text{
-  font-size: 13px;
-  font-weight: 800;
-  color: #0f172a;
-  overflow-wrap: anywhere; /* 긴 URL 줄바꿈 */
-}
-
-/* mobile: 가운데 정렬 느낌 */
-@media (max-width: 900px){
-  .profile-contact{
-    margin-left: auto;
-    margin-right: auto;
   }
 }
