@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pdftotext -layout -f 1 -l 1 \"c:/Users/sihyun/Desktop/gist-neurophotonicslab/assets/pubs/2026/2026_event-based.pdf\" -)",
+      "Bash(pdftotext -layout -f 1 -l 1 \"c:/Users/sihyun/Desktop/gist-neurophotonicslab/assets/pubs/2026/2026_magnetic.pdf\" -)"
+    ]
+  }
+}
