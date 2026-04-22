@@ -38,21 +38,6 @@
     </section>
 
     <section class="pub-toolbar" aria-label="Publication tools">
-      <div class="pub-tabs" role="tablist" aria-label="Filter by type">
-        <button class="pub-tab is-active" type="button" data-filter="all">
-          All <span class="pub-tab-count" data-count="all">0</span>
-        </button>
-        <button class="pub-tab" type="button" data-filter="journal">
-          Journal <span class="pub-tab-count" data-count="journal">0</span>
-        </button>
-        <button class="pub-tab" type="button" data-filter="conference">
-          Conference <span class="pub-tab-count" data-count="conference">0</span>
-        </button>
-        <button class="pub-tab" type="button" data-filter="patent">
-          Patent <span class="pub-tab-count" data-count="patent">0</span>
-        </button>
-      </div>
-
       <nav class="pub-year-chips" aria-label="Jump to year">
         <a class="pub-chip" href="#y2025">2025</a>
         <a class="pub-chip" href="#y2024">2024</a>
@@ -70,6 +55,11 @@
       <section class="pub-year" id="y2025">
         <div class="pub-year-head">
           <h2>2025</h2>
+          <div class="pub-year-filters" role="group" aria-label="Filter publications">
+            <button class="pub-filter-btn active" type="button" data-filter="all">All</button>
+            <button class="pub-filter-btn" type="button" data-filter="journal">Journal</button>
+            <button class="pub-filter-btn" type="button" data-filter="conference">Conference</button>
+          </div>
         </div>
 
         <ol class="pub-list">
@@ -1045,7 +1035,6 @@
         </ol>
       </section>
 
-      <p class="pub-empty" role="status">No publications match this filter.</p>
     </section>
   </main>
 

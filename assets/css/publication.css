@@ -25,17 +25,14 @@
   opacity: 0.8;
 }
 
-/* ---- Toolbar ---- */
+/* ---- Toolbar (year jump) ---- */
 .pub-toolbar {
   position: sticky;
   top: 0;
   z-index: 5;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 14px 14px;
+  padding: 14px 16px;
   margin: 16px 0 22px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: saturate(160%) blur(8px);
   -webkit-backdrop-filter: saturate(160%) blur(8px);
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -43,95 +40,38 @@
   box-shadow: 0 6px 18px -12px rgba(15, 23, 42, 0.25);
 }
 
-/* Type tabs */
-.pub-tabs {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  padding: 4px;
-  background: #f1f5f9;
-  border-radius: 12px;
-  align-self: flex-start;
-}
-
-.pub-tab {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: #334155;
-  font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  padding: 8px 14px;
-  border-radius: 9px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
-}
-
-.pub-tab:hover {
-  background: rgba(255, 255, 255, 0.7);
-  color: #0f172a;
-}
-
-.pub-tab.is-active {
-  background: #0f172a;
-  color: #ffffff;
-  box-shadow: 0 4px 10px -4px rgba(15, 23, 42, 0.5);
-}
-
-.pub-tab-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 22px;
-  height: 20px;
-  padding: 0 7px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.08);
-  color: inherit;
-}
-
-.pub-tab.is-active .pub-tab-count {
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-
-/* Year chips */
 .pub-year-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  border-top: 1px dashed rgba(0, 0, 0, 0.08);
-  padding-top: 10px;
+  gap: 8px;
 }
 
 .pub-chip {
   text-decoration: none;
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: #475569;
-  padding: 5px 11px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #0f172a;
+  padding: 8px 16px;
+  border: 1.5px solid #0f172a;
   border-radius: 999px;
   background: #ffffff;
-  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  transition: color 0.15s ease, background 0.15s ease,
+    border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
 }
 
 .pub-chip:hover {
-  color: #0f172a;
-  border-color: #0f172a;
-  background: #f8fafc;
+  background: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 6px 14px -6px rgba(15, 23, 42, 0.55);
+  transform: translateY(-1px);
 }
 
 .pub-chip.is-current {
   background: #0f172a;
   color: #ffffff;
   border-color: #0f172a;
+  box-shadow: 0 6px 14px -6px rgba(15, 23, 42, 0.55);
 }
 
 /* ---- Year sections ---- */
@@ -145,16 +85,12 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 14px;
   padding: 18px;
-  scroll-margin-top: 180px;
-}
-
-.pub-year.is-empty {
-  display: none;
+  scroll-margin-top: 110px;
 }
 
 .pub-year-head {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 10px;
@@ -174,6 +110,38 @@
   opacity: 0.65;
 }
 
+/* Per-year Journal/Conference filter buttons */
+.pub-year-filters {
+  display: inline-flex;
+  gap: 4px;
+  padding: 3px;
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.pub-filter-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.pub-filter-btn:hover {
+  color: #0f172a;
+}
+
+.pub-filter-btn.active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+}
+
 /* ---- List / items ---- */
 .pub-list {
   margin: 0;
@@ -188,7 +156,7 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   background: #fff;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .pub-item:hover {
@@ -292,7 +260,7 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   padding: 5px 12px;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .pub-link:hover {
@@ -307,20 +275,6 @@
   color: #64748b;
 }
 
-/* Empty state */
-.pub-empty {
-  display: none;
-  text-align: center;
-  padding: 40px 20px;
-  border: 1px dashed rgba(0, 0, 0, 0.15);
-  border-radius: 14px;
-  color: #64748b;
-}
-
-.pub-empty.is-visible {
-  display: block;
-}
-
 /* Responsive */
 @media (max-width: 720px) {
   .page-hero h1 {
@@ -328,17 +282,20 @@
   }
 
   .pub-toolbar {
-    padding: 10px;
+    padding: 10px 12px;
   }
 
-  .pub-tab {
-    font-size: 0.85rem;
-    padding: 6px 10px;
+  .pub-chip {
+    font-size: 0.88rem;
+    padding: 6px 12px;
   }
 
   .pub-year {
     padding: 14px;
-    scroll-margin-top: 220px;
+  }
+
+  .pub-year-head {
+    flex-wrap: wrap;
   }
 
   .pub-date {
