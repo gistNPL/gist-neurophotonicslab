@@ -37,15 +37,31 @@
       <p class="page-sub">Peer-reviewed papers, conference proceedings, and preprints.</p>
     </section>
 
-    <!-- Optional: quick filters (pure UI; if you want JS later, we can extend) -->
     <section class="pub-toolbar" aria-label="Publication tools">
-      <div class="pub-toolbar-left">
+      <div class="pub-tabs" role="tablist" aria-label="Filter by type">
+        <button class="pub-tab is-active" type="button" data-filter="all">
+          All <span class="pub-tab-count" data-count="all">0</span>
+        </button>
+        <button class="pub-tab" type="button" data-filter="journal">
+          Journal <span class="pub-tab-count" data-count="journal">0</span>
+        </button>
+        <button class="pub-tab" type="button" data-filter="conference">
+          Conference <span class="pub-tab-count" data-count="conference">0</span>
+        </button>
+        <button class="pub-tab" type="button" data-filter="patent">
+          Patent <span class="pub-tab-count" data-count="patent">0</span>
+        </button>
       </div>
-      <div class="pub-toolbar-right">
-        <a class="btn small" href="#y2025">2025</a>
-        <a class="btn small" href="#y2024">2024</a>
-        <a class="btn small" href="#y2023">2023</a>
-      </div>
+
+      <nav class="pub-year-chips" aria-label="Jump to year">
+        <a class="pub-chip" href="#y2025">2025</a>
+        <a class="pub-chip" href="#y2024">2024</a>
+        <a class="pub-chip" href="#y2023">2023</a>
+        <a class="pub-chip" href="#y2022">2022</a>
+        <a class="pub-chip" href="#y2021">2021</a>
+        <a class="pub-chip" href="#y2020">2020</a>
+        <a class="pub-chip" href="#y2019">2019</a>
+      </nav>
     </section>
 
     <section class="pub-years">
@@ -54,12 +70,6 @@
       <section class="pub-year" id="y2025">
         <div class="pub-year-head">
           <h2>2025</h2>
-          <div class="pub-year-filters" role="group" aria-label="Filter publications">
-            <button class="pub-filter-btn active" type="button" data-filter="all">All</button>
-            <button class="pub-filter-btn" type="button" data-filter="Journal">Journal</button>
-            <button class="pub-filter-btn" type="button" data-filter="Conference">Conference</button>
-          </div>
-
         </div>
 
         <ol class="pub-list">
@@ -91,7 +101,7 @@
             </p>
           </li>
 
-          <li class="pub-item" data-type="Journal">
+          <li class="pub-item" data-type="journal">
             <div class="pub-top">
               <span class="pub-badge">Journal</span>
               <span class="pub-venue">Invest Ophthalmol Vis Sci.</span>
@@ -177,7 +187,6 @@
       <section class="pub-year" id="y2024">
         <div class="pub-year-head">
           <h2>2024</h2>
-          <span class="pub-count">2 items</span>
         </div>
 
         <ol class="pub-list">
@@ -185,7 +194,7 @@
             <div class="pub-top">
               <span class="pub-badge">Journal</span>
               <span class="pub-venue">Ophthalmology Science</span>
-              <span class="pub-date">2025</span>
+              <span class="pub-date">2024</span>
             </div>
 
             <h3 class="pub-title">
@@ -374,7 +383,7 @@
           <div class="pub-top">
             <span class="pub-badge">Journal</span>
             <span class="pub-venue">The Ocular Surface</span>
-            <span class="pub-date">20XX</span>
+            <span class="pub-date">2022</span>
           </div>
 
           <h3 class="pub-title">
@@ -793,8 +802,6 @@
           </li>
 
         </ol>
-
-        </ol>        
       </section>
 
       <section class="pub-year" id="y2019">
@@ -1038,6 +1045,7 @@
         </ol>
       </section>
 
+      <p class="pub-empty" role="status">No publications match this filter.</p>
     </section>
   </main>
 
@@ -1046,5 +1054,6 @@
   </footer>
 
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/publication.js"></script>
 </body>
 </html>
