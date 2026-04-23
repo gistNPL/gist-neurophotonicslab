@@ -47,6 +47,98 @@
       <button class="filter-btn" data-year="2023">2023</button>
     </section>
 
+    <!-- View Toggle -->
+    <section class="gallery-toggle">
+      <button class="toggle-btn active" data-view="gallery">Gallery</button>
+      <button class="toggle-btn citizenship-toggle" data-view="citizenship">
+        <span class="star">★</span> NPL Citizenship
+      </button>
+    </section>
+
+    <!-- Citizenship Section -->
+    <section class="gallery-citizenship" hidden>
+      <div class="citizenship-year" data-year="2025">
+        <h2>2025 NPL Citizenship Awards</h2>
+        <div class="citizenship-grid">
+          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2025_CITIZENSHIP%20AWARD%20(DER_Daeun%20ROH).pdf" target="_blank" rel="noopener">
+            <div class="citizenship-preview">
+              <iframe src="../assets/img/gallery/citizenship/2025_CITIZENSHIP%20AWARD%20(DER_Daeun%20ROH).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Daeun ROH certificate"></iframe>
+              <span class="citizenship-overlay"></span>
+            </div>
+            <div class="citizenship-meta">
+              <span class="citizenship-name">Daeun ROH</span>
+              <span class="citizenship-year-tag">2025</span>
+            </div>
+          </a>
+
+          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2025_CITIZENSHIP%20AWARD%20(SHL_Sihyun%20LEE).pdf" target="_blank" rel="noopener">
+            <div class="citizenship-preview">
+              <iframe src="../assets/img/gallery/citizenship/2025_CITIZENSHIP%20AWARD%20(SHL_Sihyun%20LEE).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Sihyun LEE certificate"></iframe>
+              <span class="citizenship-overlay"></span>
+            </div>
+            <div class="citizenship-meta">
+              <span class="citizenship-name">Sihyun LEE</span>
+              <span class="citizenship-year-tag">2025</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="citizenship-year" data-year="2024">
+        <h2>2024 NPL Citizenship Awards</h2>
+        <div class="citizenship-grid">
+          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2024_CITIZENSHIP%20AWARD%20(AKM.%20Akm%20Ashiquzzaman).pdf" target="_blank" rel="noopener">
+            <div class="citizenship-preview">
+              <iframe src="../assets/img/gallery/citizenship/2024_CITIZENSHIP%20AWARD%20(AKM.%20Akm%20Ashiquzzaman).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Akm Ashiquzzaman certificate"></iframe>
+              <span class="citizenship-overlay"></span>
+            </div>
+            <div class="citizenship-meta">
+              <span class="citizenship-name">Akm Ashiquzzaman</span>
+              <span class="citizenship-year-tag">2024</span>
+            </div>
+          </a>
+
+          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2024_CITIZENSHIP%20AWARD%20(CHH.%20Christine%20Hyerang%20HWANG).pdf" target="_blank" rel="noopener">
+            <div class="citizenship-preview">
+              <iframe src="../assets/img/gallery/citizenship/2024_CITIZENSHIP%20AWARD%20(CHH.%20Christine%20Hyerang%20HWANG).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Christine Hyerang HWANG certificate"></iframe>
+              <span class="citizenship-overlay"></span>
+            </div>
+            <div class="citizenship-meta">
+              <span class="citizenship-name">Christine Hyerang HWANG</span>
+              <span class="citizenship-year-tag">2024</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="citizenship-year" data-year="2023">
+        <h2>2023 NPL Citizenship Awards</h2>
+        <div class="citizenship-grid">
+          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2023_CITIZENSHIP%20AWARD%20(FDN.%20Fatemeh%20D.%20Nezhad%20Derarandash).pdf" target="_blank" rel="noopener">
+            <div class="citizenship-preview">
+              <iframe src="../assets/img/gallery/citizenship/2023_CITIZENSHIP%20AWARD%20(FDN.%20Fatemeh%20D.%20Nezhad%20Derarandash).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Fatemeh D. Nezhad Derarandash certificate"></iframe>
+              <span class="citizenship-overlay"></span>
+            </div>
+            <div class="citizenship-meta">
+              <span class="citizenship-name">Fatemeh D. Nezhad Derarandash</span>
+              <span class="citizenship-year-tag">2023</span>
+            </div>
+          </a>
+
+          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2023_CITIZENSHIP%20AWARD%20(YJK.Yejin%20KIM).pdf" target="_blank" rel="noopener">
+            <div class="citizenship-preview">
+              <iframe src="../assets/img/gallery/citizenship/2023_CITIZENSHIP%20AWARD%20(YJK.Yejin%20KIM).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Yejin KIM certificate"></iframe>
+              <span class="citizenship-overlay"></span>
+            </div>
+            <div class="citizenship-meta">
+              <span class="citizenship-name">Yejin KIM</span>
+              <span class="citizenship-year-tag">2023</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="gallery-year">
       <h2>2026</h2>
 
@@ -210,23 +302,49 @@
   </footer>
 
 <script>
-  const buttons = document.querySelectorAll('.filter-btn');
-  const items = document.querySelectorAll('.gallery-item');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const gallerySections = document.querySelectorAll('.gallery-year');
+  const citizenshipSection = document.querySelector('.gallery-citizenship');
+  const citizenshipYears = document.querySelectorAll('.citizenship-year');
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  let currentView = 'gallery';
+  let currentYear = 'all';
 
-      const year = btn.dataset.year;
-
-      items.forEach(item => {
-        if (year === 'all' || item.dataset.year === year) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
+  function applyFilter() {
+    if (currentView === 'gallery') {
+      citizenshipSection.hidden = true;
+      gallerySections.forEach(s => s.hidden = false);
+      galleryItems.forEach(item => {
+        const show = currentYear === 'all' || item.dataset.year === currentYear;
+        item.style.display = show ? 'block' : 'none';
       });
+    } else {
+      gallerySections.forEach(s => s.hidden = true);
+      citizenshipSection.hidden = false;
+      citizenshipYears.forEach(group => {
+        const show = currentYear === 'all' || group.dataset.year === currentYear;
+        group.style.display = show ? 'block' : 'none';
+      });
+    }
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentYear = btn.dataset.year;
+      applyFilter();
+    });
+  });
+
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggleButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentView = btn.dataset.view;
+      applyFilter();
     });
   });
 </script>

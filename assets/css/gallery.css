@@ -78,3 +78,124 @@
   object-fit: cover;
   display: block;
 }
+
+/* View Toggle (Gallery / Citizenship) */
+.gallery-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: -20px;
+}
+
+.toggle-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.toggle-btn:hover {
+  background: #f1f5f9;
+}
+
+.toggle-btn.active {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+.toggle-btn .star {
+  color: #f59e0b;
+  font-size: 1.05em;
+}
+
+.toggle-btn.citizenship-toggle.active .star {
+  color: #fbbf24;
+}
+
+/* Citizenship Section */
+.gallery-citizenship {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.citizenship-year h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.citizenship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.citizenship-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.citizenship-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.15);
+}
+
+.citizenship-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.citizenship-preview iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+.citizenship-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
+.citizenship-meta {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.citizenship-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.citizenship-year-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
