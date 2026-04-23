@@ -126,6 +126,10 @@
   gap: 40px;
 }
 
+.gallery-citizenship[hidden] {
+  display: none;
+}
+
 .citizenship-year h2 {
   font-size: 24px;
   margin-bottom: 16px;
