@@ -145,7 +145,7 @@
   (function () {
     const grid = document.getElementById('home-news-grid');
     if (!grid || !window.NEWS_HELPERS) return;
-    const { sortedDesc, formatDate, escape } = window.NEWS_HELPERS;
+    const { sortedDesc, formatDate, escape, detailUrl } = window.NEWS_HELPERS;
     const limit = 3;
     const items = sortedDesc().slice(0, limit);
     if (items.length === 0) {
@@ -157,7 +157,7 @@
         <div class="news-meta">${escape(formatDate(n.date))}</div>
         <h3 class="news-title">${escape(n.title)}</h3>
         <p class="news-desc">${escape(n.summary)}</p>
-        <a href="${escape(n.link)}" class="news-link">Read more →</a>
+        <a href="${escape(detailUrl(n.id))}" class="news-link">Read more →</a>
       </article>
     `).join('');
   })();

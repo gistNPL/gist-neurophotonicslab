@@ -10,26 +10,7 @@
 </head>
 <body>
 
-<header class="site-header">
-  <a class="brand" href="/gist-neurophotonicslab/" aria-label="Go to Home">
-    <img
-      class="brand-logo"
-      src="/gist-neurophotonicslab/assets/img/home/logo.png"
-      alt="GIST Neurophotonics Lab logo"
-    />
-    <span class="brand-text">GIST Neurophotonics Lab</span>
-  </a>
-
-  <nav class="site-nav">
-    <a href="/gist-neurophotonicslab/">Home</a>
-    <a href="/gist-neurophotonicslab/research/">Research</a>
-    <a href="/gist-neurophotonicslab/member/">Member</a>
-    <a href="/gist-neurophotonicslab/publication/">Publication</a>
-    <a href="/gist-neurophotonicslab/gallery/">Gallery</a>
-    <a href="/gist-neurophotonicslab/news/">News</a>
-    <a href="/gist-neurophotonicslab/contact/">Contact</a>
-  </nav>
-</header>
+<header class="site-header"></header>
 
   <main class="gallery-page">
 
@@ -38,14 +19,8 @@
       <p>Moments from conferences, workshops, and lab events.</p>
     </section>
 
-    <!-- Year Filter -->
-    <section class="gallery-filter">
-      <button class="filter-btn active" data-year="all">All</button>
-      <button class="filter-btn" data-year="2026">2026</button>
-      <button class="filter-btn" data-year="2025">2025</button>
-      <button class="filter-btn" data-year="2024">2024</button>
-      <button class="filter-btn" data-year="2023">2023</button>
-    </section>
+    <!-- Year Filter (rendered from gallery-data.js) -->
+    <section class="gallery-filter" id="gallery-filter"></section>
 
     <!-- View Toggle -->
     <section class="gallery-toggle">
@@ -55,288 +30,11 @@
       </button>
     </section>
 
-    <!-- Citizenship Section -->
-    <section class="gallery-citizenship" hidden>
-      <div class="citizenship-year" data-year="2025">
-        <h2>2025 NPL Citizenship Awards</h2>
-        <div class="citizenship-grid">
-          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2025_CITIZENSHIP%20AWARD%20(DER_Daeun%20ROH).pdf" target="_blank" rel="noopener">
-            <div class="citizenship-preview">
-              <iframe src="../assets/img/gallery/citizenship/2025_CITIZENSHIP%20AWARD%20(DER_Daeun%20ROH).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Daeun ROH certificate"></iframe>
-              <span class="citizenship-overlay"></span>
-            </div>
-            <div class="citizenship-meta">
-              <span class="citizenship-name">Daeun ROH</span>
-              <span class="citizenship-year-tag">2025</span>
-            </div>
-          </a>
+    <!-- Gallery years (rendered from gallery-data.js) -->
+    <div id="gallery-years"></div>
 
-          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2025_CITIZENSHIP%20AWARD%20(SHL_Sihyun%20LEE).pdf" target="_blank" rel="noopener">
-            <div class="citizenship-preview">
-              <iframe src="../assets/img/gallery/citizenship/2025_CITIZENSHIP%20AWARD%20(SHL_Sihyun%20LEE).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Sihyun LEE certificate"></iframe>
-              <span class="citizenship-overlay"></span>
-            </div>
-            <div class="citizenship-meta">
-              <span class="citizenship-name">Sihyun LEE</span>
-              <span class="citizenship-year-tag">2025</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="citizenship-year" data-year="2024">
-        <h2>2024 NPL Citizenship Awards</h2>
-        <div class="citizenship-grid">
-          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2024_CITIZENSHIP%20AWARD%20(AKM.%20Akm%20Ashiquzzaman).pdf" target="_blank" rel="noopener">
-            <div class="citizenship-preview">
-              <iframe src="../assets/img/gallery/citizenship/2024_CITIZENSHIP%20AWARD%20(AKM.%20Akm%20Ashiquzzaman).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Akm Ashiquzzaman certificate"></iframe>
-              <span class="citizenship-overlay"></span>
-            </div>
-            <div class="citizenship-meta">
-              <span class="citizenship-name">Akm Ashiquzzaman</span>
-              <span class="citizenship-year-tag">2024</span>
-            </div>
-          </a>
-
-          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2024_CITIZENSHIP%20AWARD%20(CHH.%20Christine%20Hyerang%20HWANG).pdf" target="_blank" rel="noopener">
-            <div class="citizenship-preview">
-              <iframe src="../assets/img/gallery/citizenship/2024_CITIZENSHIP%20AWARD%20(CHH.%20Christine%20Hyerang%20HWANG).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Christine Hyerang HWANG certificate"></iframe>
-              <span class="citizenship-overlay"></span>
-            </div>
-            <div class="citizenship-meta">
-              <span class="citizenship-name">Christine Hyerang HWANG</span>
-              <span class="citizenship-year-tag">2024</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="citizenship-year" data-year="2023">
-        <h2>2023 NPL Citizenship Awards</h2>
-        <div class="citizenship-grid">
-          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2023_CITIZENSHIP%20AWARD%20(FDN.%20Fatemeh%20D.%20Nezhad%20Derarandash).pdf" target="_blank" rel="noopener">
-            <div class="citizenship-preview">
-              <iframe src="../assets/img/gallery/citizenship/2023_CITIZENSHIP%20AWARD%20(FDN.%20Fatemeh%20D.%20Nezhad%20Derarandash).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Fatemeh D. Nezhad Derarandash certificate"></iframe>
-              <span class="citizenship-overlay"></span>
-            </div>
-            <div class="citizenship-meta">
-              <span class="citizenship-name">Fatemeh D. Nezhad Derarandash</span>
-              <span class="citizenship-year-tag">2023</span>
-            </div>
-          </a>
-
-          <a class="citizenship-card" href="../assets/img/gallery/citizenship/2023_CITIZENSHIP%20AWARD%20(YJK.Yejin%20KIM).pdf" target="_blank" rel="noopener">
-            <div class="citizenship-preview">
-              <iframe src="../assets/img/gallery/citizenship/2023_CITIZENSHIP%20AWARD%20(YJK.Yejin%20KIM).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" title="Yejin KIM certificate"></iframe>
-              <span class="citizenship-overlay"></span>
-            </div>
-            <div class="citizenship-meta">
-              <span class="citizenship-name">Yejin KIM</span>
-              <span class="citizenship-year-tag">2023</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="gallery-year">
-      <h2>2026</h2>
-
-      <div class="gallery-event">
-
-      <h3>2026 대한의용생체공학회</h3>
-        <div class="gallery-grid">
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_KOSOMBE1.jpg">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_KOSOMBE2.jpg">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_KOSOMBE3.jpg">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_KOSOMBE4.jpg">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_KOSOMBE5.jpg">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_KOSOMBE6.jpg">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_KOSOMBE7.jpg">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_KOSOMBE8.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_KOSOMBE9.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_KOSOMBE10.jpg">
-          </div>
-        </div>
-
-      <h3>2026 Cherry Blossom Day</h3>
-        <div class="gallery-grid">
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_cherry1.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_cherry2.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_cherry3.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_cherry4.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_cherry5.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_cherry6.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_cherry7.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_cherry8.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_cherry9.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_cherry10.png">
-          </div>
-        </div>
-
-      <h3>2026 NPL Workshop - Hoengseong, Gangwondo</h3>
-        <div class="gallery-grid">
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop1.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop2.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop3.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop4.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop5.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop6.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop7.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop8.png">
-          </div>
-          
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop9.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop10.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_workshop11.png">
-          </div>
-        </div>
-
-      <h3>2026 NPL Winter Camp</h3>
-        <div class="gallery-grid">
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp1.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp2.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp3.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp4.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp5.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp6.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp7.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp8.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp9.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp10.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp11.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp12.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp13.png">
-          </div>
-
-          <div class="gallery-item" data-year="2026">
-            <img src="../assets/img/gallery/2026/2026_wintercamp14.png">
-          </div>
-        </div>
-        
-    </section>
+    <!-- Citizenship (rendered from gallery-data.js) -->
+    <section class="gallery-citizenship" id="gallery-citizenship" hidden></section>
 
   </main>
 
@@ -344,12 +42,74 @@
     © 2025 GIST Neurophotonics Lab. All rights reserved.
   </footer>
 
+<script src="../assets/js/gallery-data.js"></script>
 <script>
+(function () {
+  if (!window.GALLERY_HELPERS) return;
+  const { photoUrl, citizenshipUrl, allYears, escape } = window.GALLERY_HELPERS;
+
+  // ---- Render year filter buttons ----
+  const filterEl = document.getElementById('gallery-filter');
+  const years = allYears();
+  filterEl.innerHTML = [
+    '<button class="filter-btn active" data-year="all">All</button>',
+    ...years.map(y => `<button class="filter-btn" data-year="${y}">${y}</button>`),
+  ].join('');
+
+  // ---- Render gallery year sections ----
+  const yearsContainer = document.getElementById('gallery-years');
+  yearsContainer.innerHTML = (window.GALLERY_YEARS || []).map(yearBlock => `
+    <section class="gallery-year" data-year="${yearBlock.year}">
+      <h2>${yearBlock.year}</h2>
+      <div class="gallery-event">
+        ${yearBlock.events.map(event => `
+          <h3>${escape(event.title)}</h3>
+          <div class="gallery-grid">
+            ${event.photos.map((file, i) => `
+              <div class="gallery-item" data-year="${yearBlock.year}">
+                <img loading="lazy"
+                     src="${escape(photoUrl(yearBlock.year, file))}"
+                     alt="${escape(event.title)} — photo ${i + 1}">
+              </div>
+            `).join('')}
+          </div>
+        `).join('')}
+      </div>
+    </section>
+  `).join('');
+
+  // ---- Render citizenship ----
+  const citizenshipEl = document.getElementById('gallery-citizenship');
+  citizenshipEl.innerHTML = (window.GALLERY_CITIZENSHIP || []).map(group => `
+    <div class="citizenship-year" data-year="${group.year}">
+      <h2>${group.year} NPL Citizenship Awards</h2>
+      <div class="citizenship-grid">
+        ${group.awards.map(award => {
+          const url = citizenshipUrl(award.pdf);
+          return `
+            <a class="citizenship-card" href="${escape(url)}" target="_blank" rel="noopener">
+              <div class="citizenship-preview">
+                <iframe src="${escape(url)}#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+                        title="${escape(award.name)} certificate"></iframe>
+                <span class="citizenship-overlay"></span>
+              </div>
+              <div class="citizenship-meta">
+                <span class="citizenship-name">${escape(award.name)}</span>
+                <span class="citizenship-year-tag">${group.year}</span>
+              </div>
+            </a>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  // ---- Filter / toggle behavior ----
   const filterButtons = document.querySelectorAll('.filter-btn');
   const toggleButtons = document.querySelectorAll('.toggle-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
   const gallerySections = document.querySelectorAll('.gallery-year');
-  const citizenshipSection = document.querySelector('.gallery-citizenship');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const citizenshipSection = citizenshipEl;
   const citizenshipYears = document.querySelectorAll('.citizenship-year');
 
   let currentView = 'gallery';
@@ -358,13 +118,13 @@
   function applyFilter() {
     if (currentView === 'gallery') {
       citizenshipSection.hidden = true;
-      gallerySections.forEach(s => s.hidden = false);
+      gallerySections.forEach(s => { s.hidden = false; });
       galleryItems.forEach(item => {
         const show = currentYear === 'all' || item.dataset.year === currentYear;
         item.style.display = show ? 'block' : 'none';
       });
     } else {
-      gallerySections.forEach(s => s.hidden = true);
+      gallerySections.forEach(s => { s.hidden = true; });
       citizenshipSection.hidden = false;
       citizenshipYears.forEach(group => {
         const show = currentYear === 'all' || group.dataset.year === currentYear;
@@ -390,8 +150,8 @@
       applyFilter();
     });
   });
+})();
 </script>
-
 <script src="/gist-neurophotonicslab/assets/js/site-chrome.js" defer></script>
 </body>
 </html>

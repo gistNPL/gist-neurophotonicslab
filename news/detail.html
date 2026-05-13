@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>News | GIST Neurophotonics Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .news-detail {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+    .news-back {
+      display: inline-block;
+      font-size: 0.9rem;
+      color: #555;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+    .news-back:hover { color: #000; }
+    .news-detail-date {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .news-detail-title {
+      font-size: 1.7rem;
+      line-height: 1.35;
+      margin: 0 0 12px 0;
+    }
+    .news-detail-meta {
+      font-size: 1rem;
+      color: #444;
+      margin: 0 0 24px 0;
+    }
+    .news-detail-hero {
+      max-width: 480px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 0 auto 28px;
+      display: block;
+    }
+    .news-detail-body p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #333;
+      margin: 0 0 16px 0;
+    }
+    .news-detail-paper {
+      background: #f5f7fa;
+      border-left: 4px solid #4b6cb7;
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 24px 0;
+    }
+    .news-detail-paper-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #4b6cb7;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .news-detail-paper-title {
+      font-size: 1rem;
+      color: #222;
+      margin: 0;
+      font-style: italic;
+      line-height: 1.55;
+    }
+    .news-detail-notfound {
+      text-align: center;
+      padding: 80px 20px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+<header class="site-header"></header>
+
+  <main>
+    <article class="news-detail" id="news-detail">
+      <a href="./" class="news-back">← Back to News</a>
+      <div id="news-detail-content"></div>
+    </article>
+  </main>
+
+  <footer>
+    © 2025 GIST Neurophotonics Lab. All rights reserved.
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/news.js"></script>
+  <script>
+    (function () {
+      const container = document.getElementById('news-detail-content');
+      if (!container || !window.NEWS_HELPERS) return;
+      const { findById, formatDate, escape } = window.NEWS_HELPERS;
+
+      const id = new URLSearchParams(window.location.search).get('id');
+      const item = id ? findById(id) : null;
+
+      if (!item) {
+        document.title = 'Not found | GIST Neurophotonics Lab';
+        container.innerHTML = `
+          <div class="news-detail-notfound">
+            <p>The news item you're looking for doesn't exist.</p>
+          </div>
+        `;
+        return;
+      }
+
+      document.title = item.title + ' | GIST Neurophotonics Lab';
+
+      const parts = [];
+      parts.push(`<div class="news-detail-date">${escape(formatDate(item.date))}</div>`);
+      parts.push(`<h1 class="news-detail-title">${escape(item.title)}</h1>`);
+      if (item.subtitle) {
+        parts.push(`<p class="news-detail-meta">${escape(item.subtitle)}</p>`);
+      }
+      if (item.thumbnail) {
+        parts.push(`<img class="news-detail-hero" src="${escape(item.thumbnail)}" alt="${escape(item.title)}" />`);
+      }
+
+      const bodyParts = [];
+      if (item.description) {
+        bodyParts.push(`<p>${escape(item.description)}</p>`);
+      }
+      if (item.paperTitle) {
+        bodyParts.push(`
+          <div class="news-detail-paper">
+            <div class="news-detail-paper-label">Poster Title</div>
+            <p class="news-detail-paper-title">${escape(item.paperTitle)}</p>
+          </div>
+        `);
+      }
+      if (item.closing) {
+        bodyParts.push(`<p><strong>${escape(item.closing)}</strong></p>`);
+      }
+      if (bodyParts.length > 0) {
+        parts.push(`<div class="news-detail-body">${bodyParts.join('')}</div>`);
+      }
+
+      container.innerHTML = parts.join('');
+    })();
+  </script>
+<script src="/gist-neurophotonicslab/assets/js/site-chrome.js" defer></script>
+</body>
+</html>
