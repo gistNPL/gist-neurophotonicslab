@@ -5,6 +5,48 @@
   <title>News | GIST Neurophotonics Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .news-list { list-style: none; padding: 0; margin: 0; }
+    .news-item {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid #e5e5e5;
+      align-items: start;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-thumb img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+    .news-date {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 6px;
+    }
+    .news-title {
+      font-size: 1.15rem;
+      margin: 0 0 10px 0;
+      line-height: 1.4;
+    }
+    .news-meta {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 0 0 8px 0;
+    }
+    .news-paper {
+      font-size: 0.95rem;
+      color: #333;
+      margin: 0;
+      font-style: italic;
+    }
+    @media (max-width: 720px) {
+      .news-item { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 <header class="site-header">
@@ -31,9 +73,22 @@
 
   <main>
     <h1>News</h1>
-    <p>
-      To be Updated
-    </p>
+
+    <ul class="news-list">
+      <li class="news-item">
+        <div class="news-thumb">
+          <img src="../assets/img/gallery/2026/2026_KOSOMBE10.png?v=2" alt="Hyojeong Lee - KOSOMBE 2026 Excellent Poster Award">
+        </div>
+        <div class="news-body">
+          <div class="news-date">May 2026</div>
+          <h2 class="news-title">Hyojeong Lee (이효정) received the Excellent Poster Award at KOSOMBE 2026</h2>
+          <p class="news-meta">대한의용생체공학회 우수 포스터상 수상</p>
+          <p class="news-paper">
+            "Influence of Hierarchical Task Inference on Representational Dynamics in Healthy and Aging-Like RNNs under Hidden-Rule Conditions"
+          </p>
+        </div>
+      </li>
+    </ul>
   </main>
 
   <footer>
