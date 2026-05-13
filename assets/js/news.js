@@ -7,11 +7,11 @@
 window.NEWS = [
   {
     date: "2026-05-13",
-    title: "Hyojeong Lee received the Excellent Poster Award at KOSOMBE 2026",
+    title: "Hyojeong Lee received the Poster Award at KOSOMBE 2026",
     summary:
-      "이효정 학생이 대한의용생체공학회(KOSOMBE) 2026에서 우수 포스터상을 수상했습니다 — \"Influence of Hierarchical Task Inference on Representational Dynamics in Healthy and Aging-Like RNNs under Hidden-Rule Conditions\".",
+      "이효정 학생이 대한의용생체공학회(KOSOMBE) 2026에서 포스터상을 수상했습니다 — \"Influence of Hierarchical Task Inference on Representational Dynamics in Healthy and Aging-Like RNNs under Hidden-Rule Conditions\".",
     thumbnail:
-      "/gist-neurophotonicslab/assets/img/gallery/2026/2026_KOSOMBE10.png?v=3",
+      "/gist-neurophotonicslab/assets/img/gallery/2026/2026_KOSOMBE10.jpg",
     link: "/gist-neurophotonicslab/news/2026-kosombe-hyojeong.html",
   },
 ];
