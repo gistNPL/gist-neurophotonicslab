@@ -11,13 +11,9 @@
       margin: 0 auto;
       padding: 24px 20px 60px;
     }
-    .news-page h1 {
-      margin: 0 0 6px 0;
-    }
-    .news-page-sub {
-      color: #666;
-      margin: 0 0 28px 0;
-    }
+    .news-page h1 { margin: 0 0 6px 0; }
+    .news-page-sub { color: #666; margin: 0 0 28px 0; }
+
     .news-card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -27,7 +23,8 @@
       margin: 0;
     }
     .news-card-link {
-      display: block;
+      display: flex;
+      flex-direction: column;
       text-decoration: none;
       color: inherit;
       border: 1px solid #e5e7eb;
@@ -37,10 +34,13 @@
       box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       height: 100%;
+      cursor: pointer;
     }
-    .news-card-link:hover {
+    .news-card-link:hover,
+    .news-card-link:focus-visible {
       transform: translateY(-4px);
-      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+      outline: none;
     }
     .news-card-thumb {
       width: 100%;
@@ -51,6 +51,9 @@
     }
     .news-card-body {
       padding: 16px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
     .news-card-date {
       font-size: 0.8rem;
@@ -67,8 +70,29 @@
       font-size: 0.9rem;
       color: #555;
       line-height: 1.6;
-      margin: 0;
+      margin: 0 0 16px 0;
     }
+    .news-card-button {
+      margin-top: auto;
+      align-self: flex-start;
+      display: inline-block;
+      padding: 8px 16px;
+      background: #4b6cb7;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: background 0.15s ease;
+    }
+    .news-card-link:hover .news-card-button {
+      background: #3a559a;
+    }
+    .news-empty {
+      color: #888;
+      padding: 40px 0;
+      text-align: center;
+    }
+
     @media (max-width: 900px) {
       .news-card-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -104,27 +128,8 @@
     <h1>News</h1>
     <p class="news-page-sub">Recent updates, awards, and events from the lab.</p>
 
-    <ul class="news-card-grid">
-      <li>
-        <a class="news-card-link" href="./2026-kosombe-hyojeong.html">
-          <img
-            class="news-card-thumb"
-            src="../assets/img/gallery/2026/2026_KOSOMBE10.png?v=2"
-            alt="Hyojeong Lee - KOSOMBE 2026 Excellent Poster Award"
-          />
-          <div class="news-card-body">
-            <div class="news-card-date">May 2026</div>
-            <h2 class="news-card-title">
-              Hyojeong Lee received the Excellent Poster Award at KOSOMBE 2026
-            </h2>
-            <p class="news-card-desc">
-              대한의용생체공학회 우수 포스터상 수상 — Influence of Hierarchical
-              Task Inference on Representational Dynamics in Healthy and
-              Aging-Like RNNs under Hidden-Rule Conditions.
-            </p>
-          </div>
-        </a>
-      </li>
+    <ul class="news-card-grid" id="news-list">
+      <!-- Cards rendered from /assets/js/news.js -->
     </ul>
   </main>
 
@@ -133,5 +138,31 @@
   </footer>
 
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/news.js"></script>
+  <script>
+    (function () {
+      const list = document.getElementById('news-list');
+      if (!list || !window.NEWS_HELPERS) return;
+      const { sortedDesc, formatDate, escape } = window.NEWS_HELPERS;
+      const items = sortedDesc();
+      if (items.length === 0) {
+        list.outerHTML = '<p class="news-empty">No news yet.</p>';
+        return;
+      }
+      list.innerHTML = items.map(n => `
+        <li>
+          <a class="news-card-link" href="${escape(n.link)}">
+            <img class="news-card-thumb" src="${escape(n.thumbnail)}" alt="${escape(n.title)}" />
+            <div class="news-card-body">
+              <div class="news-card-date">${escape(formatDate(n.date))}</div>
+              <h2 class="news-card-title">${escape(n.title)}</h2>
+              <p class="news-card-desc">${escape(n.summary)}</p>
+              <span class="news-card-button">Read more →</span>
+            </div>
+          </a>
+        </li>
+      `).join('');
+    })();
+  </script>
 </body>
 </html>
