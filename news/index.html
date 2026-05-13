@@ -6,45 +6,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/style.css" />
   <style>
-    .news-list { list-style: none; padding: 0; margin: 0; }
-    .news-item {
+    .news-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+    .news-page h1 {
+      margin: 0 0 6px 0;
+    }
+    .news-page-sub {
+      color: #666;
+      margin: 0 0 28px 0;
+    }
+    .news-card-grid {
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 24px;
-      padding: 24px 0;
-      border-bottom: 1px solid #e5e5e5;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
-    .news-item:last-child { border-bottom: none; }
-    .news-thumb img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
+    .news-card-link {
       display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      height: 100%;
     }
-    .news-date {
-      font-size: 0.9rem;
+    .news-card-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
+    }
+    .news-card-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      background: #f1f3f6;
+    }
+    .news-card-body {
+      padding: 16px 18px 20px;
+    }
+    .news-card-date {
+      font-size: 0.8rem;
       color: #888;
       margin-bottom: 6px;
     }
-    .news-title {
-      font-size: 1.15rem;
-      margin: 0 0 10px 0;
+    .news-card-title {
+      font-size: 1.05rem;
       line-height: 1.4;
-    }
-    .news-meta {
-      font-size: 0.95rem;
-      color: #555;
       margin: 0 0 8px 0;
+      font-weight: 700;
     }
-    .news-paper {
-      font-size: 0.95rem;
-      color: #333;
+    .news-card-desc {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
       margin: 0;
-      font-style: italic;
     }
-    @media (max-width: 720px) {
-      .news-item { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .news-card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .news-card-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -71,22 +100,30 @@
 </header>
 
 
-  <main>
+  <main class="news-page">
     <h1>News</h1>
+    <p class="news-page-sub">Recent updates, awards, and events from the lab.</p>
 
-    <ul class="news-list">
-      <li class="news-item">
-        <div class="news-thumb">
-          <img src="../assets/img/gallery/2026/2026_KOSOMBE10.png?v=2" alt="Hyojeong Lee - KOSOMBE 2026 Excellent Poster Award">
-        </div>
-        <div class="news-body">
-          <div class="news-date">May 2026</div>
-          <h2 class="news-title">Hyojeong Lee (이효정) received the Excellent Poster Award at KOSOMBE 2026</h2>
-          <p class="news-meta">대한의용생체공학회 우수 포스터상 수상</p>
-          <p class="news-paper">
-            "Influence of Hierarchical Task Inference on Representational Dynamics in Healthy and Aging-Like RNNs under Hidden-Rule Conditions"
-          </p>
-        </div>
+    <ul class="news-card-grid">
+      <li>
+        <a class="news-card-link" href="./2026-kosombe-hyojeong.html">
+          <img
+            class="news-card-thumb"
+            src="../assets/img/gallery/2026/2026_KOSOMBE10.png?v=2"
+            alt="Hyojeong Lee - KOSOMBE 2026 Excellent Poster Award"
+          />
+          <div class="news-card-body">
+            <div class="news-card-date">May 2026</div>
+            <h2 class="news-card-title">
+              Hyojeong Lee received the Excellent Poster Award at KOSOMBE 2026
+            </h2>
+            <p class="news-card-desc">
+              대한의용생체공학회 우수 포스터상 수상 — Influence of Hierarchical
+              Task Inference on Representational Dynamics in Healthy and
+              Aging-Like RNNs under Hidden-Rule Conditions.
+            </p>
+          </div>
+        </a>
       </li>
     </ul>
   </main>
