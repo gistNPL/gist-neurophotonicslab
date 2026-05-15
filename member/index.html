@@ -25,7 +25,11 @@
   <script>
   (function () {
     if (!window.MEMBERS_HELPERS) return;
-    const { imageUrl, escape } = window.MEMBERS_HELPERS;
+    // imageUrl uses `this.IMG_BASE` — must stay bound to MEMBERS_HELPERS,
+    // plain destructuring breaks `this` and yields "undefined/..." URLs.
+    const H = window.MEMBERS_HELPERS;
+    const imageUrl = H.imageUrl.bind(H);
+    const { escape } = H;
     const container = document.getElementById('member-sections');
 
     function renderMember(m) {

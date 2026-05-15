@@ -46,7 +46,13 @@
 <script>
 (function () {
   if (!window.GALLERY_HELPERS) return;
-  const { photoUrl, citizenshipUrl, allYears, escape } = window.GALLERY_HELPERS;
+  // NOTE: photoUrl / citizenshipUrl reference `this.IMG_BASE`, so they must
+  // stay bound to GALLERY_HELPERS. Plain destructuring breaks `this` and
+  // produces "undefined/..." URLs (= the 404s we saw on the live site).
+  const H = window.GALLERY_HELPERS;
+  const photoUrl = H.photoUrl.bind(H);
+  const citizenshipUrl = H.citizenshipUrl.bind(H);
+  const { allYears, escape } = H;
 
   // ---- Render year filter buttons ----
   const filterEl = document.getElementById('gallery-filter');
