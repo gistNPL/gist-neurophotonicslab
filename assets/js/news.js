@@ -68,6 +68,21 @@ window.NEWS = [
       "Acquah Emmanuel was recognized with an award at the 2026 International Symposium on Aging (ISA).",
     closing: "Congratulations to Acquah on this well-deserved recognition!",
   },
+
+  {
+    id: "2026-isa-ashiq",
+    date: "2026-06-20",
+    title: "Akm Ashiquzzaman received an award at ISA 2026",
+    summary:
+      "Akm Ashiquzzaman(아시크)이 2026 국제 노화 심포지엄(International Symposium on Aging, ISA)에서 수상했습니다.",
+    thumbnail:
+      "/gist-neurophotonicslab/assets/img/gallery/2026/2026_ISA_Ashiq_award.png",
+
+    subtitle: "국제 노화 심포지엄(ISA 2026) 수상",
+    description:
+      "Akm Ashiquzzaman was recognized with an award at the 2026 International Symposium on Aging (ISA).",
+    closing: "Congratulations to Ashiq on this well-deserved recognition!",
+  },
 ];
 
 window.NEWS_HELPERS = {
