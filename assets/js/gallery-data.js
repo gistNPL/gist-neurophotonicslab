@@ -76,6 +76,30 @@ window.GALLERY_YEARS = [
           "2026_wintercamp14.png",
         ],
       },
+      {
+        title: "2026 Teacher's Day",
+        photos: [
+          "2026_td1.png",
+          "2026_td2.png",
+        ],
+      },
+      {
+        // 2026 대한뇌혈류대사학회 (KSCBFM) — 사진 추가 예정 (placeholder)
+        title: "2026 대한뇌혈류대사학회 (KSCBFM)",
+        photos: [],
+      },
+      {
+        title: "2026 국제 노화 심포지엄 (ISA)",
+        photos: [
+          "2026_ISA_1.jpg",
+          "2026_ISA_2.jpg",
+          "2026_ISA_3.jpg",
+          "2026_ISA_4.jpeg",
+          "2026_ISA_5.jpeg",
+          "2026_ISA_6.jpeg",
+          "2026_ISA_7.jpeg",
+        ],
+      },
     ],
   },
 ];

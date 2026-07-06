@@ -193,6 +193,15 @@ window.MEMBERS = [
         ],
         detailPage: "seungjun.html",
       },
+      {
+        image: "nada.png",
+        name: "Nada Elnagar",
+        role: "Integrated (M.S./Ph.D) Student",
+        details: [
+          "Research Interest: neuropathic pain, neurodegenerative diseases, molecular mechanisms of neural signaling, neurophotonics",
+        ],
+        detailPage: "nada.html",
+      },
     ],
   },
 
