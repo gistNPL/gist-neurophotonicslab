@@ -50,12 +50,22 @@
   border-color: #111827;
 }
 
+/* Event title: keep the title close to its photos,
+   while keeping clear separation from the previous event. */
+.gallery-event h3 {
+  margin: 40px 0 0;
+}
+
+.gallery-event h3:first-child {
+  margin-top: 0;
+}
+
 /* Grid */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
-  margin-top: 30px;
+  margin-top: 14px;
 }
 
 
@@ -77,6 +87,29 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
+  cursor: pointer;
+}
+
+/* Lightbox (click a photo to enlarge) */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+  padding: 24px;
+}
+
+.gallery-lightbox.open {
+  display: grid;
+}
+
+.gallery-lightbox img {
+  max-width: min(1100px, 96vw);
+  max-height: 88vh;
+  border-radius: 14px;
+  background: #0b1220;
 }
 
 /* View Toggle (Gallery / Citizenship) */

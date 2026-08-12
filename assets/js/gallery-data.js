@@ -13,6 +13,34 @@ window.GALLERY_YEARS = [
     // Events are listed newest-first (top of the page = most recent).
     events: [
       {
+        title: "2026 NPL Summer Workshop",
+        // Presentation photos first, then workshop photos.
+        photos: [
+          "2026_Summer_Workshop_presentation1.jpg",
+          "2026_Summer_Workshop_presentation2.jpg",
+          "2026_Summer_Workshop_presentation3.jpg",
+          "2026_Summer_Workshop_presentation4.jpg",
+          "2026_Summer_Workshop_presentation5.jpg",
+          "2026_Summer_Workshop_presentation6.jpg",
+          "2026_Summer_Workshop_presentation7.jpg",
+          "2026_Summer_Workshop_presentation8.jpg",
+          "2026_Summer_Workshop_presentation9.jpg",
+          "2026_Summer_Workshop_presentation10.jpg",
+          "2026_Summer_Workshop_presentation11.jpg",
+          "2026_Summer_Workshop_presentation12.jpg",
+          "2026_Summer_Workshop1.jpg",
+          "2026_Summer_Workshop2.jpg",
+          "2026_Summer_Workshop3.jpg",
+          "2026_Summer_Workshop4.jpg",
+          "2026_Summer_Workshop5.jpg",
+          "2026_Summer_Workshop6.jpg",
+          "2026_Summer_Workshop7.jpg",
+          "2026_Summer_Workshop8.jpg",
+          "2026_Summer_Workshop9.jpg",
+          "2026_Summer_Workshop10.jpg",
+        ],
+      },
+      {
         title: "2026 국제 노화 심포지엄 (ISA)",
         photos: [
           "2026_ISA_1.jpg",
@@ -23,11 +51,6 @@ window.GALLERY_YEARS = [
           "2026_ISA_6.jpeg",
           "2026_ISA_7.jpeg",
         ],
-      },
-      {
-        // 2026 대한뇌혈류대사학회 (KSCBFM) — 사진 추가 예정 (placeholder)
-        title: "2026 대한뇌혈류대사학회 (KSCBFM)",
-        photos: [],
       },
       {
         title: "2026 Teacher's Day",

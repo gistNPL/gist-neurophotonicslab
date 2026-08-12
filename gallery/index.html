@@ -36,6 +36,11 @@
     <!-- Citizenship (rendered from gallery-data.js) -->
     <section class="gallery-citizenship" id="gallery-citizenship" hidden></section>
 
+    <!-- Lightbox (click a photo to enlarge) -->
+    <div class="gallery-lightbox" id="galleryLightbox">
+      <img id="lightboxImage" src="" alt="Expanded view">
+    </div>
+
   </main>
 
   <footer>
@@ -155,6 +160,33 @@
       currentView = btn.dataset.view;
       applyFilter();
     });
+  });
+
+  // ---- Lightbox: click a photo to enlarge ----
+  const lightbox = document.getElementById('galleryLightbox');
+  const lightboxImg = document.getElementById('lightboxImage');
+
+  yearsContainer.addEventListener('click', (e) => {
+    const img = e.target.closest('.gallery-item img');
+    if (!img) return;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt || 'Expanded view';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
   });
 })();
 </script>

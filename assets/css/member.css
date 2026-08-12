@@ -345,6 +345,41 @@
   box-shadow: 0 16px 36px rgba(15,23,42,0.10);
 }
 
+/* === personal gallery pagination === */
+.gallery-pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.gallery-pagination button{
+  min-width: 34px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.gallery-pagination button:hover:not(:disabled){
+  background: #f1f5f9;
+}
+
+.gallery-pagination button.active{
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+.gallery-pagination button:disabled{
+  opacity: 0.4;
+  cursor: default;
+}
+
 /* === modal === */
 .gallery-modal{
   position: fixed;
