@@ -70,6 +70,22 @@
       font-style: italic;
       line-height: 1.55;
     }
+    .news-detail-video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin: 0 0 28px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #0b1220;
+    }
+    .news-detail-video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
     .news-detail-notfound {
       text-align: center;
       padding: 80px 20px;
@@ -92,7 +108,7 @@
   </footer>
 
   <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/news.js"></script>
+  <script src="../assets/js/news.js?v=20260814"></script>
   <script>
     (function () {
       const container = document.getElementById('news-detail-content');
@@ -120,7 +136,19 @@
       if (item.subtitle) {
         parts.push(`<p class="news-detail-meta">${escape(item.subtitle)}</p>`);
       }
-      if (item.thumbnail) {
+      // A video, when present, takes the hero slot instead of the thumbnail.
+      if (item.youtubeId) {
+        parts.push(`
+          <div class="news-detail-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/${escape(item.youtubeId)}"
+              title="${escape(item.title)}"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        `);
+      } else if (item.thumbnail) {
         parts.push(`<img class="news-detail-hero" src="${escape(item.thumbnail)}" alt="${escape(item.title)}" />`);
       }
 
@@ -135,6 +163,10 @@
             <p class="news-detail-paper-title">${escape(item.paperTitle)}</p>
           </div>
         `);
+      }
+      if (item.youtubeId) {
+        const watchUrl = 'https://www.youtube.com/watch?v=' + encodeURIComponent(item.youtubeId);
+        bodyParts.push(`<p><a href="${escape(watchUrl)}" target="_blank" rel="noopener">▶ Watch on YouTube</a></p>`);
       }
       if (item.closing) {
         bodyParts.push(`<p><strong>${escape(item.closing)}</strong></p>`);

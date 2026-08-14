@@ -60,6 +60,27 @@
   margin-top: 0;
 }
 
+/* Event video (YouTube embed above the photo grid) */
+.gallery-video {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  aspect-ratio: 16 / 9;
+  margin: 14px auto 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0b1220;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.gallery-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* Grid */
 .gallery-grid {
   display: grid;

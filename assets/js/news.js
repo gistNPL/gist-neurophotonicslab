@@ -2,10 +2,28 @@
 //
 // To add a new news item:
 //   1. Add an entry to this array (date in YYYY-MM-DD format, unique `id`)
-//   2. (Optional) Add detail-only fields: subtitle, description, paperTitle, closing
+//   2. (Optional) Add detail-only fields: subtitle, description, paperTitle,
+//      closing, youtubeId (embeds a YouTube player on the detail page)
 //   3. Done — main page card, news index, and /news/detail.html?id=<id>
 //      all render automatically, sorted by date (newest first).
 window.NEWS = [
+  {
+    id: "2026-summer-workshop",
+    date: "2026-07-30",
+    title: "NPL Summer Workshop 2026",
+    summary:
+      "2026 NPL 여름 워크숍이 열렸습니다. 연구실 구성원들이 한 해의 연구 성과를 발표하고 서로의 연구를 공유하는 시간을 가졌습니다.",
+    thumbnail:
+      "/gist-neurophotonicslab/assets/img/gallery/2026/2026_Summer_Workshop_presentation1.jpg",
+
+    subtitle: "연구 발표와 교류의 시간",
+    description:
+      "The GIST Neurophotonics Lab held its 2026 Summer Workshop, where lab members presented their ongoing research and shared progress across the group's projects. The workshop brought together students and researchers for a full day of talks, discussion, and time spent together outside the lab.",
+    youtubeId: "2ksHNfcq9S4",
+    closing:
+      "Thanks to everyone who presented and took part — see the Gallery for more photos from the workshop!",
+  },
+
   {
     id: "2026-kosombe-hyojeong",
     date: "2026-05-13",

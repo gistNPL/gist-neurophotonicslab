@@ -4,6 +4,8 @@
 //   1. Find the year block (or add one) in GALLERY_YEARS.
 //   2. Append an event { title, photos: ["file1.png", ...] }.
 //      Filenames are relative to /assets/img/gallery/<year>/.
+//   3. (Optional) Add video: { youtubeId, title } to embed a YouTube
+//      player above that event's photo grid.
 // To add a new citizenship award:
 //   1. Find the year in GALLERY_CITIZENSHIP and add { name, pdf } to its awards array.
 //      PDF filenames are relative to /assets/img/gallery/citizenship/.
@@ -14,6 +16,11 @@ window.GALLERY_YEARS = [
     events: [
       {
         title: "2026 NPL Summer Workshop",
+        // Optional: a YouTube video shown above the photo grid.
+        video: {
+          youtubeId: "2ksHNfcq9S4",
+          title: "2026 NPL Summer Workshop highlights",
+        },
         // Presentation photos first, then workshop photos.
         photos: [
           "2026_Summer_Workshop_presentation1.jpg",
