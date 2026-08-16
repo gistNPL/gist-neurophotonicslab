@@ -44,7 +44,6 @@ window.GALLERY_YEARS = [
           "2026_Summer_Workshop7.jpg",
           "2026_Summer_Workshop8.jpg",
           "2026_Summer_Workshop9.jpg",
-          "2026_Summer_Workshop10.jpg",
         ],
       },
       {
