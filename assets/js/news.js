@@ -2,6 +2,7 @@
 //
 // To add a new news item:
 //   1. Add an entry to this array (date in YYYY-MM-DD format, unique `id`)
+//      `thumbnail` is optional — cards and detail pages render fine without it.
 //   2. (Optional) Add detail-only fields: subtitle, description, paperTitle,
 //      closing, youtubeId (embeds a YouTube player on the detail page)
 //   3. Done — main page card, news index, and /news/detail.html?id=<id>
@@ -22,6 +23,20 @@ window.NEWS = [
     youtubeId: "2ksHNfcq9S4",
     closing:
       "Thanks to everyone who presented and took part — see the Gallery for more photos from the workshop!",
+  },
+
+  {
+    id: "2026-sfn-tpda-hyojeong",
+    date: "2026-08-01",
+    title:
+      "Hyojeong Lee selected for the SfN Trainee Professional Development Award 2026",
+    summary:
+      "\uc774\ud6a8\uc815 \ud559\uc0dd\uc774 \ubbf8\uad6d\uc2e0\uacbd\uacfc\ud559\ud68c(Society for Neuroscience, SfN)\uc758 2026 Trainee Professional Development Award (TPDA) \uc218\uc0c1\uc790\ub85c \uc120\uc815\ub418\uc5c8\uc2b5\ub2c8\ub2e4.",
+
+    subtitle: "Society for Neuroscience TPDA \uc218\uc0c1\uc790 \uc120\uc815",
+    description:
+      "Hyojeong Lee (\uc774\ud6a8\uc815) has been selected as a recipient of a 2026 Trainee Professional Development Award (TPDA) from the Society for Neuroscience (SfN), awarded on the merit and strength of her application. The award provides complimentary registration to Neuroscience 2026 (November 14-18, Washington D.C. and online), a travel stipend for recipients residing outside North America, and one year of access to Neuronline, SfN's collection of professional development and training resources for neuroscientists.",
+    closing: "Congratulations to Hyojeong on this well-deserved recognition!",
   },
 
   {

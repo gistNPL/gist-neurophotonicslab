@@ -49,6 +49,11 @@
       display: block;
       background: #f1f3f6;
     }
+    /* 썸네일이 없는 뉴스: 카드 높이를 맞추기 위한 빈 자리 표시 */
+    .news-card-thumb--empty {
+      background: linear-gradient(135deg, #eef2fb 0%, #e3e9f5 100%);
+      border-bottom: 1px solid #e5e7eb;
+    }
     .news-card-body {
       padding: 16px 18px 20px;
       display: flex;
@@ -152,7 +157,9 @@
       list.innerHTML = items.map(n => `
         <li>
           <a class="news-card-link" href="${escape(detailUrl(n.id))}">
-            <img class="news-card-thumb" src="${escape(n.thumbnail)}" alt="${escape(n.title)}" />
+            ${n.thumbnail
+              ? `<img class="news-card-thumb" src="${escape(n.thumbnail)}" alt="${escape(n.title)}" />`
+              : `<div class="news-card-thumb news-card-thumb--empty" aria-hidden="true"></div>`}
             <div class="news-card-body">
               <div class="news-card-date">${escape(formatDate(n.date))}</div>
               <h2 class="news-card-title">${escape(n.title)}</h2>
