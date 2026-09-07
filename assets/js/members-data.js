@@ -157,10 +157,10 @@ window.MEMBERS = [
       },
       {
         image: "jaebong.png",
-        name: "Jaebong Joe / 조재봉",
+        name: "Jaebong Jo / 조재봉",
         role: "Integrated (M.S./Ph.D) Student, GIST Biomedical Engineering",
         details: [
-          "Magnetic Stimulation",
+          "Research Interest: magnetic stimulation of neural systems; computational modeling of electromagnetic-neural interactions",
           'Email: <a href="mailto:philosophal@gm.gist.ac.kr">philosophal@gm.gist.ac.kr</a>',
         ],
         detailPage: "jaebong.html",
@@ -228,9 +228,10 @@ window.MEMBERS = [
       {
         image: "hyojeong.png",
         name: "Hyojeong Lee / 이효정",
-        role: "Undergraduate Student",
+        role: "Undergraduate Research Assistant, GIST EECS",
         details: [
-          "Research Field: imaging &amp; signal analysis in biomedical research; innovative approaches in optics",
+          "Research Interest: neural manifold, state-space analysis, theoretical modeling",
+          'Email: <a href="mailto:hyojeonglee11190@gmail.com">hyojeonglee11190@gmail.com</a>',
         ],
         detailPage: "hyojeong.html",
       },
