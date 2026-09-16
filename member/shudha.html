@@ -2,20 +2,15 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>Sihyun Lee | GIST Neurophotonics Lab</title>
+  <title>Shudha Tasnim Iqbal | GIST Neurophotonics Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/gist-neurophotonicslab/assets/css/style.css">
   <link rel="stylesheet" href="/gist-neurophotonicslab/assets/css/member.css?v=20260812">
-
 </head>
 <body>
 <header class="site-header">
   <a class="brand" href="/gist-neurophotonicslab/" aria-label="Go to Home">
-    <img
-      class="brand-logo"
-      src="/gist-neurophotonicslab/assets/img/home/logo.png"
-      alt="GIST Neurophotonics Lab logo"
-    />
+    <img class="brand-logo" src="/gist-neurophotonicslab/assets/img/home/logo.png" alt="GIST Neurophotonics Lab logo" />
     <span class="brand-text">GIST Neurophotonics Lab</span>
   </a>
 
@@ -30,18 +25,91 @@
   </nav>
 </header>
 
+<main>
+  <section class="profile">
+    <div class="profile-header">
+      <img
+        src="../assets/img/member/shudha.png"
+        alt="Photo of Shudha Tasnim Iqbal"
+        class="profile-photo"
+      />
 
-    <section class="profile-section">
-      <h2>To be Updated</h2>
+      <div class="profile-main">
+        <h1 class="profile-name">Shudha Tasnim Iqbal</h1>
+        <p class="profile-role">
+          Ph.D Student, Department of Biomedical Science and Engineering
+        </p>
+        <p class="profile-affiliation">
+          Gwangju Institute of Science and Technology (GIST)<br />
+          Gwangju, South Korea
+        </p>
 
-    </section>
+        <!-- 아이콘 + 세로 나열 -->
+        <div class="profile-links-vertical" aria-label="Contact links">
+          <a class="icon-link" href="mailto:shudha2025@gm.gist.ac.kr">
+            <span class="icon" aria-hidden="true">✉</span>
+            <span class="label">shudha2025@gm.gist.ac.kr</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    
-  <footer>
-    © 2025 GIST Neurophotonics Lab. All rights reserved.
-  </footer>
+  <section class="profile-section">
+    <h2>Research Interests</h2>
+    <ul>
+      <li>Bio-inspired optical imaging</li>
+      <li>Computational imaging and optical&ndash;computational co-design</li>
+      <li>Optical system design and simulation</li>
+      <li>Biomedical optical imaging</li>
+      <li>Fourier light field microscopy</li>
+    </ul>
+  </section>
 
-  <script src="../assets/js/main.js"></script>
+  <section class="profile-section">
+    <h2>Publications</h2>
+    <p class="small-text"></p>
+
+    <h3>Journal</h3>
+    <ul>
+      <li>
+        [1] <strong>Dual-coated antireflective film for flexible and robust multi-environmental optoelectronic applications</strong>,
+        Jang, H. J., Jeon, J., Yun, J. H., <em>Tasnim, I. S.</em>, Han, S., Lee, H., &hellip; &amp; Song, Y. M.,
+        <em>Biomimetics</em>, 9(10):644, 2024.
+      </li>
+    </ul>
+  </section>
+
+  <section class="profile-section">
+    <h2>Education</h2>
+    <ul>
+      <li>Ph.D., Biomedical Science and Engineering, GIST (Sep. 2025 &ndash; present)</li>
+      <li>M.Sc., Electronics and Computer Science Engineering, GIST (Sep. 2023 &ndash; Aug. 2025)</li>
+      <li>B.Sc., Electronics and Communications Engineering, BRAC University, Bangladesh (Apr. 2006 &ndash; Apr. 2010)</li>
+    </ul>
+  </section>
+
+  <!-- Personal Gallery: 사진 준비되면 아래 주석 해제 (../assets/img/personal/STI/ 에 img0, img1 ... 순으로 추가)
+  <section class="profile-section">
+    <h2>Personal Gallery</h2>
+    <div class="personal-gallery">
+      <img src="../assets/img/personal/STI/img0.png" alt="Personal photo 0">
+    </div>
+  </section>
+  -->
+
+  <div class="gallery-modal" id="galleryModal">
+    <img id="modalImage" src="" alt="Expanded view">
+  </div>
+</main>
+
+<script src="../assets/js/member.js?v=20260812"></script>
+
+<footer>
+  © 2025 GIST Neurophotonics Lab. All rights reserved.
+</footer>
+
+<script src="../assets/js/main.js"></script>
 <script src="/gist-neurophotonicslab/assets/js/site-chrome.js" defer></script>
 </body>
 </html>

@@ -236,6 +236,16 @@ window.MEMBERS = [
         detailPage: "hyojeong.html",
       },
       {
+        image: "siyeon.png",
+        name: "Siyeon Park / 박시연",
+        role: "Intern",
+        details: [
+          "Research Interest: biomedical image processing, AI healthcare &amp; signal processing, optical imaging",
+          "Education: M.S. / B.S. in Electronic Engineering, Chosun University",
+        ],
+        detailPage: "siyeon.html",
+      },
+      {
         image: "youngmin.png",
         name: "Youngmin Jung / 정영민",
         role: "Undergraduate Student",
