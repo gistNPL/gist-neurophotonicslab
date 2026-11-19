@@ -7,8 +7,10 @@
 //        - name:       display name (e.g., "Sihyun Lee / 이시현")
 //        - badge:      optional small label (e.g., "PI")
 //        - role:       title line under the name
-//        - details:    array of HTML strings (links allowed; lab-authored, no escaping applied)
-//        - detailPage: filename in /member/  (omit to make the card non-clickable)
+//        - affiliations: optional list of affiliations, as plain text
+//        - interests:  optional list of research interests, as plain text
+//        - details:    other information as HTML strings (lab-authored links allowed)
+//        - detailPage: filename in /member/ (omit if there is no profile page)
 //
 // To add an alumnus, append a member to the relevant alumni group below.
 window.MEMBERS = [
@@ -20,9 +22,12 @@ window.MEMBERS = [
         image: "euiheonchung.png",
         name: "Prof. Euiheon Chung",
         badge: "PI",
-        role: "Full Professor, Department of Biomedical Science and Engineering (BMSE), GIST",
+        role: "Full Professor",
+        affiliations: ["Department of Biomedical Science and Engineering (BMSE), GIST"],
+        interests: [
+          "Translational neurophotonic technologies; functional optical imaging & neuromodulation",
+        ],
         details: [
-          "Translational neurophotonic technologies; functional optical imaging &amp; neuromodulation",
           "Focus: neurovascular diseases, neuropathic pain (Director, Gliopathic Pain Research Center)",
         ],
         detailPage: "euiheonchung.html",
@@ -38,21 +43,25 @@ window.MEMBERS = [
         image: "young-ro-kim.png",
         name: "Young Ro Kim",
         role: "Endowed Han-Ryang Professorship",
-        details: [
-          'Email: <a href="mailto:spmkim@gmail.com">spmkim@gmail.com</a>',
+        affiliations: [
           "Athinoula A. Martinos Center for Biomedical Imaging, Massachusetts General Hospital (MGH)",
           "Department of Radiology, Harvard Medical School, Boston, MA, USA",
+        ],
+        details: [
+          'Email: <a href="mailto:spmkim@gmail.com">spmkim@gmail.com</a>',
         ],
       },
       {
         name: "Sang Seong Kim",
         role: "Research Professor",
-        details: [
-          'Email: <a href="mailto:chiralcenter21@gmail.com">chiralcenter21@gmail.com</a>',
+        interests: [
           "Drug development for alleviating ion channel-derived pain sensation",
           "Understanding hippocampal circuit alteration in neurodegeneration",
           "Characterization of neural coding in olfactory and vomeronasal system",
           "Development of next-generation optical stimulation in multielectrode array",
+        ],
+        details: [
+          'Email: <a href="mailto:chiralcenter21@gmail.com">chiralcenter21@gmail.com</a>',
         ],
       },
     ],
@@ -66,10 +75,12 @@ window.MEMBERS = [
         image: "gehan.png",
         name: "Gehan Fatima",
         role: "Post-Doc",
+        interests: [
+          "Alzheimer’s disease (AD), vascular biology, in vivo two-photon imaging",
+        ],
         details: [
           'Email: <a href="mailto:gehanfatima@gist.ac.kr">gehanfatima@gist.ac.kr</a>',
           "TEL: 062-715-2756",
-          "Research: Alzheimer&rsquo;s disease (AD), vascular biology, in vivo two-photon imaging",
         ],
         detailPage: "gehan.html",
       },
@@ -84,8 +95,10 @@ window.MEMBERS = [
         image: "ashiq.png",
         name: "Akm Ashiquzzaman",
         role: "Ph.D Student",
+        interests: [
+          "AI-based image processing and optical setup for image acquisition",
+        ],
         details: [
-          "Research interests: AI-based image processing and optical setup for image acquisition",
           "Education: MS (Chonnam National University), B.Sc. (University of Asia Pacific)",
         ],
         detailPage: "ashiq.html",
@@ -94,11 +107,13 @@ window.MEMBERS = [
         image: "fatemeh.png",
         name: "Fatemeh Dehghan Nezhad Derarandash",
         role: "Ph.D Student",
+        interests: [
+          "medical devices & software, in-vivo imaging and deep understanding of brain functions",
+        ],
         details: [
           'Email: <a href="mailto:f.dehghan.nezhad@gm.gist.ac.kr">f.dehghan.nezhad@gm.gist.ac.kr</a>',
           "TEL: 062-715-2761",
           "OFFICE: 404",
-          "Research interests: medical devices &amp; software, in-vivo imaging and deep understanding of brain functions",
         ],
         detailPage: "fatemeh.html",
       },
@@ -106,8 +121,8 @@ window.MEMBERS = [
         image: "acquah.png",
         name: "Acquah Emmanuel",
         role: "Ph.D Student",
-        details: [
-          "Research interests: somatosensory system &amp; DRG; neuroimmune interactions; neuropathic pain mechanisms",
+        interests: [
+          "somatosensory system & DRG; neuroimmune interactions; neuropathic pain mechanisms",
         ],
         detailPage: "acquah.html",
       },
@@ -115,8 +130,8 @@ window.MEMBERS = [
         image: "shudha.png",
         name: "Shudha Tasnim Iqbal",
         role: "Ph.D Student",
-        details: [
-          "Research interests: bio-inspired vision systems; translational optical design for medical imaging &amp; diagnostics",
+        interests: [
+          "bio-inspired vision systems; translational optical design for medical imaging & diagnostics",
         ],
         detailPage: "shudha.html",
       },
@@ -131,8 +146,8 @@ window.MEMBERS = [
         image: "youngseung.png",
         name: "Young-seung Yoo / 유영승",
         role: "Integrated (M.S./Ph.D) Student",
-        details: [
-          "Research interests: optimized light control for in-vivo application; light-sheet microscopy; high-speed large area brain imaging",
+        interests: [
+          "optimized light control for in-vivo application; light-sheet microscopy; high-speed large area brain imaging",
         ],
         detailPage: "youngseung.html",
       },
@@ -148,9 +163,10 @@ window.MEMBERS = [
       {
         image: "sihyun.png",
         name: "Sihyun Lee / 이시현",
-        role: "Integrated (M.S./Ph.D) Student, GIST AI Graduate School",
+        role: "Integrated (M.S./Ph.D) Student",
+        affiliations: ["GIST AI Graduate School"],
+        interests: ["Medical AI, biomedical/microscopy image enhancement, neurophotonics"],
         details: [
-          "Medical AI, biomedical/microscopy image enhancement, neurophotonics",
           'Email: <a href="mailto:tlgus7668@gm.gist.ac.kr">tlgus7668@gm.gist.ac.kr</a>',
         ],
         detailPage: "sihyunlee.html",
@@ -158,9 +174,12 @@ window.MEMBERS = [
       {
         image: "jaebong.png",
         name: "Jaebong Jo / 조재봉",
-        role: "Integrated (M.S./Ph.D) Student, GIST Biomedical Engineering",
+        role: "Integrated (M.S./Ph.D) Student",
+        affiliations: ["GIST Biomedical Engineering"],
+        interests: [
+          "magnetic stimulation of neural systems; computational modeling of electromagnetic-neural interactions",
+        ],
         details: [
-          "Research interests: magnetic stimulation of neural systems; computational modeling of electromagnetic-neural interactions",
           'Email: <a href="mailto:philosophal@gm.gist.ac.kr">philosophal@gm.gist.ac.kr</a>',
         ],
         detailPage: "jaebong.html",
@@ -169,8 +188,10 @@ window.MEMBERS = [
         image: "yejin.png",
         name: "Yejin Kim / 김예진",
         role: "Integrated (M.S./Ph.D) Student",
+        interests: [
+          "DRG (dorsal root ganglion), pain mechanisms, pain regulation",
+        ],
         details: [
-          "Research interests: DRG (dorsal root ganglion), pain mechanisms, pain regulation",
           'Email: <a href="mailto:judy024802@gmail.com">judy024802@gmail.com</a>',
         ],
         detailPage: "yejin.html",
@@ -179,8 +200,8 @@ window.MEMBERS = [
         image: "daeun.png",
         name: "Daeun Roh / 노다은",
         role: "Integrated (M.S./Ph.D) Student",
-        details: [
-          "Research interests: neuropathic pain, computational modeling; DRG in pain processing",
+        interests: [
+          "neuropathic pain, computational modeling; DRG in pain processing",
         ],
         detailPage: "daeun.html",
       },
@@ -188,8 +209,8 @@ window.MEMBERS = [
         image: "seungjun.png",
         name: "Seungjun Lee / 이승준",
         role: "Integrated (M.S./Ph.D) Student",
-        details: [
-          "Research interests: imaging &amp; signal analysis in biomedical research; innovative approaches in optics",
+        interests: [
+          "imaging & signal analysis in biomedical research; innovative approaches in optics",
         ],
         detailPage: "seungjun.html",
       },
@@ -197,8 +218,8 @@ window.MEMBERS = [
         image: "nada.png",
         name: "Nada Elnagar",
         role: "Integrated (M.S./Ph.D) Student",
-        details: [
-          "Research interests: neuropathic pain, neurodegenerative diseases, molecular mechanisms of neural signaling, neurophotonics",
+        interests: [
+          "neuropathic pain, neurodegenerative diseases, molecular mechanisms of neural signaling, neurophotonics",
         ],
         detailPage: "nada.html",
       },
@@ -213,8 +234,8 @@ window.MEMBERS = [
         image: "ethel.png",
         name: "Ethel Phiri",
         role: "Master",
-        details: [
-          "Research interests: Data Science",
+        interests: [
+          "Data Science",
         ],
         detailPage: "ethel.html",
       },
@@ -228,9 +249,12 @@ window.MEMBERS = [
       {
         image: "hyojeong.png",
         name: "Hyojeong Lee / 이효정",
-        role: "Undergraduate Research Assistant, GIST EECS",
+        role: "Undergraduate Research Assistant",
+        affiliations: ["GIST EECS"],
+        interests: [
+          "neural manifold, state-space analysis, theoretical modeling",
+        ],
         details: [
-          "Research interests: neural manifold, state-space analysis, theoretical modeling",
           'Email: <a href="mailto:hyojeonglee11190@gmail.com">hyojeonglee11190@gmail.com</a>',
         ],
         detailPage: "hyojeong.html",
@@ -239,8 +263,10 @@ window.MEMBERS = [
         image: "siyeon.png",
         name: "Siyeon Park / 박시연",
         role: "Intern",
+        interests: [
+          "biomedical image processing, AI healthcare & signal processing, optical imaging",
+        ],
         details: [
-          "Research interests: biomedical image processing, AI healthcare &amp; signal processing, optical imaging",
           "Education: M.S. / B.S. in Electronic Engineering, Chosun University",
         ],
         detailPage: "siyeon.html",
@@ -249,8 +275,8 @@ window.MEMBERS = [
         image: "youngmin.png",
         name: "Youngmin Jung / 정영민",
         role: "Undergraduate Student",
-        details: [
-          "Research interests: optical microscopy, fluorescence imaging, event based sensing",
+        interests: [
+          "optical microscopy, fluorescence imaging, event based sensing",
         ],
         detailPage: "youngmin.html",
       },

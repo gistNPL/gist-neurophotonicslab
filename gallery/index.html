@@ -7,8 +7,8 @@
   <meta name="description" content="GIST Neurophotonics Lab: neurophotonics, biomedical imaging, and AI research" />
   <meta property="og:image" content="https://gistnpl.github.io/gist-neurophotonicslab/assets/img/main/main2.png" />
 
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/gallery.css?v=20260814" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261119-2" />
+  <link rel="stylesheet" href="../assets/css/gallery.css?v=20261119-2" />
 </head>
 <body>
 
@@ -21,16 +21,13 @@
       <p>Moments from conferences, workshops, and lab events.</p>
     </section>
 
-    <!-- Year Filter (rendered from gallery-data.js) -->
-    <section class="gallery-filter" id="gallery-filter"></section>
-
-    <!-- View Toggle -->
-    <section class="gallery-toggle">
-      <button class="toggle-btn active" data-view="gallery">Gallery</button>
-      <button class="toggle-btn citizenship-toggle" data-view="citizenship">
-        <span class="star">★</span> NPL Citizenship
-      </button>
-    </section>
+    <div class="gallery-controls">
+      <div class="gallery-toggle" role="group" aria-label="Gallery view">
+        <button class="toggle-btn" type="button" data-view="gallery" aria-pressed="true" aria-controls="gallery-years">Photos</button>
+        <button class="toggle-btn" type="button" data-view="citizenship" aria-pressed="false" aria-controls="gallery-citizenship">NPL Citizenship</button>
+      </div>
+      <div class="gallery-filter" id="gallery-filter" role="group" aria-label="Filter by year"></div>
+    </div>
 
     <!-- Gallery years (rendered from gallery-data.js) -->
     <div id="gallery-years"></div>
@@ -38,10 +35,21 @@
     <!-- Citizenship (rendered from gallery-data.js) -->
     <section class="gallery-citizenship" id="gallery-citizenship" hidden></section>
 
-    <!-- Lightbox (click a photo to enlarge) -->
-    <div class="gallery-lightbox" id="galleryLightbox">
-      <img id="lightboxImage" src="" alt="Expanded view">
-    </div>
+    <p class="gallery-empty" id="gallery-empty" role="status" hidden></p>
+
+    <dialog class="gallery-lightbox" id="galleryLightbox" aria-labelledby="lightboxTitle">
+      <div class="gallery-lightbox-panel">
+        <div class="gallery-lightbox-header">
+          <h2 id="lightboxTitle"></h2>
+          <form method="dialog">
+            <button type="submit" class="gallery-lightbox-close" autofocus>Close</button>
+          </form>
+        </div>
+        <img id="lightboxImage" alt="">
+        <p id="lightboxStatus" role="status" hidden></p>
+        <a class="gallery-lightbox-original" id="lightboxOriginal" target="_blank" rel="noopener">Open original in a new tab</a>
+      </div>
+    </dialog>
 
   </main>
 
@@ -53,30 +61,16 @@
 <script>
 (function () {
   if (!window.GALLERY_HELPERS) return;
-  // NOTE: photoUrl / citizenshipUrl reference `this.IMG_BASE`, so they must
-  // stay bound to GALLERY_HELPERS. Plain destructuring breaks `this` and
-  // produces "undefined/..." URLs (= the 404s we saw on the live site).
   const H = window.GALLERY_HELPERS;
-  const photoUrl = H.photoUrl.bind(H);
-  const thumbnailUrl = H.thumbnailUrl.bind(H);
-  const citizenshipUrl = H.citizenshipUrl.bind(H);
-  const { allYears, escape } = H;
-
-  // ---- Render year filter buttons ----
-  const filterEl = document.getElementById('gallery-filter');
-  const years = allYears();
-  filterEl.innerHTML = [
-    '<button class="filter-btn active" data-year="all">All</button>',
-    ...years.map(y => `<button class="filter-btn" data-year="${y}">${y}</button>`),
-  ].join('');
+  const { escape } = H;
 
   // ---- Render gallery year sections ----
   const yearsContainer = document.getElementById('gallery-years');
   yearsContainer.innerHTML = (window.GALLERY_YEARS || []).map(yearBlock => `
     <section class="gallery-year" data-year="${yearBlock.year}">
       <h2>${yearBlock.year}</h2>
-      <div class="gallery-event">
-        ${yearBlock.events.map(event => `
+      ${yearBlock.events.map(event => `
+        <section class="gallery-event">
           <h3>${escape(event.title)}</h3>
           ${event.video ? `
             <div class="gallery-video">
@@ -90,16 +84,18 @@
           ` : ''}
           <div class="gallery-grid">
             ${event.photos.map((file, i) => `
-              <div class="gallery-item" data-year="${yearBlock.year}">
-                <img loading="lazy"
-                     src="${escape(thumbnailUrl(yearBlock.year, file))}"
-                     data-full="${escape(photoUrl(yearBlock.year, file))}"
-                     alt="${escape(event.title)} — photo ${i + 1}">
-              </div>
+              <button type="button" class="gallery-item" aria-haspopup="dialog"
+                      aria-label="View ${escape(event.title)} photo ${i + 1} of ${event.photos.length}"
+                      data-caption="${escape(event.title)} — photo ${i + 1} of ${event.photos.length}"
+                      data-full="${escape(H.photoUrl(yearBlock.year, file))}">
+                <img loading="lazy" decoding="async"
+                     src="${escape(H.thumbnailUrl(yearBlock.year, file))}"
+                     alt="">
+              </button>
             `).join('')}
           </div>
-        `).join('')}
-      </div>
+        </section>
+      `).join('')}
     </section>
   `).join('');
 
@@ -110,19 +106,19 @@
       <h2>${group.year} NPL Citizenship Awards</h2>
       <div class="citizenship-grid">
         ${group.awards.map(award => {
-          const url = citizenshipUrl(award.pdf);
+          const url = escape(H.citizenshipUrl(award.pdf));
           return `
-            <a class="citizenship-card" href="${escape(url)}" target="_blank" rel="noopener">
-              <div class="citizenship-preview">
-                <iframe src="${escape(url)}#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
-                        title="${escape(award.name)} certificate"></iframe>
-                <span class="citizenship-overlay"></span>
+            <article class="citizenship-card">
+              <div class="citizenship-preview" aria-hidden="true">
+                <iframe src="${url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+                        title="${escape(award.name)} certificate" loading="lazy" tabindex="-1" inert></iframe>
               </div>
               <div class="citizenship-meta">
-                <span class="citizenship-name">${escape(award.name)}</span>
+                <a class="citizenship-name" href="${url}" target="_blank" rel="noopener"
+                   aria-label="${escape(award.name)}, ${group.year} citizenship award certificate (PDF, opens in a new tab)">${escape(award.name)}</a>
                 <span class="citizenship-year-tag">${group.year}</span>
               </div>
-            </a>
+            </article>
           `;
         }).join('')}
       </div>
@@ -130,80 +126,105 @@
   `).join('');
 
   // ---- Filter / toggle behavior ----
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const toggleButtons = document.querySelectorAll('.toggle-btn');
-  const gallerySections = document.querySelectorAll('.gallery-year');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  const citizenshipSection = citizenshipEl;
-  const citizenshipYears = document.querySelectorAll('.citizenship-year');
+  const filterEl = document.getElementById('gallery-filter');
+  const empty = document.getElementById('gallery-empty');
+  const viewButtons = document.querySelectorAll('.toggle-btn');
+  const views = {
+    gallery: { container: yearsContainer, year: 'all' },
+    citizenship: { container: citizenshipEl, year: 'all' },
+  };
+  let activeView = 'gallery';
 
-  let currentView = 'gallery';
-  let currentYear = 'all';
+  function renderYearFilters() {
+    const { container, year } = views[activeView];
+    const yearLabels = [...new Set(Array.from(container.children, group => group.dataset.year))]
+      .sort((first, second) => Number(second) - Number(first));
+    filterEl.innerHTML = ['all', ...yearLabels].map(value => `
+      <button type="button" class="filter-btn" data-year="${value}"
+              aria-pressed="${value === year}" aria-controls="${container.id}">${value === 'all' ? 'All years' : value}</button>
+    `).join('');
+    filterEl.hidden = yearLabels.length < 2;
+  }
 
   function applyFilter() {
-    if (currentView === 'gallery') {
-      citizenshipSection.hidden = true;
-      gallerySections.forEach(s => { s.hidden = false; });
-      galleryItems.forEach(item => {
-        const show = currentYear === 'all' || item.dataset.year === currentYear;
-        item.style.display = show ? 'block' : 'none';
-      });
-    } else {
-      gallerySections.forEach(s => { s.hidden = true; });
-      citizenshipSection.hidden = false;
-      citizenshipYears.forEach(group => {
-        const show = currentYear === 'all' || group.dataset.year === currentYear;
-        group.style.display = show ? 'block' : 'none';
-      });
+    const { container, year } = views[activeView];
+    let visibleYears = 0;
+    for (const group of container.children) {
+      group.hidden = year !== 'all' && group.dataset.year !== year;
+      if (!group.hidden) visibleYears++;
     }
+    filterEl.querySelectorAll('.filter-btn').forEach(button => {
+      button.setAttribute('aria-pressed', button.dataset.year === year);
+    });
+    empty.textContent = visibleYears ? '' : 'No items are available for this view.';
+    empty.hidden = visibleYears > 0;
   }
 
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentYear = btn.dataset.year;
-      applyFilter();
+  function showView(view) {
+    activeView = view;
+    viewButtons.forEach(button => {
+      const isActive = button.dataset.view === view;
+      button.setAttribute('aria-pressed', isActive);
+      views[button.dataset.view].container.hidden = !isActive;
     });
+    renderYearFilters();
+    applyFilter();
+  }
+
+  filterEl.addEventListener('click', event => {
+    const button = event.target.closest('.filter-btn');
+    if (!button) return;
+    views[activeView].year = button.dataset.year;
+    applyFilter();
   });
 
-  toggleButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      toggleButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentView = btn.dataset.view;
-      applyFilter();
-    });
+  viewButtons.forEach(button => {
+    button.addEventListener('click', () => showView(button.dataset.view));
   });
+  showView(activeView);
 
-  // ---- Lightbox: click a photo to enlarge ----
   const lightbox = document.getElementById('galleryLightbox');
   const lightboxImg = document.getElementById('lightboxImage');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxStatus = document.getElementById('lightboxStatus');
+  const originalLink = document.getElementById('lightboxOriginal');
+  let photoTrigger = null;
 
-  yearsContainer.addEventListener('click', (e) => {
-    const img = e.target.closest('.gallery-item img');
-    if (!img) return;
-    lightboxImg.src = img.dataset.full;
-    lightboxImg.alt = img.alt || 'Expanded view';
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  yearsContainer.addEventListener('click', event => {
+    const button = event.target.closest('.gallery-item');
+    if (!button) return;
+    photoTrigger = button;
+    lightboxTitle.textContent = button.dataset.caption;
+    lightboxImg.alt = button.dataset.caption;
+    originalLink.href = button.dataset.full;
+    lightboxImg.hidden = true;
+    lightboxStatus.textContent = 'Loading original photo…';
+    lightboxStatus.hidden = false;
+    lightbox.showModal();
+    lightboxImg.src = button.dataset.full;
   });
 
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    lightboxImg.src = '';
-    document.body.style.overflow = '';
-  }
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
+  lightboxImg.addEventListener('load', () => {
+    lightboxImg.hidden = false;
+    lightboxStatus.hidden = true;
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
+  lightboxImg.addEventListener('error', () => {
+    lightboxStatus.textContent = 'The photo could not be loaded.';
+    lightboxStatus.hidden = false;
+  });
+
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) lightbox.close();
+  });
+
+  lightbox.addEventListener('close', () => {
+    lightboxImg.removeAttribute('src');
+    photoTrigger?.focus({ preventScroll: true });
+    photoTrigger = null;
   });
 })();
 </script>
-<script src="/gist-neurophotonicslab/assets/js/site-chrome.js" defer></script>
+<script src="/gist-neurophotonicslab/assets/js/site-chrome.js?v=20261119-2" defer></script>
 </body>
 </html>

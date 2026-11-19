@@ -7,15 +7,18 @@
   <meta name="description" content="GIST Neurophotonics Lab: neurophotonics, biomedical imaging, and AI research" />
   <meta property="og:image" content="https://gistnpl.github.io/gist-neurophotonicslab/assets/img/main/main2.png" />
 
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/member.css?v=20261119">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261119-2">
+  <link rel="stylesheet" href="../assets/css/member.css?v=20261119-directory">
 </head>
 
 <body>
 <header class="site-header"></header>
 
   <main class="member-page">
-    <h1>Members</h1>
+    <div class="member-intro">
+      <h1>Members</h1>
+      <nav class="member-directory-nav" id="member-directory-nav" aria-label="Member groups"></nav>
+    </div>
     <div id="member-sections"></div>
   </main>
 
@@ -23,82 +26,74 @@
     © 2025 GIST Neurophotonics Lab. All rights reserved.
   </footer>
 
-  <script src="../assets/js/members-data.js?v=20261119-2"></script>
+  <script src="../assets/js/members-data.js?v=20261119-directory"></script>
   <script>
   (function () {
     if (!window.MEMBERS_HELPERS) return;
-    // imageUrl uses `this.IMG_BASE` — must stay bound to MEMBERS_HELPERS,
-    // plain destructuring breaks `this` and yields "undefined/..." URLs.
-    const H = window.MEMBERS_HELPERS;
-    const imageUrl = H.imageUrl.bind(H);
-    const { escape } = H;
-    const container = document.getElementById('member-sections');
+    const helpers = window.MEMBERS_HELPERS;
+    const { escape } = helpers;
+    const sections = window.MEMBERS;
 
-    function renderMember(m) {
-      const photoHtml = m.image
-        ? `<img src="${escape(imageUrl(m.image))}" alt="Photo of ${escape(m.name)}" class="member-photo" />`
+    function renderMember(member, heading) {
+      const name = escape(member.name);
+      const profile = member.detailPage
+        ? `<a class="member-profile-link" href="${escape(member.detailPage)}">${name}</a>`
+        : name;
+      const photo = member.image
+        ? `<img class="member-photo" src="${escape(helpers.imageUrl(member.image))}" alt="Photo of ${name}" width="104" height="128" loading="lazy" decoding="async" />`
         : '';
-
-      const badgeHtml = m.badge
-        ? ` <span class="member-badge">${escape(m.badge)}</span>`
+      const badge = member.badge
+        ? ` <span class="member-badge">${escape(member.badge)}</span>`
         : '';
-
-      const detailsHtml = (m.details || [])
-        .map(d => `<div class="member-detail">${d}</div>`)
+      const affiliations = (member.affiliations || [])
+        .map(affiliation => `<p class="member-detail">${escape(affiliation)}</p>`)
+        .join('');
+      const interests = (member.interests || []).map(escape).join(' · ');
+      const details = (member.details || [])
+        .map(detail => `<p class="member-detail">${detail}</p>`)
         .join('');
 
-      const actionsHtml = m.detailPage
-        ? `<div class="member-actions"><a href="${escape(m.detailPage)}" class="detail-link">DETAIL</a></div>`
-        : '';
-
-      const innerCore = `
-        <div class="member-text">
-          <div class="member-name">${escape(m.name)}${badgeHtml}</div>
-          ${m.role ? `<div class="member-role">${escape(m.role)}</div>` : ''}
-          ${detailsHtml}
-          ${actionsHtml}
-        </div>
-      `;
-
-      const cardInner = m.image
-        ? `<div class="member-card-content">${photoHtml}${innerCore}</div>`
-        : innerCore;
-
-      if (m.detailPage) {
-        const href = escape(m.detailPage);
-        return `
-          <div class="member-card member-link" role="link" tabindex="0"
-               onclick="location.href='${href}';"
-               onkeydown="if(event.key==='Enter'){location.href='${href}';}">
-            ${cardInner}
+      return `
+        <li class="member-card${photo ? ' member-card-with-photo' : ''}">
+          ${photo}
+          <div class="member-text">
+            <${heading} class="member-name">${profile}${badge}</${heading}>
+            ${member.role ? `<p class="member-role">${escape(member.role)}</p>` : ''}
+            ${affiliations}
+            ${interests ? `<p class="member-interests"><strong>Research interests</strong> ${interests}</p>` : ''}
+            ${details}
           </div>
-        `;
-      }
-      return `<div class="member-card">${cardInner}</div>`;
+        </li>
+      `;
     }
 
-    container.innerHTML = window.MEMBERS.map(sec => {
-      const memberCards = (sec.members || []).map(renderMember).join('');
-      const groupHtml = (sec.groups || []).map(group => `
+    function renderList(members, heading) {
+      return `<ul class="member-list${members.length === 1 ? ' member-list-single' : ''}" role="list">${members.map(member => renderMember(member, heading)).join('')}</ul>`;
+    }
+
+    document.getElementById('member-directory-nav').innerHTML = sections.map(section =>
+      `<a href="#${escape(section.section)}">${escape(section.title)}</a>`
+    ).join('');
+
+    document.getElementById('member-sections').innerHTML = sections.map(section => {
+      const id = escape(section.section);
+      const groups = (section.groups || []).map(group => `
         <div class="member-group">
           <h3>${escape(group.title)}</h3>
-          <div class="member-list">${(group.members || []).map(renderMember).join('')}</div>
+          ${renderList(group.members, 'h4')}
         </div>
       `).join('');
-      const descHtml = sec.description
-        ? `<p class="section-desc">${escape(sec.description)}</p>`
-        : '';
       return `
-        <section class="member-section" id="${escape(sec.section)}">
-          <h2>${escape(sec.title)}</h2>
-          ${descHtml}
-          ${memberCards ? `<div class="member-list">${memberCards}</div>` : ''}
-          ${groupHtml}
+        <section class="member-section" id="${id}" aria-labelledby="${id}-heading">
+          <h2 id="${id}-heading">${escape(section.title)}</h2>
+          ${section.description ? `<p class="member-section-description">${escape(section.description)}</p>` : ''}
+          ${section.members?.length ? renderList(section.members, 'h3') : ''}
+          ${groups}
         </section>
       `;
     }).join('');
   })();
   </script>
-<script src="/gist-neurophotonicslab/assets/js/site-chrome.js" defer></script>
+<script src="/gist-neurophotonicslab/assets/js/site-chrome.js?v=20261119-2" defer></script>
 </body>
 </html>

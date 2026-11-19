@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="GIST Neurophotonics Lab: neurophotonics, biomedical imaging, and AI research" />
   <meta property="og:image" content="https://gistnpl.github.io/gist-neurophotonicslab/assets/img/main/main2.png" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/publication.css" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261119-2" />
+  <link rel="stylesheet" href="../assets/css/publication.css?v=20261119-2" />
 </head>
 <body>
 
@@ -36,11 +36,31 @@
   <main class="page publication-page">
     <section class="page-hero">
       <h1>Publications</h1>
-      <p class="page-sub">Peer-reviewed papers, conference proceedings, and preprints.</p>
+      <p class="page-sub">Journal articles, reviews, and patents from the lab.</p>
     </section>
 
     <section class="pub-toolbar" aria-label="Publication tools">
+      <form class="pub-search" role="search" aria-label="Search publications" hidden>
+        <label class="pub-field pub-query" for="pub-query">
+          Search title or author
+          <input id="pub-query" name="q" type="search" />
+        </label>
+        <label class="pub-field" for="pub-year-filter">
+          Year
+          <select id="pub-year-filter" name="year">
+            <option value="">All years</option>
+          </select>
+        </label>
+        <label class="pub-field" for="pub-type-filter">
+          Type
+          <select id="pub-type-filter" name="type">
+            <option value="">All types</option>
+          </select>
+        </label>
+        <button class="pub-clear" type="button">Clear filters</button>
+      </form>
       <nav class="pub-year-chips" aria-label="Jump to year">
+        <span class="pub-jump-label" aria-hidden="true">Jump to year</span>
         <a class="pub-chip" href="#y2026">2026</a>
         <a class="pub-chip" href="#y2025">2025</a>
         <a class="pub-chip" href="#y2024">2024</a>
@@ -51,6 +71,8 @@
         <a class="pub-chip" href="#y2019">2019</a>
       </nav>
     </section>
+
+    <p class="pub-result-count" role="status"></p>
 
     <section class="pub-years">
 
@@ -216,11 +238,6 @@
       <section class="pub-year" id="y2025">
         <div class="pub-year-head">
           <h2>2025</h2>
-          <div class="pub-year-filters" role="group" aria-label="Filter publications">
-            <button class="pub-filter-btn active" type="button" data-filter="all">All</button>
-            <button class="pub-filter-btn" type="button" data-filter="journal">Journal</button>
-            <button class="pub-filter-btn" type="button" data-filter="conference">Conference</button>
-          </div>
         </div>
 
         <ol class="pub-list">
@@ -1321,8 +1338,7 @@
     © 2025 GIST Neurophotonics Lab. All rights reserved.
   </footer>
 
-  <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/publication.js"></script>
-<script src="/gist-neurophotonicslab/assets/js/site-chrome.js" defer></script>
+  <script src="../assets/js/publication.js?v=20261119-2"></script>
+<script src="/gist-neurophotonicslab/assets/js/site-chrome.js?v=20261119-2" defer></script>
 </body>
 </html>

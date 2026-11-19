@@ -1,139 +1,227 @@
-/* =========================================================
-   Base / Layout (GLOBAL)
-========================================================= */
-* { box-sizing: border-box; }
+:root {
+  --site-ink: #14243a;
+  --site-muted: #4d6076;
+  --site-accent: #225abc;
+  --site-line: #d9e3ed;
+  --site-surface: #f3f7fb;
+  --site-width: 76rem;
+  --site-header-color: #132238;
+}
 
-body{
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 5.5rem;
+}
+
+body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
-  color: #0f172a;
-  background: #ffffff;
+  color: var(--site-ink);
+  background: #fff;
 }
 
-/* ✅ 기본 페이지 레이아웃 */
-main{
+main {
   max-width: 1300px;
   margin: 0 auto;
   padding: 28px 24px;
 }
 
-h1,h2,h3{ margin-top: 0; }
-
-footer{
-  text-align: center;
-  padding: 20px 0 30px;
-  font-size: 0.8rem;
-  color: #9ca3af;
-  border-top: 1px solid #e5e7eb;
-  margin-top: 40px;
+h1, h2, h3 {
+  margin-top: 0;
 }
 
-/* =========================================================
-   Header / Nav (GLOBAL)
-   - ✅ 로고(이미지+텍스트)는 왼쪽
-   - ✅ 메뉴(nav)는 오른쪽 끝
-========================================================= */
-.site-header{
-  background: #111827;
-  color: #fff;
-  padding: 12px 40px;
+:focus-visible {
+  outline: 2px solid var(--site-accent);
+  outline-offset: 3px;
+}
 
+footer {
+  margin-top: 40px;
+  padding: 20px 1rem 30px;
+  border-top: 1px solid var(--site-line);
+  color: var(--site-muted);
+  font-size: .84rem;
+  text-align: center;
+}
+
+.site-skip-link {
+  position: fixed;
+  z-index: 90;
+  inset: .5rem auto auto .5rem;
+  padding: .75rem 1rem;
+  background: #fff;
+  color: var(--site-ink);
+  transform: translateY(-150%);
+}
+
+.site-skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  position: sticky;
+  z-index: 50;
+  top: 0;
+  background: var(--site-header-color);
+  color: #fff;
+  border-bottom: 1px solid #ffffff24;
+}
+
+.site-header-inner,
+.site-header:not(.site-header--ready) {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 양끝 정렬 */
-  gap: 20px;
+  justify-content: space-between;
+  gap: .5rem 1.25rem;
+  min-height: 4.15rem;
+  padding: .6rem 1.5rem;
 }
 
-/* ---- Brand (logo image + text) ---- */
-.brand{
+.site-header-inner {
+  max-width: calc(var(--site-width) + 3rem);
+  margin-inline: auto;
+}
+
+.site-header :focus-visible {
+  outline-color: #afd4ff;
+}
+
+.brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-
-  text-decoration: none;
+  gap: .65rem;
+  min-width: 0;
   color: #fff;
-
-  font-weight: 800;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
-.brand-logo{
-  width: 30px !important;
-  height: 30px !important;
-  max-width: 30px !important;
-  max-height: 30px !important;
-  object-fit: contain;
-  display: block;
-}
-
-
-.brand-text{
-  display: inline-block;
-}
-
-/* ---- Nav ---- */
-.site-nav{
-  margin-left: auto;          /* 🔥 nav를 오른쪽으로 밀기 */
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.site-nav a{
-  color: #e5e7eb;
+  font-size: .98rem;
+  font-weight: 720;
+  line-height: 1.24;
   text-decoration: none;
-  font-size: 0.95rem;
-  padding: 6px 2px;
 }
 
-.site-nav a:hover{
-  color: #ffffff;
-  text-decoration: underline;
+.brand-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
-/* =========================================================
-   Buttons (GLOBAL)
-========================================================= */
-.btn{
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .15rem;
+}
+
+.site-nav a,
+.site-menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: .45rem .65rem;
+  border-radius: .4rem;
+  color: #e2ebf5;
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-menu-toggle:hover {
+  background: #ffffff1f;
+  color: #fff;
+}
+
+.site-nav a[aria-current] {
+  background: #d5e5ff26;
+  color: #fff;
+  box-shadow: inset 0 -2px #9ac6ff;
+}
+
+.site-menu-toggle {
+  display: none;
+  flex: 0 0 auto;
+  gap: .38rem;
+  border: 1px solid #ffffff48;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.site-menu-toggle svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 10px 14px;
+  border: 1px solid var(--site-line);
   border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  text-decoration: none;
-  color: #0f172a;
+  color: var(--site-ink);
   background: #fff;
   font-weight: 700;
+  text-decoration: none;
   cursor: pointer;
 }
 
-.btn:hover{
-  background: #f8fafc;
+.btn:hover {
+  background: var(--site-surface);
 }
 
-/* =========================================================
-   Responsive
-========================================================= */
-@media (max-width: 900px){
-  .site-header{
-    padding: 12px 18px;
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 900px) {
+  .site-header-inner,
+  .site-header:not(.site-header--ready) {
+    padding-inline: 1.15rem;
   }
 
-  .site-nav{
-    margin-left: 0;
-    justify-content: flex-start;
-    gap: 12px;
+  .site-header:not(.site-header--ready) {
+    position: relative;
+    flex-wrap: wrap;
   }
 
-  main{
+  .site-menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-header--ready .site-nav {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: grid;
+    align-content: start;
+    max-height: calc(100dvh - 4.15rem);
+    overflow: auto;
+    padding: .6rem 1.15rem 1rem;
+    border-top: 1px solid #ffffff24;
+    background: var(--site-header-color);
+    box-shadow: 0 10px 22px #14243a35;
+  }
+
+  .site-menu-toggle[aria-expanded="false"] + .site-nav {
+    display: none;
+  }
+
+  main {
     padding: 22px 16px;
+  }
+}
+
+@media (max-width: 350px) {
+  .site-header-inner {
+    gap: .5rem;
+    padding-inline: .8rem;
+  }
+
+  .brand {
+    font-size: .9rem;
   }
 }

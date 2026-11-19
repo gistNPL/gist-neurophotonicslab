@@ -27,6 +27,14 @@ function scanHtml(directory) {
       for (const match of html.matchAll(/\b(?:src|data-img)\s*=\s*"([^"]+)"/g)) {
         check(match[1], file);
       }
+      for (const match of html.matchAll(/\bsrcset\s*=\s*"([^"]+)"/g)) {
+        for (const candidate of match[1].split(',')) {
+          check(candidate.trim().split(/\s+/, 1)[0], file);
+        }
+      }
+      for (const match of html.matchAll(/\bhref\s*=\s*"((?:\.\.\/|\/gist-neurophotonicslab\/)?assets\/(?:img|pubs)\/[^"]+)"/g)) {
+        check(decodeURIComponent(match[1]), file);
+      }
       for (const match of html.matchAll(/\bthis\.src\s*=\s*'([^']+)'/g)) {
         check(match[1], file);
       }
