@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="GIST Neurophotonics Lab: neurophotonics, biomedical imaging, and AI research" />
   <meta property="og:image" content="https://gistnpl.github.io/gist-neurophotonicslab/assets/img/main/main2.png" />
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261119-2" />
-  <link rel="stylesheet" href="../assets/css/research.css?v=20261119" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261119-restore" />
+  <link rel="stylesheet" href="../assets/css/research.css?v=20261119-restore" />
 
 </head>
 <body>
@@ -35,72 +35,107 @@
 
 
   <main class="research-page">
+
+    <!-- 상단 소개(간단하게) -->
     <section class="research-top">
       <h1>Research</h1>
       <p class="research-top-desc">
         We develop translational neurophotonic technologies spanning neurobiological imaging,
         neurobiology, and AI-driven analysis.
       </p>
-      <nav class="research-topics" aria-label="Research areas">
-        <a href="#neurophotonics">Neurophotonics</a>
-        <a href="#translational-medicine">Translational medicine</a>
-        <a href="#ai">AI</a>
-      </nav>
     </section>
 
-    <section class="research-section" id="neurophotonics" aria-labelledby="neurophotonics-heading">
-      <h2 id="neurophotonics-heading">Neurophotonics</h2>
-      <div class="research-grid">
-        <article class="research-item" id="event-based-imaging">
-          <figure class="research-figure">
-            <a class="research-image-link" href="../assets/img/research/event.png">
-              <img src="../assets/img/research/thumbs/event.jpg" alt="Neuromorphic event-based optical neural imaging" loading="lazy" decoding="async" />
-              <span>Open original image</span>
-            </a>
-          </figure>
-          <div class="research-project-body">
-            <h3>Neuromorphic, Event-based Optical Neural Imaging</h3>
-            <p class="research-lead">We develop neuromorphic, event-based optical neural imaging that captures intensity changes asynchronously, enabling millisecond temporal resolution and efficient representation of dynamics. Our work spans custom system building, event/frame sensor fusion for neural and blood-flow imaging, and computational methods to extract meaningful spatiotemporal signals.</p>
-            <div class="research-project-actions">
-              <a class="research-permalink" href="#event-based-imaging">Project link<span class="research-visually-hidden"> for Neuromorphic, Event-based Optical Neural Imaging</span></a>
-            </div>
-            <details class="research-details">
-              <summary>Project details<span class="research-visually-hidden"> for Neuromorphic, Event-based Optical Neural Imaging</span></summary>
-              <div class="research-description">
-                <p>
+    <!-- 탭 -->
+    <section class="research-tabs" aria-label="Research categories">
+      <button class="tab active" data-tab="imaging" type="button">Neurophotonics</button>
+      <button class="tab" data-tab="neuro" type="button">Translational medicine</button>
+      <button class="tab" data-tab="ai" type="button">AI</button>
+    </section>
+
+    <!-- 패널들 -->
+    <section class="research-content">
+
+      <!-- =========================
+           TAB 1) Neurophotonics
+      ========================== -->
+      <div class="tab-panel active" data-panel="imaging">
+        <div class="research-grid one-col">
+
+          <!-- Neuromorphic / Event-based Optical Neural Imaging -->
+          <article class="research-item">
+          <button class="research-thumb"
+          type="button"
+          data-modal="research"
+          data-img="../assets/img/research/event.png"
+          data-title="Neuromorphic, Event-based Optical Neural Imaging"
+          data-desc="
+          <p>
+            Our research focuses on neuromorphic, event-based optical neural imaging, spanning imaging system development,
+            data acquisition, and computational analysis.
+          </p>
+          <p>
+            Inspired by the human visual system, event-based sensors asynchronously detect changes in light intensity rather than
+            recording full image frames, enabling millisecond temporal resolution and efficient data representation.
+          </p>
+          <ul>
+            <li>Custom optical imaging system design and development</li>
+            <li>Integration of event-based and frame-based sensors for neural activity and blood flow imaging</li>
+            <li>Data processing and analysis to extract meaningful spatiotemporal signals from event-based measurements</li>
+          </ul>
+          ">
+          <img
+          src="../assets/img/research/thumbs/event.jpg"
+          alt="Neuromorphic event-based optical neural imaging"
+          onerror="this.onerror=null;this.alt='Research image unavailable';this.src='../assets/img/home/logo.png';"
+          />
+          </button>
+
+          <div class="research-meta">
+          <div class="research-title-row">
+          <h2 class="research-title">Neuromorphic, Event-based Optical Neural Imaging</h2>
+
+          <button class="btn btn-detail"
+            type="button"
+            data-modal="research"
+            data-img="../assets/img/research/event.png"
+            data-title="Neuromorphic, Event-based Optical Neural Imaging"
+            data-desc="
+              <p>
                 Our research focuses on neuromorphic, event-based optical neural imaging, spanning imaging system development,
                 data acquisition, and computational analysis.
-                </p>
-                <p>
+              </p>
+              <p>
                 Inspired by the human visual system, event-based sensors asynchronously detect changes in light intensity rather than
                 recording full image frames, enabling millisecond temporal resolution and efficient data representation.
-                </p>
-                <ul>
-                  <li>Custom optical imaging system design and development</li>
-                  <li>Integration of event-based and frame-based sensors for neural activity and blood flow imaging</li>
-                  <li>Data processing and analysis to extract meaningful spatiotemporal signals from event-based measurements</li>
-                </ul>
-              </div>
-            </details>
+              </p>
+              <ul>
+                <li>Custom optical imaging system design and development</li>
+                <li>Integration of event-based and frame-based sensors for neural activity and blood flow imaging</li>
+                <li>Data processing and analysis to extract meaningful spatiotemporal signals from event-based measurements</li>
+              </ul>
+            ">
+            View detail
+          </button>
           </div>
-        </article>
 
-        <article class="research-item" id="metalens-light-field-microscopy">
-          <figure class="research-figure">
-            <a class="research-image-link" href="../assets/img/research/nhat.png">
-              <img src="../assets/img/research/thumbs/nhat.jpg" alt="MetaLFM" loading="lazy" decoding="async" />
-              <span>Open original image</span>
-            </a>
-          </figure>
-          <div class="research-project-body">
-            <h3>Metalens-based Light-Field Microscopy for High-Resolution Volumetric and Functional Imaging</h3>
-            <p class="research-lead">We develop a metalens-integrated light-field microscopy (MetaLFM) platform for high-resolution volumetric reconstruction and functional imaging. MetaLFM improves both lateral and axial resolution across depth, enabling more faithful 3D imaging and depth-resolved functional calcium readouts.</p>
-            <div class="research-project-actions">
-              <a class="research-permalink" href="#metalens-light-field-microscopy">Project link<span class="research-visually-hidden"> for Metalens-based Light-Field Microscopy for High-Resolution Volumetric and Functional Imaging</span></a>
-            </div>
-            <details class="research-details">
-              <summary>Project details<span class="research-visually-hidden"> for Metalens-based Light-Field Microscopy for High-Resolution Volumetric and Functional Imaging</span></summary>
-              <div class="research-description">
+          <p class="research-lead">
+          We develop neuromorphic, event-based optical neural imaging that captures intensity changes asynchronously,
+          enabling millisecond temporal resolution and efficient representation of dynamics.
+          Our work spans custom system building, event/frame sensor fusion for neural and blood-flow imaging,
+          and computational methods to extract meaningful spatiotemporal signals.
+          </p>
+          </div>
+          </article>
+
+
+          <!-- MetaLFM -->
+          <article class="research-item">
+            <button class="research-thumb"
+              type="button"
+              data-modal="research"
+              data-img="../assets/img/research/nhat.png"
+              data-title="Metalens-based Light-Field Microscopy for High-Resolution Volumetric and Functional Imaging"
+              data-desc="
                 <p>MetaLFM integrates a metalens array into the light-field imaging pipeline to enable high-resolution volumetric reconstruction and functional imaging.</p>
                 <ul>
                   <li><b>System & pipeline:</b> Schematic of the MetaLFM setup and light-field imaging pipeline; the dashed box highlights the metalens array (with representative SEM).</li>
@@ -110,81 +145,159 @@
                   <li><b>Functional calcium imaging:</b> Depth-resolved soma-level activity with traces (200 s, 25 Hz) and Ca²⁺ kymograph across volume.</li>
                 </ul>
                 <p style='margin-top:10px;color:#64748b;'>Scale bar: 50 μm. *** p&lt;0.001, **** p&lt;0.0001.</p>
-              </div>
-            </details>
-          </div>
-        </article>
-      </div>
-    </section>
+              ">
+              <img
+                src="../assets/img/research/thumbs/nhat.jpg"
+                alt="MetaLFM"
+                onerror="this.onerror=null;this.alt='Research image unavailable';this.src='../assets/img/home/logo.png';"
+              />
+            </button>
 
-    <section class="research-section" id="translational-medicine" aria-labelledby="translational-medicine-heading">
-      <h2 id="translational-medicine-heading">Translational medicine</h2>
-      <div class="research-grid">
-        <article class="research-item" id="vascular-dysfunction">
-          <figure class="research-figure">
-            <a class="research-image-link" href="../assets/img/research/vascular.png">
-              <img src="../assets/img/research/thumbs/vascular.jpg" alt="Vascular dysfunction in Neurological disorders" loading="lazy" decoding="async" />
-              <span>Open original image</span>
-            </a>
-          </figure>
-          <div class="research-project-body">
-            <h3>Vascular Dysfunction in Neurological Disorders</h3>
-            <p class="research-lead">Our research focuses on the role of meningeal and peripheral lymphatic systems in neurodegenerative and neurological disorders. We investigate how lymphatic dysfunction affects brain waste clearance, neurovascular integrity, and neural network function, with a particular emphasis on Alzheimer’s disease. By combining in vivo imaging, electrophysiology, and behavioral analysis with minimally invasive biofluid biomarkers, our work aims to bridge mechanistic insights from animal models to clinically relevant diagnostic and therapeutic strategies. Ultimately, we seek to develop translational approaches that enable early disease detection and non-invasive intervention by targeting lymphatic–neurovascular pathways.</p>
-            <div class="research-project-actions">
-              <a class="research-permalink" href="#vascular-dysfunction">Project link<span class="research-visually-hidden"> for Vascular Dysfunction in Neurological Disorders</span></a>
+            <div class="research-meta">
+              <div class="research-title-row">
+                <h2 class="research-title">
+                  Metalens-based Light-Field Microscopy for High-Resolution Volumetric and Functional Imaging
+                </h2>
+                <button class="btn btn-detail"
+                  type="button"
+                  data-modal="research"
+                  data-img="../assets/img/research/nhat.png"
+                  data-title="Metalens-based Light-Field Microscopy for High-Resolution Volumetric and Functional Imaging"
+                  data-desc="
+                    <p>MetaLFM integrates a metalens array into the light-field imaging pipeline to enable high-resolution volumetric reconstruction and functional imaging.</p>
+                    <ul>
+                      <li><b>System & pipeline:</b> Schematic of the MetaLFM setup and light-field imaging pipeline; the dashed box highlights the metalens array (with representative SEM).</li>
+                      <li><b>Resolution gain:</b> 500 nm fluorescent bead measurements (n=7) across depth show ~25% improvement in lateral and axial resolution vs. conventional LFM.</li>
+                      <li><b>3D neuron reconstruction:</b> Spinal cord motor neuron dendrites (n=90) reconstructed with significantly improved resolution.</li>
+                      <li><b>Organoid volumetrics:</b> Gut organoid 3D reconstruction and z-slices; quantitative analysis indicates improved image quality/resolution.</li>
+                      <li><b>Functional calcium imaging:</b> Depth-resolved soma-level activity with traces (200 s, 25 Hz) and Ca²⁺ kymograph across volume.</li>
+                    </ul>
+                    <p style='margin-top:10px;color:#64748b;'>Scale bar: 50 μm. *** p&lt;0.001, **** p&lt;0.0001.</p>
+                  ">
+                  View detail
+                </button>
+              </div>
+
+              <p class="research-lead">
+                We develop a metalens-integrated light-field microscopy (MetaLFM) platform for high-resolution volumetric reconstruction and functional imaging.
+                MetaLFM improves both lateral and axial resolution across depth, enabling more faithful 3D imaging and depth-resolved functional calcium readouts.
+              </p>
             </div>
-            <details class="research-details">
-              <summary>Project details<span class="research-visually-hidden"> for Vascular Dysfunction in Neurological Disorders</span></summary>
-              <div class="research-description">
+          </article>
+
+
+
+
+        </div>
+      </div>
+
+      <!-- =========================
+           TAB 2) Translational medicine (Neurobiology)
+      ========================== -->
+      <div class="tab-panel" data-panel="neuro">
+        <div class="research-grid one-col">
+
+          <article class="research-item">
+            <button class="research-thumb"
+              type="button"
+              data-modal="research"
+              data-img="../assets/img/research/vascular.png"
+              data-title="Vascular dysfunction in Neurological disorders"
+              data-desc="
                 <p>Our research focuses on the role of meningeal and peripheral lymphatic systems in neurodegenerative and neurological disorders.</p>
                 <p>We investigate how lymphatic dysfunction affects brain waste clearance, neurovascular integrity, and neural network function, with a particular emphasis on Alzheimer’s disease.</p>
                 <p>By combining in vivo imaging, electrophysiology, and behavioral analysis with minimally invasive biofluid biomarkers, our work aims to bridge mechanistic insights from animal models to clinically relevant diagnostic and therapeutic strategies.</p>
-                <p>Ultimately, we seek to develop translational approaches that enable early disease detection and non-invasive intervention by targeting lymphatic–neurovascular pathways</p>
-              </div>
-            </details>
-          </div>
-        </article>
+                </p> Ultimately, we seek to develop translational approaches that enable early disease detection and non-invasive intervention by targeting lymphatic–neurovascular pathways</p>
+              ">
+              <img
+                src="../assets/img/research/thumbs/vascular.jpg"
+                alt="Vascular dysfunction in Neurological disorders"
+                onerror="this.onerror=null;this.alt='Research image unavailable';this.src='../assets/img/home/logo.png';"
+              />
+            </button>
 
-        <article class="research-item" id="neuropathic-pain">
-          <figure class="research-figure">
-            <a class="research-image-link" href="../assets/img/research/neuropathicpain.png">
-              <img src="../assets/img/research/thumbs/neuropathicpain.jpg" alt="Neuropathic Pain" loading="lazy" decoding="async" />
-              <span>Open original image</span>
-            </a>
-          </figure>
-          <div class="research-project-body">
-            <h3>Neuropathic Pain</h3>
-            <p class="research-lead">We investigate how nerve injury remodels peripheral sensory circuits to drive neuropathic pain. A key focus is the DRG microenvironment, where neurons, glia, immune cells, and vasculature jointly shape sensory transduction and transmission.</p>
-            <div class="research-project-actions">
-              <a class="research-permalink" href="#neuropathic-pain">Project link<span class="research-visually-hidden"> for Neuropathic Pain</span></a>
+            <div class="research-meta">
+              <div class="research-title-row">
+                <h2 class="research-title">Vascular dysfunction in Neurological disorders</h2>
+                <button class="btn btn-detail"
+                  type="button"
+                  data-modal="research"
+                  data-img="../assets/img/research/vascular.png"
+                  data-title="Vascular dysfunction in Neurological disorders"
+                  data-desc="
+                    <p>Our research focuses on the role of meningeal and peripheral lymphatic systems in neurodegenerative and neurological disorders.</p>
+                <p>We investigate how lymphatic dysfunction affects brain waste clearance, neurovascular integrity, and neural network function, with a particular emphasis on Alzheimer’s disease.</p>
+                <p>By combining in vivo imaging, electrophysiology, and behavioral analysis with minimally invasive biofluid biomarkers, our work aims to bridge mechanistic insights from animal models to clinically relevant diagnostic and therapeutic strategies.</p>
+                </p> Ultimately, we seek to develop translational approaches that enable early disease detection and non-invasive intervention by targeting lymphatic–neurovascular pathways</p>
+                  ">
+                  View detail
+                </button>
+              </div>
+
+              <p class="research-lead">
+                Our research focuses on the role of meningeal and peripheral lymphatic systems in neurodegenerative
+                and neurological disorders. We investigate how lymphatic dysfunction affects brain waste clearance,
+                neurovascular integrity, and neural network function, with a particular emphasis on Alzheimer’s disease.
+                By combining in vivo imaging, electrophysiology, and behavioral analysis with minimally invasive biofluid
+                biomarkers, our work aims to bridge mechanistic insights from animal models to clinically relevant
+                diagnostic and therapeutic strategies. Ultimately, we seek to develop translational approaches that
+                enable early disease detection and non-invasive intervention by targeting lymphatic–neurovascular
+                pathways.
+              </p>
             </div>
-            <details class="research-details">
-              <summary>Project details<span class="research-visually-hidden"> for Neuropathic Pain</span></summary>
-              <div class="research-description">
+          </article>
+
+          <!-- Neuropathic Pain -->
+          <article class="research-item">
+            <button class="research-thumb"
+              type="button"
+              data-modal="research"
+              data-img="../assets/img/research/neuropathicpain.png"
+              data-title="Neuropathic Pain"
+              data-desc="
                 <p>Our pain research focuses on how peripheral sensory systems are organized and how nerve injury remodels these circuits to drive neuropathic pain.</p>
                 <p>We focus on the dorsal root ganglion (DRG) as a key site where neurons, glia, immune cells, and vasculature interact to shape sensory transduction and transmission.</p>
                 <p>Using mouse models of acute and chronic pain, we combine molecular, cellular, and behavioral approaches to identify pathway- and modality-specific mechanisms and to inform more precise therapeutic strategies.</p>
-              </div>
-            </details>
-          </div>
-        </article>
+              ">
+              <img
+                src="../assets/img/research/thumbs/neuropathicpain.jpg"
+                alt="Neuropathic Pain"
+                onerror="this.onerror=null;this.alt='Research image unavailable';this.src='../assets/img/home/logo.png';"
+              />
+            </button>
 
-        <article class="research-item" id="drg-chronic-pain">
-          <figure class="research-figure">
-            <a class="research-image-link" href="../assets/img/research/daeun.png">
-              <img src="../assets/img/research/thumbs/daeun.jpg" alt="DRG chronic pain imaging" loading="lazy" decoding="async" />
-              <span>Open original image</span>
-            </a>
-          </figure>
-          <div class="research-project-body">
-            <h3>Neurovascular–Neuroimmune Mechanisms of Chronic Pain in the DRG</h3>
-            <p class="research-lead">We study chronic pain through neurovascular and neuroimmune interactions in the DRG microenvironment. By building a chronic DRG imaging window and volumetric functional imaging pipeline, we enable longitudinal observation of the vascular–lymphatic–neuronal axis.</p>
-            <div class="research-project-actions">
-              <a class="research-permalink" href="#drg-chronic-pain">Project link<span class="research-visually-hidden"> for Neurovascular–Neuroimmune Mechanisms of Chronic Pain in the DRG</span></a>
+            <div class="research-meta">
+              <div class="research-title-row">
+                <h2 class="research-title">Neuropathic Pain</h2>
+                <button class="btn btn-detail"
+                  type="button"
+                  data-modal="research"
+                  data-img="../assets/img/research/neuropathicpain.png"
+                  data-title="Neuropathic Pain"
+                  data-desc="
+                    <p>Our pain research focuses on how peripheral sensory systems are organized and how nerve injury remodels these circuits to drive neuropathic pain.</p>
+                    <p>We focus on the dorsal root ganglion (DRG) as a key site where neurons, glia, immune cells, and vasculature interact to shape sensory transduction and transmission.</p>
+                    <p>Using mouse models of acute and chronic pain, we combine molecular, cellular, and behavioral approaches to identify pathway- and modality-specific mechanisms and to inform more precise therapeutic strategies.</p>
+                  ">
+                  View detail
+                </button>
+              </div>
+
+              <p class="research-lead">
+                We investigate how nerve injury remodels peripheral sensory circuits to drive neuropathic pain.
+                A key focus is the DRG microenvironment, where neurons, glia, immune cells, and vasculature jointly shape sensory transduction and transmission.
+              </p>
             </div>
-            <details class="research-details">
-              <summary>Project details<span class="research-visually-hidden"> for Neurovascular–Neuroimmune Mechanisms of Chronic Pain in the DRG</span></summary>
-              <div class="research-description">
+          </article>
+
+          <!-- DRG: Neurovascular–Neuroimmune -->
+          <article class="research-item">
+            <button class="research-thumb"
+              type="button"
+              data-modal="research"
+              data-img="../assets/img/research/daeun.png"
+              data-title="Neurovascular–Neuroimmune Mechanisms of Chronic Pain in the DRG"
+              data-desc="
                 <p>We study neurovascular and neuroimmune mechanisms of chronic pain, focusing on functional interactions in the dorsal root ganglion (DRG).</p>
                 <ul>
                   <li>Blood vessels, lymphatic vessels, and sensory neurons form a vascular–lymphatic–neuronal axis</li>
@@ -193,78 +306,143 @@
                   <li>We are developing a chronic DRG imaging window for repeated in vivo measurements</li>
                   <li>Volumetric functional imaging using two-photon and light-field/light-sheet–based systems</li>
                 </ul>
-              </div>
-            </details>
-          </div>
-        </article>
+              ">
+              <img
+                src="../assets/img/research/thumbs/daeun.jpg"
+                alt="DRG chronic pain imaging"
+                onerror="this.onerror=null;this.alt='Research image unavailable';this.src='../assets/img/home/logo.png';"
+              />
+            </button>
 
-        <article class="research-item" id="neuro-electrophysiology">
-          <figure class="research-figure">
-            <a class="research-image-link" href="../assets/img/research/electrophysiology.png">
-              <img src="../assets/img/research/thumbs/electrophysiology.jpg" alt="AI-based neuro electrophysiology platform" loading="lazy" decoding="async" />
-              <span>Open original image</span>
-            </a>
-          </figure>
-          <div class="research-project-body">
-            <h3>AI-based Neuro Electrophysiology Platform</h3>
-            <p class="research-lead">We build an AI-driven electrophysiology platform that combines HD-MEA recordings with scalable analytics. The goal is to quantify population dynamics, track network reorganization, and discover disease-relevant electrophysiological biomarkers.</p>
-            <div class="research-project-actions">
-              <a class="research-permalink" href="#neuro-electrophysiology">Project link<span class="research-visually-hidden"> for AI-based Neuro Electrophysiology Platform</span></a>
+            <div class="research-meta">
+              <div class="research-title-row">
+                <h2 class="research-title">Neurovascular–Neuroimmune Mechanisms of Chronic Pain in the DRG</h2>
+                <button class="btn btn-detail"
+                  type="button"
+                  data-modal="research"
+                  data-img="../assets/img/research/daeun.png"
+                  data-title="Neurovascular–Neuroimmune Mechanisms of Chronic Pain in the DRG"
+                  data-desc="
+                    <p>We study neurovascular and neuroimmune mechanisms of chronic pain, focusing on functional interactions in the dorsal root ganglion (DRG).</p>
+                    <ul>
+                      <li>Blood vessels, lymphatic vessels, and sensory neurons form a vascular–lymphatic–neuronal axis</li>
+                      <li>We investigate how this axis contributes to initiation and maintenance of neuropathic pain</li>
+                      <li>We establish an in vivo optical imaging framework for longitudinal functional observation</li>
+                      <li>We are developing a chronic DRG imaging window for repeated in vivo measurements</li>
+                      <li>Volumetric functional imaging using two-photon and light-field/light-sheet–based systems</li>
+                    </ul>
+                  ">
+                  View detail
+                </button>
+              </div>
+
+              <p class="research-lead">
+                We study chronic pain through neurovascular and neuroimmune interactions in the DRG microenvironment.
+                By building a chronic DRG imaging window and volumetric functional imaging pipeline, we enable longitudinal observation of the vascular–lymphatic–neuronal axis.
+              </p>
             </div>
-            <details class="research-details">
-              <summary>Project details<span class="research-visually-hidden"> for AI-based Neuro Electrophysiology Platform</span></summary>
-              <div class="research-description">
+          </article>
+
+          <!-- AI-based Neuro Electrophysiology Platform -->
+          <article class="research-item">
+            <button class="research-thumb"
+              type="button"
+              data-modal="research"
+              data-img="../assets/img/research/electrophysiology.png"
+              data-title="AI-based Neuro Electrophysiology Platform"
+              data-desc="
                 <p>We develop an AI-driven electrophysiology platform integrating HD-MEA recordings with signal processing and machine learning.</p>
                 <ul>
                   <li>Scalable spike/LFP feature extraction and event detection</li>
                   <li>CSD-based spatiotemporal propagation analysis</li>
                   <li>Representation learning for biomarker discovery and classification</li>
                 </ul>
-              </div>
-            </details>
-          </div>
-        </article>
+              ">
+              <img
+                src="../assets/img/research/thumbs/electrophysiology.jpg"
+                alt="AI-based neuro electrophysiology platform"
+                onerror="this.onerror=null;this.alt='Research image unavailable';this.src='../assets/img/home/logo.png';"
+              />
+            </button>
 
-        <article class="research-item" id="calcium-dynamics">
-          <figure class="research-figure">
-            <a class="research-image-link" href="../assets/img/research/mh.png">
-              <img src="../assets/img/research/thumbs/mh.jpg" alt="Functional Diagnosis via Calcium Dynamics" loading="lazy" decoding="async" />
-              <span>Open original image</span>
-            </a>
-          </figure>
-          <div class="research-project-body">
-            <h3>Functional Diagnosis via Calcium Dynamics</h3>
-            <p class="research-lead">We study malignant hyperthermia through functional calcium dynamics to enable safer and more accessible diagnosis. Our aim is non-invasive diagnostic concepts that complement invasive or clinically limited tests and translate well into practice.</p>
-            <div class="research-project-actions">
-              <a class="research-permalink" href="#calcium-dynamics">Project link<span class="research-visually-hidden"> for Functional Diagnosis via Calcium Dynamics</span></a>
+            <div class="research-meta">
+              <div class="research-title-row">
+                <h2 class="research-title">AI-based Neuro Electrophysiology Platform</h2>
+                <button class="btn btn-detail"
+                  type="button"
+                  data-modal="research"
+                  data-img="../assets/img/research/electrophysiology.png"
+                  data-title="AI-based Neuro Electrophysiology Platform"
+                  data-desc="
+                    <p>We develop an AI-driven electrophysiology platform integrating HD-MEA recordings with signal processing and machine learning.</p>
+                    <ul>
+                      <li>Scalable spike/LFP feature extraction and event detection</li>
+                      <li>CSD-based spatiotemporal propagation analysis</li>
+                      <li>Representation learning for biomarker discovery and classification</li>
+                    </ul>
+                  ">
+                  View detail
+                </button>
+              </div>
+
+              <p class="research-lead">
+                We build an AI-driven electrophysiology platform that combines HD-MEA recordings with scalable analytics.
+                The goal is to quantify population dynamics, track network reorganization, and discover disease-relevant electrophysiological biomarkers.
+              </p>
             </div>
-            <details class="research-details">
-              <summary>Project details<span class="research-visually-hidden"> for Functional Diagnosis via Calcium Dynamics</span></summary>
-              <div class="research-description">
+          </article>
+
+          <!-- Functional Diagnosis via Calcium Dynamics (MH) -->
+          <article class="research-item">
+            <button class="research-thumb"
+              type="button"
+              data-modal="research"
+              data-img="../assets/img/research/mh.png"
+              data-title="Functional Diagnosis via Calcium Dynamics"
+              data-desc="
                 <p><b>Malignant Hyperthermia (MH)</b> is a rare but life-threatening disorder that can occur during inhalational anesthesia, with high mortality if treatment is delayed.</p>
                 <p>Although dantrolene is effective, limited storage/distribution underscores the importance of early diagnosis. Current diagnostics (genetic tests, functional assays) are often invasive or less accessible.</p>
                 <p>We focus on MH pathophysiology from a functional calcium-dynamics perspective and develop non-invasive diagnostic approaches with strong clinical translation potential.</p>
-              </div>
-            </details>
-          </div>
-        </article>
+              ">
+              <img
+                src="../assets/img/research/thumbs/mh.jpg"
+                alt="Functional Diagnosis via Calcium Dynamics"
+                onerror="this.onerror=null;this.alt='Research image unavailable';this.src='../assets/img/home/logo.png';"
+              />
+            </button>
 
-        <article class="research-item" id="magnetic-stimulation">
-          <figure class="research-figure">
-            <a class="research-image-link" href="../assets/img/research/jaebong.png">
-              <img src="../assets/img/research/thumbs/jaebong.jpg" alt="Magnetic stimulation biophysics (modeling and simulation)" loading="lazy" decoding="async" />
-              <span>Open original image</span>
-            </a>
-          </figure>
-          <div class="research-project-body">
-            <h3>Biophysical Modeling of Magnetic Stimulation in Neural Disease Models</h3>
-            <p class="research-lead">We study magnetic stimulation from a biophysical modeling perspective to understand how fields interact with neuronal structures. Equation-based modeling and NEURON simulations support mechanistic interpretation, alongside molecular and cellular analyses.</p>
-            <div class="research-project-actions">
-              <a class="research-permalink" href="#magnetic-stimulation">Project link<span class="research-visually-hidden"> for Biophysical Modeling of Magnetic Stimulation in Neural Disease Models</span></a>
+            <div class="research-meta">
+              <div class="research-title-row">
+                <h2 class="research-title">Functional Diagnosis via Calcium Dynamics</h2>
+                <button class="btn btn-detail"
+                  type="button"
+                  data-modal="research"
+                  data-img="../assets/img/research/mh.png"
+                  data-title="Functional Diagnosis via Calcium Dynamics"
+                  data-desc="
+                    <p><b>Malignant Hyperthermia (MH)</b> is a rare but life-threatening disorder that can occur during inhalational anesthesia, with high mortality if treatment is delayed.</p>
+                    <p>Although dantrolene is effective, limited storage/distribution underscores the importance of early diagnosis. Current diagnostics (genetic tests, functional assays) are often invasive or less accessible.</p>
+                    <p>We focus on MH pathophysiology from a functional calcium-dynamics perspective and develop non-invasive diagnostic approaches with strong clinical translation potential.</p>
+                  ">
+                  View detail
+                </button>
+              </div>
+
+              <p class="research-lead">
+                We study malignant hyperthermia through functional calcium dynamics to enable safer and more accessible diagnosis.
+                Our aim is non-invasive diagnostic concepts that complement invasive or clinically limited tests and translate well into practice.
+              </p>
             </div>
-            <details class="research-details">
-              <summary>Project details<span class="research-visually-hidden"> for Biophysical Modeling of Magnetic Stimulation in Neural Disease Models</span></summary>
-              <div class="research-description">
+          </article>
+
+          <!-- Magnetic stimulation modeling -->
+          <article class="research-item">
+            <button class="research-thumb"
+              type="button"
+              data-modal="research"
+              data-img="../assets/img/research/jaebong.png"
+              data-title="Biophysical Modeling of Magnetic Stimulation in Neural Disease Models"
+              data-desc="
                 <p>We investigate how magnetic stimulation modulates neural systems in disease models from a biophysical perspective.</p>
                 <ul>
                   <li>Mechanistic study of field–neuron interactions and their impact on membrane dynamics</li>
@@ -272,80 +450,176 @@
                   <li>Equation-based neuronal biophysics modeling as the core framework</li>
                   <li>Computational simulations (e.g., NEURON) to support interpretation and refine hypotheses</li>
                 </ul>
-              </div>
-            </details>
-          </div>
-        </article>
-      </div>
-    </section>
+              ">
+              <img
+                src="../assets/img/research/thumbs/jaebong.jpg"
+                alt="Magnetic stimulation biophysics (modeling and simulation)"
+                onerror="this.onerror=null;this.alt='Research image unavailable';this.src='../assets/img/home/logo.png';"
+              />
+            </button>
 
-    <section class="research-section" id="ai" aria-labelledby="ai-heading">
-      <h2 id="ai-heading">AI</h2>
-      <div class="research-grid">
-        <article class="research-item" id="image-enhancement">
-          <figure class="research-figure">
-            <a class="research-image-link" href="../assets/img/research/denoising.png">
-              <img src="../assets/img/research/thumbs/denoising.jpg" alt="Deep Learning for Biomedical Imaging" loading="lazy" decoding="async" />
-              <span>Open original image</span>
-            </a>
-          </figure>
-          <div class="research-project-body">
-            <h3>Image Enhancement, Denoising &amp; Restoration</h3>
-            <p class="research-lead">We develop deep learning methods for enhancing, denoising, and restoring microscopy images to extract meaningful biological information.</p>
-            <div class="research-project-actions">
-              <a class="research-permalink" href="#image-enhancement">Project link<span class="research-visually-hidden"> for Image Enhancement, Denoising &amp; Restoration</span></a>
+            <div class="research-meta">
+              <div class="research-title-row">
+                <h2 class="research-title">Biophysical Modeling of Magnetic Stimulation in Neural Disease Models</h2>
+                <button class="btn btn-detail"
+                  type="button"
+                  data-modal="research"
+                  data-img="../assets/img/research/jaebong.png"
+                  data-title="Biophysical Modeling of Magnetic Stimulation in Neural Disease Models"
+                  data-desc="
+                    <p>We investigate how magnetic stimulation modulates neural systems in disease models from a biophysical perspective.</p>
+                    <ul>
+                      <li>Mechanistic study of field–neuron interactions and their impact on membrane dynamics</li>
+                      <li>Downstream cellular/molecular consequences supported by molecular and cellular analyses</li>
+                      <li>Equation-based neuronal biophysics modeling as the core framework</li>
+                      <li>Computational simulations (e.g., NEURON) to support interpretation and refine hypotheses</li>
+                    </ul>
+                  ">
+                  View detail
+                </button>
+              </div>
+
+              <p class="research-lead">
+                We study magnetic stimulation from a biophysical modeling perspective to understand how fields interact with neuronal structures.
+                Equation-based modeling and NEURON simulations support mechanistic interpretation, alongside molecular and cellular analyses.
+              </p>
             </div>
-            <details class="research-details">
-              <summary>Project details<span class="research-visually-hidden"> for Image Enhancement, Denoising &amp; Restoration</span></summary>
-              <div class="research-description">
+          </article>
+
+        </div>
+      </div>
+
+      <!-- =========================
+           TAB 3) AI+X
+      ========================== -->
+      <div class="tab-panel" data-panel="ai">
+        <div class="research-grid one-col">
+
+          <article class="research-item">
+            <button class="research-thumb"
+              type="button"
+              data-modal="research"
+              data-img="../assets/img/research/denoising.png"
+              data-title="Deep Learning for Biomedical Imaging"
+              data-desc="
                 <p>We develop deep learning methods for biomedical imaging across microscopy and ultrasound, with a focus on improving image quality and extracting meaningful biological information from complex data.</p>
                 <p>Our research is particularly interested in microscopy modalities such as calcium imaging and voltage imaging, where both spatial and temporal information are essential for understanding neural activity. We also explore AI-based approaches for ultrasound imaging, including enhancement, reconstruction, and quantitative analysis.</p>
                 <ul>
-                  <li>Deep learning-based image enhancement, denoising, and restoration for biomedical imaging</li>
+                  <li>Deep learning-based image enhancement and restoration for biomedical imaging</li>
                   <li>Spatiotemporal analysis of calcium and voltage imaging data</li>
                   <li>AI-driven analysis and reconstruction for ultrasound imaging</li>
                   <li>Robust computational tools for biologically meaningful interpretation</li>
                 </ul>
-              </div>
-            </details>
-          </div>
-        </article>
+              ">
+              <img
+                src="../assets/img/research/thumbs/denoising.jpg"
+                alt="Deep Learning for Biomedical Imaging"
+                onerror="this.onerror=null;this.alt='Research image unavailable';this.src='../assets/img/home/logo.png';"
+              />
+            </button>
 
-        <article class="research-item" id="segmentation-detection">
-          <figure class="research-figure">
-            <a class="research-image-link" href="../assets/img/research/segmentation.png">
-              <img src="../assets/img/research/thumbs/segmentation.jpg" alt="Segmentation &amp; Detection" loading="lazy" decoding="async" />
-              <span>Open original image</span>
-            </a>
-          </figure>
-          <div class="research-project-body">
-            <h3>Segmentation, Detection &amp; Quantification</h3>
-            <p class="research-lead">We develop deep learning methods for Object detection, segmentation in biomedical images for analysis.</p>
-            <div class="research-project-actions">
-              <a class="research-permalink" href="#segmentation-detection">Project link<span class="research-visually-hidden"> for Segmentation, Detection &amp; Quantification</span></a>
+            <div class="research-meta">
+              <div class="research-title-row">
+                <h2 class="research-title">Image Enhancement & Denoising & Restoration</h2>
+                <button class="btn btn-detail"
+                  type="button"
+                  data-modal="research"
+                  data-img="../assets/img/research/denoising.png"
+                  data-title="Deep Learning for Biomedical Imaging"
+                  data-desc="
+                    <p>We develop deep learning-based Image Enhancement methods for Microscopy Image. with a focus on improving image quality and extracting meaningful biological information from complex data.</p>
+                    <p>Our research is particularly interested in microscopy modalities such as calcium imaging and voltage imaging, where both spatial and temporal information are essential for understanding neural activity. We also explore AI-based approaches for ultrasound imaging, including enhancement, reconstruction, and quantitative analysis.</p>
+                    <ul>
+                      <li>Deep learning-based image enhancement and Denoising for biomedical imaging</li>
+                      <li>Spatiotemporal analysis of calcium and voltage imaging data</li>
+                      <li>Robust computational tools for biologically meaningful interpretation</li>
+                    </ul>
+                  ">
+                  View detail
+                </button>
+              </div>
+
+              <p class="research-lead">
+                We develop deep learning-based Image Enhancement methods for Microscopy Image. with a focus on improving image quality and extracting meaningful biological information from complex data.
+              </p>
             </div>
-            <details class="research-details">
-              <summary>Project details<span class="research-visually-hidden"> for Segmentation, Detection &amp; Quantification</span></summary>
-              <div class="research-description">
+          </article>
+
+          <article class="research-item">
+            <button class="research-thumb"
+              type="button"
+              data-modal="research"
+              data-img="../assets/img/research/segmentation.png"
+              data-title="Segmentation, Detection & Quantification"
+              data-desc="
                 <p>We develop deep learning methods for Object detection, segmentation in biomedical images for analysis.</p>
                 <ul>
                   <li>Cell, tissue, and anatomical structure segmentation</li>
                   <li>Automated neuron counting and quantitative image analysis</li>
                 </ul>
+              ">
+              <img
+                src="../assets/img/research/thumbs/segmentation.jpg"
+                alt="Segmentation & Detection"
+                onerror="this.onerror=null;this.alt='Research image unavailable';this.src='../assets/img/home/logo.png';"
+              />
+            </button>
+
+            <div class="research-meta">
+              <div class="research-title-row">
+                <h2 class="research-title">Segmentation & Detection</h2>
+                <button class="btn btn-detail"
+                  type="button"
+                  data-modal="research"
+                  data-img="../assets/img/research/segmentation.png"
+                  data-title="Segmentation & Detection"
+                  data-desc="
+                    <p>We develop deep learning methods for Object detection, segmentation in biomedical images for analysis.</p>
+                    <ul>
+                      <li>Cell, tissue, and anatomical structure segmentation</li>
+                      <li>Automated neuron counting and quantitative image analysis</li>
+                    </ul>
+                  ">
+                  View detail
+                </button>
               </div>
-            </details>
-          </div>
-        </article>
+
+              <p class="research-lead">
+                We develop deep learning methods for Object detection, segmentation in biomedical images for analysis.
+              </p>
+            </div>
+          </article>
+
+        </div>
       </div>
+
     </section>
+
+    <!-- 모달 -->
+    <div class="modal" id="researchModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="1"></div>
+
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-label="Research detail">
+        <button class="modal-close" type="button" data-close="1" aria-label="Close">×</button>
+
+        <div class="modal-body">
+          <img id="modalImg" alt="Research image" />
+          <div class="modal-text">
+            <h3 id="modalTitle"></h3>
+            <div id="modalDesc"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <footer>
     © 2025 GIST Neurophotonics Lab. All rights reserved.
   </footer>
 
-  <script src="../assets/js/research.js?v=20261119" defer></script>
+  <script src="../assets/js/research.js?v=20261119-restore"></script>
 
-<script src="/gist-neurophotonicslab/assets/js/site-chrome.js?v=20261119-2" defer></script>
+<script src="/gist-neurophotonicslab/assets/js/site-chrome.js?v=20261119-restore" defer></script>
 </body>
 </html>

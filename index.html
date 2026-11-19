@@ -4,134 +4,173 @@
   <meta charset="UTF-8" />
   <title>GIST Neurophotonics Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="GIST Neurophotonics Lab develops optical imaging, neuromodulation, and AI methods to study the nervous system and its disorders." />
-  <meta property="og:image" content="https://gistnpl.github.io/gist-neurophotonicslab/assets/img/main/optical-setup-1200.jpg" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261119-2" />
-  <link rel="stylesheet" href="assets/css/home.css?v=20261119-2" />
-  <script src="assets/js/site-chrome.js?v=20261119-2" defer></script>
-  <script src="assets/js/news.js?v=20260907" defer></script>
-  <script src="assets/js/home.js?v=20261119-2" defer></script>
+  <meta name="description" content="GIST Neurophotonics Lab: neurophotonics, biomedical imaging, and AI research" />
+  <meta property="og:image" content="https://gistnpl.github.io/gist-neurophotonicslab/assets/img/main/main2.png" />
+
+  <!-- 공통 스타일 -->
+  <link rel="stylesheet" href="assets/css/style.css?v=20261119-restore" />
+  <!-- 홈 전용 -->
+  <link rel="stylesheet" href="assets/css/home.css?v=20261119-restore" />
 </head>
+
 <body class="home">
 
 <header class="site-header">
-  <a class="brand" href="./" aria-label="GIST Neurophotonics Lab home">
-    <img class="brand-logo" src="assets/img/home/logo.png" width="34" height="34" alt="" />
+  <a class="brand" href="/gist-neurophotonicslab/" aria-label="Go to Home">
+    <img
+      class="brand-logo"
+      src="/gist-neurophotonicslab/assets/img/home/logo.png"
+      alt="GIST Neurophotonics Lab logo"
+    />
     <span class="brand-text">GIST Neurophotonics Lab</span>
   </a>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="./" aria-current="page">Home</a>
-    <a href="./research/">Research</a>
-    <a href="./member/">Members</a>
-    <a href="./publication/">Publications</a>
-    <a href="./gallery/">Gallery</a>
-    <a href="./news/">News</a>
-    <a href="./contact/">Contact</a>
+
+  <nav class="site-nav">
+    <a href="/gist-neurophotonicslab/">Home</a>
+    <a href="/gist-neurophotonicslab/research/">Research</a>
+    <a href="/gist-neurophotonicslab/member/">Member</a>
+    <a href="/gist-neurophotonicslab/publication/">Publication</a>
+    <a href="/gist-neurophotonicslab/gallery/">Gallery</a>
+    <a href="/gist-neurophotonicslab/news/">News</a>
+    <a href="/gist-neurophotonicslab/contact/">Contact</a>
   </nav>
 </header>
 
-<main class="home-main" id="main-content">
-  <section class="home-hero" aria-labelledby="home-title">
-    <div class="home-wrap home-hero-layout">
-      <div class="home-hero-copy">
-        <h1 id="home-title">Using light to study the nervous system</h1>
-        <p>At GIST, we develop optical tools to image and modulate the nervous system. We combine these tools with computational methods to understand neurological disease.</p>
-        <div class="home-hero-actions">
-          <a class="home-primary-link" href="./research/">Explore our research <span aria-hidden="true">→</span></a>
-          <a class="home-text-link" href="./member/">Meet the team <span aria-hidden="true">→</span></a>
-        </div>
+<!-- =========================
+     HERO (2 IMAGES ONLY)
+========================= -->
+<section class="home-hero-dual">
+  <div class="hero-grid">
+    <figure class="hero-item hero-item-optic">
+      <img
+        src="assets/img/main/main2.png"
+        alt="Optical setup in the laboratory"
+      />
+    </figure>
+
+    <figure class="hero-item hero-item-result">
+      <img
+        src="assets/img/main/main3.png"
+        alt="Representative neurophotonics result image"
+      />
+    </figure>
+  </div>
+
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <span class="hero-kicker">GIST Neurophotonics Lab</span>
+      <h1>Welcome to NPL</h1>
+      <p>
+        Advancing neurophotonics through biomedical imaging,
+        computational analysis, and translational neuroscience.
+      </p>
+
+      <div class="hero-actions">
+        <a href="./research/" class="hero-btn hero-btn-primary">Explore Research</a>
+        <a href="./member/" class="hero-btn hero-btn-secondary">Meet Our Team</a>
       </div>
-      <figure class="home-hero-photo">
-        <img
-          src="assets/img/main/optical-setup-1200.jpg"
-          srcset="assets/img/main/optical-setup-640.jpg 640w, assets/img/main/optical-setup-1200.jpg 1200w"
-          sizes="(max-width: 740px) calc(100vw - 40px), (max-width: 1280px) 48vw, 610px"
-          width="1200" height="900" fetchpriority="high"
-          alt="Optical imaging setup on a workbench in the Neurophotonics Lab"
-        />
-      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     MAIN
+========================= -->
+<main class="home-page">
+
+  <!-- Lab Highlights -->
+  <section class="home-section">
+    <div class="section-head-row">
+      <div>
+        <h2>Lab Highlights</h2>
+        <p class="section-sub">
+          A quick look at our people, activities, and recent moments.
+        </p>
+      </div>
+      <a href="./gallery/" class="home-link-btn">View gallery</a>
+    </div>
+
+    <div class="home-showcase-card">
+      <div class="photo-slider">
+        <button class="slider-btn prev" aria-label="Previous slide">‹</button>
+
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <img
+              src="assets/img/main/slider1.png"
+              alt="NPL group photo"
+              class="slider-image"
+            />
+
+            <img
+              src="assets/img/main/slider2.png"
+              alt="NPL workshop"
+              class="slider-image"
+            />
+
+            <img
+              src="assets/img/main/slider3.jpg"
+              alt="NPL Summer Workshop 2026 group photo"
+              class="slider-image"
+            />
+          </div>
+        </div>
+
+        <button class="slider-btn next" aria-label="Next slide">›</button>
+      </div>
+
+      <div class="slider-dots">
+        <button class="dot active" aria-label="Go to slide 1"></button>
+        <button class="dot" aria-label="Go to slide 2"></button>
+        <button class="dot" aria-label="Go to slide 3"></button>
+      </div>
     </div>
   </section>
 
-  <div class="home-wrap home-content">
-    <section class="home-section" aria-labelledby="research-title">
-      <h2 id="research-title">Research areas</h2>
-      <ul class="home-topics">
-        <li>
-          <a href="./research/#neurophotonics">
-            <div>
-              <h3>Neurophotonics</h3>
-              <p>Optical microscopy and high-speed imaging of neural and vascular activity.</p>
-            </div>
-            <span aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="./research/#translational-medicine">
-            <div>
-              <h3>Translational medicine</h3>
-              <p>Imaging and neuromodulation to study neurological disease and chronic pain.</p>
-            </div>
-            <span aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a href="./research/#ai">
-            <div>
-              <h3>AI for biomedical imaging</h3>
-              <p>Computational methods to restore images and quantify biological structures.</p>
-            </div>
-            <span aria-hidden="true">→</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <div class="home-updates">
-      <section class="home-section" aria-labelledby="papers-title">
-        <div class="home-section-heading">
-          <h2 id="papers-title">Recent publications</h2>
-          <a class="home-text-link" href="./publication/">All publications <span aria-hidden="true">→</span></a>
-        </div>
-        <ul class="home-feed">
-          <li>
-            <p>Brain Stimulation · 2026</p>
-            <a href="https://doi.org/10.1016/j.brs.2026.103158">High-fidelity transcranial ultrasound multi-focal stimulation via physics-aware hologram technique</a>
-          </li>
-          <li>
-            <p>Biomedical Optics Express · 2026</p>
-            <a href="https://doi.org/10.1364/BOE.596780">Dual-scale and dual-channel oblique plane microscopy for multi-resolution imaging of large tissue specimens</a>
-          </li>
-          <li>
-            <p>Cornea · 2026</p>
-            <a href="https://doi.org/10.1097/ICO.0000000000004032">A Novel Interferometric Device for Measurement of Tear Film Lipid Layer Thickness in Mice</a>
-          </li>
-        </ul>
-      </section>
-
-      <section class="home-section" aria-labelledby="news-title">
-        <div class="home-section-heading">
-          <h2 id="news-title">Latest news</h2>
-          <a class="home-text-link" href="./news/">All news <span aria-hidden="true">→</span></a>
-        </div>
-        <ul class="home-feed" id="home-news-list" hidden></ul>
-      </section>
+  <!-- Latest News -->
+  <section class="home-section">
+    <div class="section-head-row">
+      <div>
+        <h2>Latest Lab News</h2>
+        <p class="section-sub">Recent updates, awards, and events.</p>
+      </div>
+      <a href="./news/" class="home-link-btn">View all</a>
     </div>
 
-    <section class="home-gallery" aria-labelledby="home-gallery-title">
-      <img src="assets/img/main/summer-workshop-960.jpg" width="960" height="640" loading="lazy" decoding="async" alt="Neurophotonics Lab members at the 2026 summer workshop" />
-      <div class="home-gallery-copy">
-        <h2 id="home-gallery-title">Life in the lab</h2>
-        <p>Photos from lab workshops, conferences, and group events.</p>
-        <a class="home-text-link" href="./gallery/">Visit the gallery <span aria-hidden="true">→</span></a>
-      </div>
-    </section>
-  </div>
+    <div class="news-grid" id="home-news-grid">
+      <!-- Cards rendered from assets/js/news.js -->
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  © 2026 GIST Neurophotonics Lab. All rights reserved.
+  © 2025 GIST Neurophotonics Lab. All rights reserved.
 </footer>
 
+<script src="assets/js/main.js?v=20261119-restore"></script>
+<script src="assets/js/news.js?v=20260907"></script>
+<script>
+  (function () {
+    const grid = document.getElementById('home-news-grid');
+    if (!grid || !window.NEWS_HELPERS) return;
+    const { sortedDesc, formatDate, escape, detailUrl } = window.NEWS_HELPERS;
+    const limit = 3;
+    const items = sortedDesc().slice(0, limit);
+    if (items.length === 0) {
+      grid.innerHTML = '<p class="section-sub">No news yet.</p>';
+      return;
+    }
+    grid.innerHTML = items.map(n => `
+      <article class="news-card">
+        <div class="news-meta">${escape(formatDate(n.date))}</div>
+        <h3 class="news-title">${escape(n.title)}</h3>
+        <p class="news-desc">${escape(n.summary)}</p>
+        <a href="${escape(detailUrl(n.id))}" class="news-link">Read more →</a>
+      </article>
+    `).join('');
+  })();
+</script>
+<script src="/gist-neurophotonicslab/assets/js/site-chrome.js?v=20261119-restore" defer></script>
 </body>
 </html>

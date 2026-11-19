@@ -1,172 +1,197 @@
-/* Member directory */
+/* =========================================================
+   MEMBER INDEX PAGE
+========================================================= */
+
 .member-page {
-  width: min(100%, var(--site-width, 76rem));
-  padding: clamp(2.5rem, 6vw, 5.5rem) clamp(1rem, 4vw, 3rem) 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
 }
 
-.member-intro {
-  border-bottom: 1px solid var(--site-line, #d9e3ed);
-  padding-bottom: clamp(1.5rem, 4vw, 2.75rem);
-  margin-bottom: clamp(2rem, 5vw, 4rem);
+.member-page h1 {
+  font-size: 32px;
+  margin-bottom: 32px;
 }
 
-.member-intro h1 {
-  margin: 0;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  letter-spacing: -.045em;
-  line-height: 1.05;
-}
+/* ---------- Section ---------- */
 
-.member-directory-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .625rem;
-  margin-top: 1.5rem;
-}
-
-.member-directory-nav a {
-  color: var(--site-accent, #225abc);
-  font-size: .9375rem;
-  font-weight: 650;
-  text-decoration: none;
-  padding: .45rem .8rem;
-  border: 1px solid var(--site-line, #d9e3ed);
-  border-radius: .5rem;
-}
-
-.member-directory-nav a:hover {
-  background: var(--site-surface, #f3f7fb);
-  text-decoration: underline;
-  text-underline-offset: .2em;
-}
-
-.member-section + .member-section {
-  margin-top: clamp(2.5rem, 7vw, 5rem);
+.member-section {
+  margin-bottom: 56px;
 }
 
 .member-section h2 {
-  font-size: clamp(1.5rem, 4vw, 2.125rem);
-  letter-spacing: -.025em;
-  margin: 0 0 1rem;
-  line-height: 1.2;
+  font-size: 22px;
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e5e7eb;
 }
 
-.member-section-description {
-  color: var(--site-muted, #4d6076);
-  margin-top: -.4rem;
-  margin-bottom: 1.5rem;
+.section-desc {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 20px;
 }
 
-.member-group + .member-group {
-  margin-top: 2rem;
-}
-
-.member-group > h3 {
-  font-size: 1.125rem;
-  margin-bottom: .75rem;
-}
+/* ---------- Member List ---------- */
 
 .member-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.member-group {
+  margin-top: 28px;
+}
+
+.member-group h3 {
+  font-size: 17px;
+  margin: 0 0 14px;
+}
+
+#alumni .member-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .875rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  gap: 12px;
 }
 
-.member-list-single {
-  grid-template-columns: minmax(0, 1fr);
+#alumni .member-card {
+  padding: 16px;
 }
+
+/* ---------- Card ---------- */
 
 .member-card {
-  border: 1px solid var(--site-line, #d9e3ed);
-  border-radius: .875rem;
-  padding: clamp(.875rem, 2.5vw, 1.375rem);
-  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.member-card-with-photo {
+.member-card.member-link {
+  cursor: pointer;
+}
+
+.member-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.10);
+  border-color: #cbd5e1;
+}
+
+/* ---------- Card Layout ---------- */
+
+.member-card-content {
   display: grid;
-  grid-template-columns: clamp(4.5rem, 11vw, 6.5rem) minmax(0, 1fr);
-  gap: clamp(.75rem, 2.5vw, 1.25rem);
-  align-items: start;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  align-items: center;
 }
 
 .member-photo {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 104 / 128;
-  border-radius: .5rem;
-  display: block;
+  width: 160px;
+  height: 200px;
+  border-radius: 14px;
   object-fit: cover;
-  background: var(--site-surface, #f3f7fb);
+  object-position: center;
+  background: #f1f5f9;
+  border: 1px solid #e5e7eb;
+  display: block;
 }
+
+/* ---------- Text ---------- */
 
 .member-text {
   min-width: 0;
-  overflow-wrap: anywhere;
 }
 
 .member-name {
-  font-size: 1.125rem;
-  line-height: 1.25;
-  margin: 0 0 .35rem;
-}
-
-.member-profile-link {
-  color: var(--site-accent, #225abc);
-  text-underline-offset: .16em;
-}
-
-.member-role,
-.member-detail,
-.member-interests {
-  margin: .25rem 0 0;
-  font-size: .9375rem;
-  line-height: 1.5;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 4px;
 }
 
 .member-role {
-  font-weight: 650;
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  margin: 0 0 8px;
 }
 
-.member-detail,
-.member-interests {
-  color: var(--site-muted, #4d6076);
-}
-
-.member-interests {
-  margin: .65rem 0;
-}
-
-.member-interests strong {
-  display: block;
-  color: var(--site-ink, #14243a);
-  font-size: .875rem;
+.member-detail {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 4px;
 }
 
 .member-detail a {
-  color: var(--site-accent, #225abc);
-  text-underline-offset: .14em;
+  color: #0f172a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
+
+/* ---------- Badge ---------- */
 
 .member-badge {
   display: inline-block;
-  padding: .15rem .45rem;
-  border-radius: .35rem;
-  font-size: .75rem;
-  color: var(--site-accent, #225abc);
-  background: var(--site-surface, #f3f7fb);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #dbeafe;
+  margin-left: 8px;
+  font-weight: 800;
   vertical-align: middle;
 }
 
-@media (max-width: 760px) {
-  .member-list {
-    grid-template-columns: minmax(0, 1fr);
+.member-actions {
+  margin-top: 10px;
+}
+
+.detail-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  background: #0f172a;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid #0f172a;
+}
+
+.detail-link:hover {
+  background: #111c33;
+  border-color: #111c33;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .member-card-content {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .member-photo {
+    width: 100%;
+    height: 240px;
+    border-radius: 16px;
   }
 }
 
+@media (max-width: 700px) {
+  #alumni .member-list {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* =========================================================
    MEMBER DETAIL PAGE (profile)
