@@ -35,6 +35,7 @@ window.MEMBERS = [
     title: "Research Professor",
     members: [
       {
+        image: "young-ro-kim.png",
         name: "Young Ro Kim",
         role: "Endowed Han-Ryang Professorship",
         details: [
