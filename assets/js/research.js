@@ -35,6 +35,11 @@ function initResearchModal() {
   const modalDesc = document.getElementById("modalDesc");
 
   function openModal({ img, title, descHtml }) {
+    modalImg.onerror = () => {
+      modalImg.onerror = null;
+      modalImg.alt = "Research image unavailable";
+      modalImg.src = "../assets/img/home/logo.png";
+    };
     modalImg.src = img || "";
     modalImg.alt = title || "Research image";
     modalTitle.textContent = title || "";

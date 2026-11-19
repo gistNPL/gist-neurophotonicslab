@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Gallery | GIST Neurophotonics Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GIST Neurophotonics Lab: neurophotonics, biomedical imaging, and AI research" />
+  <meta property="og:image" content="https://gistnpl.github.io/gist-neurophotonicslab/assets/img/main/main2.png" />
 
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="stylesheet" href="../assets/css/gallery.css?v=20260814" />
@@ -47,7 +49,7 @@
     © 2025 GIST Neurophotonics Lab. All rights reserved.
   </footer>
 
-<script src="../assets/js/gallery-data.js?v=20260816"></script>
+<script src="../assets/js/gallery-data.js?v=20261119"></script>
 <script>
 (function () {
   if (!window.GALLERY_HELPERS) return;
@@ -56,6 +58,7 @@
   // produces "undefined/..." URLs (= the 404s we saw on the live site).
   const H = window.GALLERY_HELPERS;
   const photoUrl = H.photoUrl.bind(H);
+  const thumbnailUrl = H.thumbnailUrl.bind(H);
   const citizenshipUrl = H.citizenshipUrl.bind(H);
   const { allYears, escape } = H;
 
@@ -89,7 +92,8 @@
             ${event.photos.map((file, i) => `
               <div class="gallery-item" data-year="${yearBlock.year}">
                 <img loading="lazy"
-                     src="${escape(photoUrl(yearBlock.year, file))}"
+                     src="${escape(thumbnailUrl(yearBlock.year, file))}"
+                     data-full="${escape(photoUrl(yearBlock.year, file))}"
                      alt="${escape(event.title)} — photo ${i + 1}">
               </div>
             `).join('')}
@@ -179,7 +183,7 @@
   yearsContainer.addEventListener('click', (e) => {
     const img = e.target.closest('.gallery-item img');
     if (!img) return;
-    lightboxImg.src = img.src;
+    lightboxImg.src = img.dataset.full;
     lightboxImg.alt = img.alt || 'Expanded view';
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';

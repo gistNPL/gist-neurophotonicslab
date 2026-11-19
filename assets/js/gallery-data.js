@@ -4,7 +4,8 @@
 //   1. Find the year block (or add one) in GALLERY_YEARS.
 //   2. Append an event { title, photos: ["file1.png", ...] }.
 //      Filenames are relative to /assets/img/gallery/<year>/.
-//   3. (Optional) Add video: { youtubeId, title } to embed a YouTube
+//   3. Run scripts/optimize-gallery.ps1 to generate card previews.
+//   4. (Optional) Add video: { youtubeId, title } to embed a YouTube
 //      player above that event's photo grid.
 // To add a new citizenship award:
 //   1. Find the year in GALLERY_CITIZENSHIP and add { name, pdf } to its awards array.
@@ -162,6 +163,9 @@ window.GALLERY_HELPERS = {
   IMG_BASE: "/gist-neurophotonicslab/assets/img/gallery",
   photoUrl(year, filename) {
     return this.IMG_BASE + "/" + year + "/" + filename;
+  },
+  thumbnailUrl(year, filename) {
+    return this.IMG_BASE + "/" + year + "/thumbs/" + filename + ".jpg";
   },
   citizenshipUrl(filename) {
     return this.IMG_BASE + "/citizenship/" + filename;
