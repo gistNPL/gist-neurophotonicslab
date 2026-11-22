@@ -60,16 +60,16 @@ window.MEMBERS = [
 
   {
     section: "postdoc",
-    title: "Post-doc",
+    title: "Research Fellow",
     members: [
       {
         image: "gehan.png",
         name: "Gehan Fatima",
-        role: "Post-Doc",
+        role: "Research Fellow (REMAP InnoCORE)",
         details: [
           'Email: <a href="mailto:gehanfatima@gist.ac.kr">gehanfatima@gist.ac.kr</a>',
           "TEL: 062-715-2756",
-          "Research: Alzheimer&rsquo;s disease (AD), vascular biology, in vivo two-photon imaging",
+          "Research interests: Alzheimer&rsquo;s disease, neurovascular and lymphatic dysfunction, optical imaging, and AI-based behavioral phenotyping",
         ],
         detailPage: "gehan.html",
       },
