@@ -36,7 +36,7 @@
   <main class="page publication-page">
     <section class="page-hero">
       <h1>Publications</h1>
-      <p class="page-sub">Journal articles, reviews, and patents from the lab.</p>
+      <p class="page-sub">Journal articles, reviews, conference presentations, and patents from the lab.</p>
     </section>
 
     <section class="pub-toolbar" aria-label="Publication tools">
@@ -230,6 +230,38 @@
               IEEE Transactions on Neural Systems and Rehabilitation Engineering (2026).
               DOI: 10.1109/TNSRE.2026.3683434
             </p>
+          </li>
+
+          <li class="pub-item" data-type="conference" id="hyojeong-lee-neuroscience-2026">
+            <div class="pub-top">
+              <span class="pub-badge">Conference</span>
+              <span class="pub-venue">Neuroscience 2026</span>
+              <span class="pub-date">2026</span>
+            </div>
+
+            <h3 class="pub-title">Motif-based hierarchical rule inference in recurrent neural networks</h3>
+            <p class="pub-authors"><strong>Hyojeong Lee</strong>, <strong>Euiheon Chung</strong></p>
+            <p class="pub-note">Poster presentation, November 14–18, 2026, Washington, D.C., USA</p>
+            <details class="pub-note">
+              <summary>Abstract</summary>
+              <p>In real-world settings, hidden task rules must be inferred through trial and error. We hypothesized that an agent explores by grouping similar rules. An agent composed of a rule selector, an RNN rule executor pretrained on multiple cognitive tasks, and a confidence updater searched for the hidden rule within each session. Its search moved repeatedly within specific groups of rules, more strongly than Bayesian inference predicts, and this excess aligned with dynamical neural motifs, the network’s computational building blocks. The agent updated its confidence about each motif group as a unit, lowering the other rules in a group more than Bayesian inference after an error. This grouping was not explained by input similarity. Thus, hidden-rule inference in a multitask network is organized around its dynamical motifs.</p>
+            </details>
+          </li>
+
+          <li class="pub-item" data-type="conference" id="hyojeong-lee-kosombe-2026">
+            <div class="pub-top">
+              <span class="pub-badge">Conference</span>
+              <span class="pub-venue">The Korean Society of Medical &amp; Biological Engineering (KOSOMBE) Spring Annual Meeting</span>
+              <span class="pub-date">2026</span>
+            </div>
+
+            <h3 class="pub-title">Influence of Hierarchical Task Inference on Representational Dynamics in Healthy and Aging-like RNNs under Hidden-Rule Conditions</h3>
+            <p class="pub-authors"><strong>Hyojeong Lee</strong>, <strong>Euiheon Chung</strong></p>
+            <p class="pub-note">Poster presentation, May 7–9, 2026, Jeju, South Korea</p>
+            <details class="pub-note">
+              <summary>Abstract</summary>
+              <p>Agents often infer hidden task rules from limited observations. While tasks are typically treated as independent, they may instead form clusters with shared structure. Here, we use a recurrent neural network model with finite state automata-based tasks to examine how such hierarchical organization shapes internal representations during task inference. We find that, under healthy conditions, representations evolve in a structured manner consistent with cluster-guided exploration, whereas aging-like conditions (increased noise and reduced gain) lead to more diffuse representations and frequent cluster switching. These results suggest that hierarchical task clustering supports efficient exploration and that its disruption may underlie reduced behavioral flexibility in aging.</p>
+            </details>
           </li>
         </ol>
       </section>
