@@ -6,6 +6,7 @@
 //        - image:      filename in /assets/img/member/  (omit for text-only cards)
 //        - name:       display name (e.g., "Sihyun Lee / 이시현")
 //        - badge:      optional small label (e.g., "PI")
+//        - birthday:   optional public { month, day }; omit birth years
 //        - role:       title line under the name
 //        - details:    array of HTML strings (links allowed; lab-authored, no escaping applied)
 //        - detailPage: filename in /member/  (omit to make the card non-clickable)
@@ -19,6 +20,7 @@ window.MEMBERS = [
       {
         image: "euiheonchung.png",
         name: "Prof. Euiheon Chung",
+        birthday: { month: 10, day: 28 },
         badge: "PI",
         role: "Full Professor, Department of Biomedical Science and Engineering (BMSE), GIST",
         details: [
@@ -65,6 +67,7 @@ window.MEMBERS = [
       {
         image: "gehan.png",
         name: "Gehan Fatima",
+        birthday: { month: 10, day: 12 },
         role: "Research Fellow (REMAP InnoCORE)",
         details: [
           'Email: <a href="mailto:gehanfatima@gist.ac.kr">gehanfatima@gist.ac.kr</a>',
@@ -83,6 +86,7 @@ window.MEMBERS = [
       {
         image: "ashiq.png",
         name: "Akm Ashiquzzaman",
+        birthday: { month: 6, day: 10 },
         role: "Ph.D Student",
         details: [
           "Research interests: AI-based image processing and optical setup for image acquisition",
@@ -93,6 +97,7 @@ window.MEMBERS = [
       {
         image: "fatemeh.png",
         name: "Fatemeh Dehghan Nezhad Derarandash",
+        birthday: { month: 4, day: 28 },
         role: "Ph.D Student",
         details: [
           'Email: <a href="mailto:f.dehghan.nezhad@gm.gist.ac.kr">f.dehghan.nezhad@gm.gist.ac.kr</a>',
@@ -105,6 +110,7 @@ window.MEMBERS = [
       {
         image: "acquah.png",
         name: "Acquah Emmanuel",
+        birthday: { month: 10, day: 11 },
         role: "Ph.D Student",
         details: [
           "Research interests: somatosensory system &amp; DRG; neuroimmune interactions; neuropathic pain mechanisms",
@@ -114,6 +120,7 @@ window.MEMBERS = [
       {
         image: "shudha.png",
         name: "Shudha Tasnim Iqbal",
+        birthday: { month: 12, day: 13 },
         role: "Ph.D Student",
         details: [
           "Research interests: bio-inspired vision systems; translational optical design for medical imaging &amp; diagnostics",
@@ -130,6 +137,7 @@ window.MEMBERS = [
       {
         image: "youngseung.png",
         name: "Young-seung Yoo / 유영승",
+        birthday: { month: 3, day: 25 },
         role: "Integrated (M.S./Ph.D) Student",
         details: [
           "Research interests: optimized light control for in-vivo application; light-sheet microscopy; high-speed large area brain imaging",
@@ -139,6 +147,7 @@ window.MEMBERS = [
       {
         image: "nhat.png",
         name: "Tien Nhat Nguyen / Nguyen, Tien Nhat",
+        birthday: { month: 7, day: 6 },
         role: "Integrated (M.S./Ph.D) Student",
         details: [
           "Education: Integrated MS-PhD Candidate (BMSE, GIST); GIST Research Assistant (2019–2021); B.S. Biomedical Engineering (HUST, Vietnam)",
@@ -148,6 +157,7 @@ window.MEMBERS = [
       {
         image: "sihyun.png",
         name: "Sihyun Lee / 이시현",
+        birthday: { month: 5, day: 11 },
         role: "Integrated (M.S./Ph.D) Student, GIST AI Graduate School",
         details: [
           "Medical AI, biomedical/microscopy image enhancement, neurophotonics",
@@ -158,6 +168,7 @@ window.MEMBERS = [
       {
         image: "jaebong.png",
         name: "Jaebong Jo / 조재봉",
+        birthday: { month: 1, day: 24 },
         role: "Integrated (M.S./Ph.D) Student, GIST Biomedical Engineering",
         details: [
           "Research interests: magnetic stimulation of neural systems; computational modeling of electromagnetic-neural interactions",
@@ -168,6 +179,7 @@ window.MEMBERS = [
       {
         image: "yejin.png",
         name: "Yejin Kim / 김예진",
+        birthday: { month: 1, day: 3 },
         role: "Integrated (M.S./Ph.D) Student",
         details: [
           "Research interests: DRG (dorsal root ganglion), pain mechanisms, pain regulation",
@@ -178,6 +190,7 @@ window.MEMBERS = [
       {
         image: "daeun.png",
         name: "Daeun Roh / 노다은",
+        birthday: { month: 1, day: 12 },
         role: "Integrated (M.S./Ph.D) Student",
         details: [
           "Research interests: neuropathic pain, computational modeling; DRG in pain processing",
@@ -187,6 +200,7 @@ window.MEMBERS = [
       {
         image: "seungjun.png",
         name: "Seungjun Lee / 이승준",
+        birthday: { month: 11, day: 26 },
         role: "Integrated (M.S./Ph.D) Student",
         details: [
           "Research interests: imaging &amp; signal analysis in biomedical research; innovative approaches in optics",
@@ -196,6 +210,7 @@ window.MEMBERS = [
       {
         image: "nada.png",
         name: "Nada Elnagar",
+        birthday: { month: 8, day: 4 },
         role: "Integrated (M.S./Ph.D) Student",
         details: [
           "Research interests: neuropathic pain, neurodegenerative diseases, molecular mechanisms of neural signaling, neurophotonics",
@@ -212,6 +227,7 @@ window.MEMBERS = [
       {
         image: "ethel.png",
         name: "Ethel Phiri",
+        birthday: { month: 5, day: 20 },
         role: "Master",
         details: [
           "Research interests: Data Science",

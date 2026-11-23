@@ -8,7 +8,7 @@
   <meta property="og:image" content="https://gistnpl.github.io/gist-neurophotonicslab/assets/img/main/main2.png" />
 
   <link rel="stylesheet" href="../assets/css/style.css?v=20261119-restore" />
-  <link rel="stylesheet" href="../assets/css/gallery.css?v=20261119-2" />
+  <link rel="stylesheet" href="../assets/css/gallery.css?v=20261123-birthday" />
 </head>
 <body>
 
@@ -25,6 +25,7 @@
       <div class="gallery-toggle" role="group" aria-label="Gallery view">
         <button class="toggle-btn" type="button" data-view="gallery" aria-pressed="true" aria-controls="gallery-years">Photos</button>
         <button class="toggle-btn" type="button" data-view="citizenship" aria-pressed="false" aria-controls="gallery-citizenship">NPL Citizenship</button>
+        <button class="toggle-btn" type="button" data-view="birthday" aria-pressed="false" aria-controls="gallery-birthday">Birthday</button>
       </div>
       <div class="gallery-filter" id="gallery-filter" role="group" aria-label="Filter by year"></div>
     </div>
@@ -34,6 +35,29 @@
 
     <!-- Citizenship (rendered from gallery-data.js) -->
     <section class="gallery-citizenship" id="gallery-citizenship" hidden></section>
+
+    <section id="gallery-birthday" aria-labelledby="birthday-title" hidden>
+      <div class="birthday-header">
+        <div>
+          <h2 id="birthday-title">Birthday calendar</h2>
+          <p>Birthdays follow the current lab roster.</p>
+        </div>
+        <label class="birthday-year">
+          Year
+          <select id="birthday-year"></select>
+        </label>
+      </div>
+      <div class="birthday-months" id="birthday-months" role="group" aria-label="Select a month"></div>
+      <div class="birthday-results" id="birthday-results" aria-live="polite" aria-atomic="true">
+        <h3 id="birthday-month-title"></h3>
+        <ul class="birthday-list" id="birthday-list"></ul>
+        <p class="gallery-empty" id="birthday-empty" hidden>No birthdays listed for this month.</p>
+      </div>
+      <section class="birthday-photos" id="birthday-photos" aria-labelledby="birthday-photos-title" hidden>
+        <h3 id="birthday-photos-title"></h3>
+        <div id="birthday-photo-events"></div>
+      </section>
+    </section>
 
     <p class="gallery-empty" id="gallery-empty" role="status" hidden></p>
 
@@ -57,21 +81,19 @@
     © 2025 GIST Neurophotonics Lab. All rights reserved.
   </footer>
 
-<script src="../assets/js/gallery-data.js?v=20261119"></script>
+<script src="../assets/js/gallery-data.js?v=20261123-birthday"></script>
+<script src="../assets/js/members-data.js?v=20261123-birthday"></script>
 <script>
 (function () {
   if (!window.GALLERY_HELPERS) return;
   const H = window.GALLERY_HELPERS;
   const { escape } = H;
+  const galleryYears = window.GALLERY_YEARS || [];
 
-  // ---- Render gallery year sections ----
-  const yearsContainer = document.getElementById('gallery-years');
-  yearsContainer.innerHTML = (window.GALLERY_YEARS || []).map(yearBlock => `
-    <section class="gallery-year" data-year="${yearBlock.year}">
-      <h2>${yearBlock.year}</h2>
-      ${yearBlock.events.map(event => `
+  function renderGalleryEvent(year, event, heading = 'h3') {
+    return `
         <section class="gallery-event">
-          <h3>${escape(event.title)}</h3>
+          <${heading}>${escape(event.title)}</${heading}>
           ${event.video ? `
             <div class="gallery-video">
               <iframe
@@ -87,17 +109,28 @@
               <button type="button" class="gallery-item" aria-haspopup="dialog"
                       aria-label="View ${escape(event.title)} photo ${i + 1} of ${event.photos.length}"
                       data-caption="${escape(event.title)} — photo ${i + 1} of ${event.photos.length}"
-                      data-full="${escape(H.photoUrl(yearBlock.year, file))}">
+                      data-full="${escape(H.photoUrl(year, file))}">
                 <img loading="lazy" decoding="async"
-                     src="${escape(H.thumbnailUrl(yearBlock.year, file))}"
+                     src="${escape(H.thumbnailUrl(year, file))}"
                      alt="">
               </button>
             `).join('')}
           </div>
         </section>
-      `).join('')}
-    </section>
-  `).join('');
+    `;
+  }
+
+  // ---- Render gallery year sections ----
+  const yearsContainer = document.getElementById('gallery-years');
+  yearsContainer.innerHTML = galleryYears.map(({ year, events }) => {
+    const photoEvents = events.filter(event => !event.birthday);
+    return photoEvents.length ? `
+      <section class="gallery-year" data-year="${year}">
+        <h2>${year}</h2>
+        ${photoEvents.map(event => renderGalleryEvent(year, event)).join('')}
+      </section>
+    ` : '';
+  }).join('');
 
   // ---- Render citizenship ----
   const citizenshipEl = document.getElementById('gallery-citizenship');
@@ -125,6 +158,85 @@
     </div>
   `).join('');
 
+  // ---- Birthday calendar ----
+  const birthdayEl = document.getElementById('gallery-birthday');
+  const birthdayYear = document.getElementById('birthday-year');
+  const birthdayMonths = document.getElementById('birthday-months');
+  const birthdayMonthTitle = document.getElementById('birthday-month-title');
+  const birthdayList = document.getElementById('birthday-list');
+  const birthdayEmpty = document.getElementById('birthday-empty');
+  const birthdayPhotos = document.getElementById('birthday-photos');
+  const birthdayPhotosTitle = document.getElementById('birthday-photos-title');
+  const birthdayPhotoEvents = document.getElementById('birthday-photo-events');
+  const fullMonths = new Intl.DateTimeFormat('en', { month: 'long', timeZone: 'UTC' });
+  const shortMonths = new Intl.DateTimeFormat('en', { month: 'short', timeZone: 'UTC' });
+  const calendarDate = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'numeric', timeZone: 'Asia/Seoul' });
+  const birthdays = (window.MEMBERS || []).filter(group => group.section !== 'alumni')
+    .flatMap(group => group.members || [])
+    .filter(member => member.birthday)
+    .sort((first, second) => first.birthday.day - second.birthday.day || first.name.localeCompare(second.name));
+  const monthButtons = Array.from({ length: 12 }, (_, index) => {
+    const date = new Date(Date.UTC(2026, index, 1));
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'filter-btn';
+    button.dataset.month = index + 1;
+    button.textContent = shortMonths.format(date);
+    button.setAttribute('aria-label', fullMonths.format(date));
+    button.setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-controls', 'birthday-results');
+    return button;
+  });
+  let selectedMonth;
+
+  function showBirthdayMonth(month) {
+    selectedMonth = month;
+    const selectedButton = monthButtons[month - 1];
+    const year = birthdayYear.value;
+    const people = birthdays.filter(member => member.birthday.month === month);
+    birthdayMonthTitle.textContent = `${selectedButton.getAttribute('aria-label')} ${year}`;
+    birthdayList.innerHTML = people.map(({ name, birthday: { day } }) => {
+      const monthDay = [month, day].map(value => String(value).padStart(2, '0')).join('-');
+      return `<li><time datetime="${monthDay}">${selectedButton.textContent} ${day}</time><span>${escape(name)}</span></li>`;
+    }).join('');
+    birthdayList.hidden = people.length === 0;
+    birthdayEmpty.hidden = people.length > 0;
+    for (const button of monthButtons) {
+      button.setAttribute('aria-pressed', button === selectedButton);
+    }
+    birthdayMonths.scrollLeft = selectedButton.offsetLeft - (birthdayMonths.clientWidth - selectedButton.offsetWidth) / 2;
+  }
+
+  function showBirthdayYear() {
+    showBirthdayMonth(selectedMonth);
+    const year = Number(birthdayYear.value);
+    const events = galleryYears.find(group => group.year === year)?.events.filter(event => event.birthday) || [];
+    birthdayPhotosTitle.textContent = `${year} birthday photos`;
+    birthdayPhotos.hidden = events.length === 0;
+    birthdayPhotoEvents.innerHTML = events.map(event => renderGalleryEvent(year, event, 'h4')).join('');
+  }
+
+  function openBirthday() {
+    const parts = calendarDate.formatToParts(new Date());
+    const year = Number(parts.find(part => part.type === 'year').value);
+    selectedMonth = Number(parts.find(part => part.type === 'month').value);
+    const calendarYears = new Set([year, year + 1]);
+    for (let previous = 2026; previous < year; previous++) calendarYears.add(previous);
+    for (const group of galleryYears) {
+      if (group.events.some(event => event.birthday)) calendarYears.add(group.year);
+    }
+    birthdayYear.replaceChildren(...[...calendarYears].sort((a, b) => b - a)
+      .map(value => new Option(value, value, false, value === year)));
+    birthdayMonths.replaceChildren(...monthButtons);
+    showBirthdayYear();
+  }
+
+  birthdayMonths.addEventListener('click', event => {
+    const button = event.target.closest('button[data-month]');
+    if (button) showBirthdayMonth(Number(button.dataset.month));
+  });
+  birthdayYear.addEventListener('change', showBirthdayYear);
+
   // ---- Filter / toggle behavior ----
   const filterEl = document.getElementById('gallery-filter');
   const empty = document.getElementById('gallery-empty');
@@ -132,6 +244,7 @@
   const views = {
     gallery: { container: yearsContainer, year: 'all' },
     citizenship: { container: citizenshipEl, year: 'all' },
+    birthday: { container: birthdayEl },
   };
   let activeView = 'gallery';
 
@@ -167,6 +280,12 @@
       button.setAttribute('aria-pressed', isActive);
       views[button.dataset.view].container.hidden = !isActive;
     });
+    if (view === 'birthday') {
+      filterEl.hidden = true;
+      empty.hidden = true;
+      openBirthday();
+      return;
+    }
     renderYearFilters();
     applyFilter();
   }
@@ -190,7 +309,7 @@
   const originalLink = document.getElementById('lightboxOriginal');
   let photoTrigger = null;
 
-  yearsContainer.addEventListener('click', event => {
+  function openGalleryPhoto(event) {
     const button = event.target.closest('.gallery-item');
     if (!button) return;
     photoTrigger = button;
@@ -202,7 +321,10 @@
     lightboxStatus.hidden = false;
     lightbox.showModal();
     lightboxImg.src = button.dataset.full;
-  });
+  }
+
+  yearsContainer.addEventListener('click', openGalleryPhoto);
+  birthdayPhotoEvents.addEventListener('click', openGalleryPhoto);
 
   lightboxImg.addEventListener('load', () => {
     lightboxImg.hidden = false;

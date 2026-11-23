@@ -7,6 +7,8 @@
 //   3. Run scripts/optimize-gallery.ps1 to generate card previews.
 //   4. (Optional) Add video: { youtubeId, title } to embed a YouTube
 //      player above that event's photo grid.
+//   5. For birthday photos, set birthday: true on the event so it appears
+//      in the Birthday tab for that year.
 // To add a new citizenship award:
 //   1. Find the year in GALLERY_CITIZENSHIP and add { name, pdf } to its awards array.
 //      PDF filenames are relative to /assets/img/gallery/citizenship/.
