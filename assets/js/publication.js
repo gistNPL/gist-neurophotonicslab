@@ -18,23 +18,16 @@
       .trim();
   }
 
-  const types = new Set();
   const groups = Array.from(page.querySelectorAll(".pub-year"), (section) => {
     const year = section.querySelector("h2").textContent.trim();
     yearFilter.add(new Option(year, year));
     const entries = Array.from(section.querySelectorAll(".pub-item"), (item) => {
       const title = item.querySelector(".pub-title")?.textContent || "";
       const authors = item.querySelector(".pub-authors")?.textContent || "";
-      const type = item.dataset.type || "";
-      if (type) types.add(type);
-      return { item, type, searchText: normalize(`${title} ${authors}`) };
+      return { item, type: item.dataset.type, searchText: normalize(`${title} ${authors}`) };
     });
     return { section, year, entries, chip: chipById.get(section.id) };
   });
-
-  for (const type of Array.from(types).sort()) {
-    typeFilter.add(new Option(type[0].toUpperCase() + type.slice(1), type));
-  }
 
   function applyFilters() {
     const words = normalize(query.value).split(" ").filter(Boolean);
